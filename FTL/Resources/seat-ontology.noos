@@ -1,0 +1,68 @@
+(Define-Ontology SEAT-ONTOLOGY
+	(creator "Kemo Adrian")
+	(description "Seats Dataset Ontology"))
+
+	(Define-sort (SEAT-ONTOLOGY label))
+	(Define-sort (SEAT-ONTOLOGY back-sort))
+ 	(Define-sort (SEAT-ONTOLOGY arm-sort))
+ 	(Define-sort (SEAT-ONTOLOGY leg-sort))
+ 	(Define-sort (SEAT-ONTOLOGY material))
+	(Define-sort (SEAT-ONTOLOGY length))
+	(Define-sort (SEAT-ONTOLOGY color))
+	(Define-sort (SEAT-ONTOLOGY size))
+	(Define-sort (SEAT-ONTOLOGY width))
+
+	(Define-sort (SEAT-ONTOLOGY seat)
+		(back ! back-sort)
+		(arms ! arm-sort)
+		(surface ! seat-surface)
+		(support ! seat-support)
+	)
+
+	(Define-sort (back-sort no-back))
+
+	(Define-sort (back-sort with-back)
+		(material ! material)
+		(length ! length)
+		(color  ! color)
+	)
+
+	(Define-sort (arm-sort no-arm))
+	
+	(Define-sort (arm-sort arms)
+		(material ! material)
+		(length ! length)
+		(color ! color)
+	)
+
+	(Define-sort (SEAT-ONTOLOGY seat-surface)
+		(material ! material)
+		(size ! size)
+		(color ! color)
+	)
+
+	(Define-sort (SEAT-ONTOLOGY seat-support)
+		(material ! material)
+		(color ! color)
+		(width ! width)
+		(legs ! leg-sort)
+	)
+
+	(Define-sort (leg-sort with-wheels)
+		(material ! material)
+		(length ! length)
+		(color ! color)
+		(wheel-number ! wheel-number)
+	)
+
+	(Define-sort (leg-sort with-legs)
+		(material ! material)
+		(length ! length)
+		(color ! color)
+		(leg-number ! leg-number)
+	)
+
+	(Define-sort (SEAT-ONTOLOGY seat-case)
+		(DESCRIPTION seat)
+		(LABEL label)
+	)

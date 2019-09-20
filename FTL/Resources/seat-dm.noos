@@ -1,0 +1,45 @@
+(define-Domain-Model Seat-DM
+	(creator "Kemo Adrian")
+	(description "Domain model for the Seat Data Set")
+	(uses SEAT-ONTOLOGY))
+
+(define (material :id steel))
+(define (material :id wood))
+(define (material :id plastic))
+(define (material :id leather))
+(define (material :id synthetic))
+(define (material :id cloth))
+
+(define (length :id short))
+(define (length :id medium))
+(define (length :id long))
+
+(define (color :id black))
+(define (color :id red))
+(define (color :id blue))
+(define (color :id green))
+(define (color :id brown))
+(define (color :id white))
+(define (color :id grey))
+
+(define (size :id small))
+(define (size :id medium))
+(define (size :id big))
+
+(define (width :id thin))
+(define (width :id medium))
+(define (width :id large))
+
+(define (wheel-number :id three-wheeled))
+(define (wheel-number :id four-wheeled))
+(define (wheel-number :id five-wheeled))
+
+(define (leg-number :id one-leg))
+(define (leg-number :id three-legs))
+(define (leg-number :id four-legs))
+
+(define (label :id stool))
+(define (label :id chair))
+(define (label :id armchair))
+(define (label :id recliner)) 
+(define (label :id seat))

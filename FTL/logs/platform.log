@@ -1,0 +1,1773 @@
+ERROR 2013-01-23 09:09:00,410 ===> Error message
+INFO  2013-01-23 09:09:34,321 ===> App started
+ERROR 2013-01-23 09:09:34,323 ===> Error message
+INFO  2013-01-23 09:11:14,453 ===> App started
+ERROR 2013-01-23 09:11:14,454 ===> Error message
+INFO  2013-01-23 10:26:02,021 ===> App started
+ERROR 2013-01-23 10:26:02,022 ===> Error message
+INFO  2013-01-23 10:56:22,118 ===> App started
+ERROR 2013-01-23 10:56:22,119 ===> Error message
+INFO  2013-01-23 10:56:27,126 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-23 10:56:43,540 ===> #Cases: 82 Type: demospongiae
+INFO  2013-01-23 10:56:48,278 ===> Correct cases: 21.052631%. You can now load a class to show.
+INFO  2013-01-23 10:56:48,278 ===> Correct cases: 21.052631%. You can now load a class to show.
+INFO  2013-01-23 10:56:54,915 ===> #Cases: 82 Type: demospongiae
+INFO  2013-01-23 10:56:56,116 ===> Correct cases: 21.052631%. You can now load a class to show.
+INFO  2013-01-23 10:56:56,116 ===> Correct cases: 21.052631%. You can now load a class to show.
+INFO  2013-01-23 10:57:02,205 ===> #Cases: 82 Type: demospongiae
+INFO  2013-01-23 10:57:04,009 ===> Correct cases: 26.31579%. You can now load a class to show.
+INFO  2013-01-23 10:57:04,010 ===> Correct cases: 26.31579%. You can now load a class to show.
+INFO  2013-01-23 10:57:10,135 ===> #Cases: 82 Type: demospongiae
+INFO  2013-01-23 11:00:08,282 ===> App started
+ERROR 2013-01-23 11:00:08,283 ===> Error message
+INFO  2013-01-23 11:00:11,892 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-23 11:00:22,253 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-23 11:00:27,226 ===> Correct cases: 22.222223%. You can now load a class to show.
+INFO  2013-01-23 11:00:27,227 ===> Correct cases: 22.222223%. You can now load a class to show.
+INFO  2013-01-23 11:00:33,706 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-23 11:00:34,977 ===> Correct cases: 22.222223%. You can now load a class to show.
+INFO  2013-01-23 11:00:34,977 ===> Correct cases: 22.222223%. You can now load a class to show.
+INFO  2013-01-23 11:00:40,828 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-23 11:00:43,088 ===> Correct cases: 22.222223%. You can now load a class to show.
+INFO  2013-01-23 11:00:43,088 ===> Correct cases: 22.222223%. You can now load a class to show.
+INFO  2013-01-23 11:00:48,933 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-23 11:05:23,233 ===> App started
+ERROR 2013-01-23 11:05:23,234 ===> Error message
+INFO  2013-01-23 11:05:26,276 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-23 11:05:32,036 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-23 11:05:41,464 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-23 11:05:45,930 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-23 11:07:49,683 ===> App started
+ERROR 2013-01-23 11:07:49,684 ===> Error message
+INFO  2013-01-23 11:07:52,730 ===> Inductive: loading ARTIFICIAL_DATASET
+INFO  2013-01-23 11:08:01,899 ===> #Cases: 435 Type: artificial
+INFO  2013-01-23 11:08:05,806 ===> #Cases: 435 Type: artificial
+INFO  2013-01-23 11:11:13,740 ===> App started
+ERROR 2013-01-23 11:11:13,741 ===> Error message
+INFO  2013-01-23 11:11:18,056 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-23 11:11:25,088 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-23 11:12:36,007 ===> App started
+ERROR 2013-01-23 11:12:36,008 ===> Error message
+INFO  2013-01-23 11:12:44,255 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-23 11:13:02,667 ===> Case [sp-232] is from class [hadromerida] according to KNN
+INFO  2013-01-23 11:13:07,653 ===> Case [sp-101] is from class [hadromerida] according to KNN
+ERROR 2013-01-24 11:08:49,309 ===> TEST ERROR
+INFO  2013-01-24 11:30:05,590 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-01-24 11:30:06,011 ===> OK
+INFO  2013-01-24 11:32:06,842 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-24 11:32:07,140 ===> OK
+INFO  2013-01-24 11:52:30,416 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-24 11:52:30,722 ===> OK
+INFO  2013-01-24 11:52:33,182 ===> Loading DEMOSPONGIAE_280_DATASET ...
+INFO  2013-01-24 11:52:34,861 ===> OK
+INFO  2013-01-24 11:52:37,941 ===> Loading TOXICOLOGY_DATASET_FMICE  ...
+INFO  2013-01-24 11:52:40,461 ===> OK
+INFO  2013-01-24 11:52:43,779 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-24 11:52:53,612 ===> Inductive: loading MUTAGENESIS_NOL_DISCRETIZED
+INFO  2013-01-24 11:53:03,423 ===> Loading MUTAGENESIS_NOL_DISCRETIZED ...
+INFO  2013-01-24 11:53:05,004 ===> OK
+INFO  2013-01-24 11:53:06,471 ===> Loading MUTAGENESIS_EASY_NOL_DISCRETIZED ...
+INFO  2013-01-24 11:53:07,829 ===> OK
+INFO  2013-01-24 11:53:09,734 ===> Loading FINANCIAL_NO_TRANSACTIONS ...
+INFO  2013-01-24 11:53:10,036 ===> OK
+INFO  2013-01-24 11:53:12,704 ===> Loading RIU_STORIES ...
+INFO  2013-01-24 11:53:12,945 ===> OK
+INFO  2013-01-24 11:53:14,178 ===> Loading SOYBEAN_DATASET ...
+INFO  2013-01-24 11:53:14,926 ===> OK
+INFO  2013-01-24 11:53:16,537 ===> Loading TRAINS_900_DATASET ...
+INFO  2013-01-24 11:53:18,659 ===> OK
+INFO  2013-01-24 12:08:11,252 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-24 12:08:11,550 ===> OK
+INFO  2013-01-24 12:11:41,798 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-24 12:11:42,098 ===> OK
+INFO  2013-01-24 12:13:51,264 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-24 12:13:51,561 ===> OK
+INFO  2013-01-24 12:16:42,389 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-24 12:16:42,690 ===> OK
+INFO  2013-01-24 12:17:13,238 ===> Case e11
+INFO  2013-01-24 12:23:56,936 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-24 12:23:57,246 ===> OK
+INFO  2013-01-24 12:24:09,044 ===> Case e4
+INFO  2013-01-24 12:35:00,906 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-01-24 12:35:01,101 ===> OK
+INFO  2013-01-24 12:35:02,650 ===> Loading MUTAGENESIS_NOL_DISCRETIZED ...
+INFO  2013-01-24 12:35:04,393 ===> OK
+INFO  2013-01-24 12:35:30,775 ===> Lazy methods: loading TRAINS_82_DATASET
+INFO  2013-01-24 12:35:46,677 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:46,677 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:51,461 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:51,461 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:51,515 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:51,515 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:54,703 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:54,703 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:57,765 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:57,765 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:57,836 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 12:35:57,836 ===> K should be a value from 1 to 5.
+INFO  2013-01-24 16:13:13,003 ===> Amalgam demo [Demos, TRAINS_82_DATASET, 0] has 2 result/s
+INFO  2013-01-24 16:13:18,292 ===> Disintegration demo [Demos, TRAINS_DATASET, 2] has 41 result/s
+INFO  2013-01-24 16:17:48,892 ===> Disintegration demo [Demos, ZOOLOGY_DATASET, 0] has 34 result/s
+INFO  2013-01-24 16:18:20,828 ===> Disintegration demo [Demos, ZOOLOGY_DATASET, 0] has 34 result/s
+INFO  2013-01-24 16:19:46,115 ===> Disintegration demo [Demos, UNCLE_DATASET, 1] has 15 result/s
+INFO  2013-01-24 16:23:07,603 ===> Disintegration demo [Demos, UNCLE_DATASET, 1] has 15 result/s
+INFO  2013-01-24 16:24:06,925 ===> Disintegration demo [Demos, UNCLE_DATASET, 1] has 15 result/s
+INFO  2013-01-24 16:25:06,101 ===> Disintegration demo [Demos, UNCLE_DATASET, 1] has 15 result/s
+INFO  2013-01-24 16:26:36,416 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-24 16:26:41,647 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-24 16:26:43,853 ===> Correct cases: 38.88889%. You can now load a class to show.
+INFO  2013-01-24 16:26:43,853 ===> Correct cases: 38.88889%. You can now load a class to show.
+INFO  2013-01-24 16:26:51,086 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-24 16:26:52,365 ===> Correct cases: 27.777779%. You can now load a class to show.
+INFO  2013-01-24 16:26:52,365 ===> Correct cases: 27.777779%. You can now load a class to show.
+INFO  2013-01-24 16:42:03,662 ===> Inductive: loading DEMOSPONGIAE_280_DATASET
+INFO  2013-01-24 16:42:18,489 ===> #Cases: 238 Type: demospongiae
+INFO  2013-01-24 16:42:23,967 ===> Correct cases: 35.714287%. You can now load a class to show.
+INFO  2013-01-24 16:42:23,967 ===> Correct cases: 35.714287%. You can now load a class to show.
+INFO  2013-01-24 16:43:54,442 ===> Inductive: loading CARS_DATASET
+INFO  2013-01-24 16:44:02,664 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-01-24 16:44:04,904 ===> #Cases: 10 Type: uncle
+INFO  2013-01-24 16:44:06,007 ===> Correct cases: 50.0%. You can now load a class to show.
+INFO  2013-01-24 16:44:06,007 ===> Correct cases: 50.0%. You can now load a class to show.
+INFO  2013-01-24 16:44:11,991 ===> #Cases: 10 Type: uncle
+INFO  2013-01-24 16:44:12,768 ===> Correct cases: 50.0%. You can now load a class to show.
+INFO  2013-01-24 16:44:12,768 ===> Correct cases: 50.0%. You can now load a class to show.
+INFO  2013-01-24 16:44:24,771 ===> Inductive: loading TRAINS_82_DATASET
+INFO  2013-01-24 16:44:28,079 ===> #Cases: 69 Type: trains
+INFO  2013-01-24 16:44:29,068 ===> Correct cases: 46.153847%. You can now load a class to show.
+INFO  2013-01-24 16:44:29,068 ===> Correct cases: 46.153847%. You can now load a class to show.
+INFO  2013-01-24 16:44:41,793 ===> #Cases: 69 Type: trains
+INFO  2013-01-24 16:44:45,764 ===> Correct cases: 38.46154%. You can now load a class to show.
+INFO  2013-01-24 16:44:45,764 ===> Correct cases: 38.46154%. You can now load a class to show.
+INFO  2013-01-24 16:45:28,470 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-01-24 16:45:35,950 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-24 16:45:42,768 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-24 16:45:43,553 ===> Correct cases: 22.222223%. You can now load a class to show.
+INFO  2013-01-24 16:45:43,553 ===> Correct cases: 22.222223%. You can now load a class to show.
+INFO  2013-01-24 16:46:10,095 ===> Inductive: loading RIU_STORIES
+INFO  2013-01-24 16:46:12,999 ===> #Cases: 3 Type: riu-stories
+INFO  2013-01-24 16:46:13,976 ===> Correct cases: 0.0%. You can now load a class to show.
+INFO  2013-01-24 16:46:13,976 ===> Correct cases: 0.0%. You can now load a class to show.
+INFO  2013-01-24 16:49:44,410 ===> Inductive: loading FINANCIAL 
+INFO  2013-01-24 16:49:49,033 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-24 16:49:55,559 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-24 16:50:00,577 ===> Correct cases: 33.333336%. You can now load a class to show.
+INFO  2013-01-24 16:50:00,577 ===> Correct cases: 33.333336%. You can now load a class to show.
+INFO  2013-01-24 16:51:31,321 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-24 16:51:31,639 ===> OK
+INFO  2013-01-24 16:51:33,869 ===> Case e7
+INFO  2013-01-24 16:51:41,185 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-24 16:51:48,285 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-24 16:51:51,313 ===> Correct cases: 27.777779%. You can now load a class to show.
+INFO  2013-01-24 16:51:51,313 ===> Correct cases: 27.777779%. You can now load a class to show.
+INFO  2013-01-25 10:00:51,103 ===> Lazy methods: loading CARS_DATASET
+INFO  2013-01-25 10:01:15,446 ===> Case [car-problem-1013] is from class [acc] according to LID
+INFO  2013-01-25 10:01:21,691 ===> Lazy methods: loading RIU_STORIES
+INFO  2013-01-25 10:01:22,456 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 10:01:26,011 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-01-25 10:01:32,375 ===> Case [e12] is from class [is-not-uncle] according to KNN
+INFO  2013-01-25 10:01:37,236 ===> Case [e12] is from class [is-not-uncle] according to RefinementLID
+INFO  2013-01-25 10:04:35,115 ===> Case e12
+INFO  2013-01-25 10:04:39,660 ===> Case [e12] is from class [is-not-uncle] according to KNN
+INFO  2013-01-25 10:04:43,907 ===> Case [e12] is from class [is-not-uncle] according to KNN
+INFO  2013-01-25 10:04:52,119 ===> Case [e12] is from class [is-not-uncle] according to RefinementLID
+INFO  2013-01-25 10:05:05,541 ===> Lazy methods: loading MUTAGENESIS
+INFO  2013-01-25 10:05:26,583 ===> Lazy methods: loading RIU_STORIES
+INFO  2013-01-25 10:05:27,573 ===> Lazy methods: loading TOXICOLOGY_DATASET_MMICE 
+INFO  2013-01-25 10:33:33,752 ===> Lazy methods: loading TOXICOLOGY_DATASET_FMICE 
+INFO  2013-01-25 10:34:08,210 ===> Case [tr-santi-433] is from class [positive] according to LID
+INFO  2013-01-25 10:34:11,901 ===> Lazy methods: loading TRAINS_82_DATASET
+INFO  2013-01-25 10:34:20,246 ===> Case [train-problem-26] is from class [west] according to LID
+INFO  2013-01-25 10:41:26,392 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-01-25 10:41:30,587 ===> #Cases: 10 Type: uncle
+INFO  2013-01-25 10:41:31,560 ===> Accuracy: 100%. You can now load a class to show.
+INFO  2013-01-25 10:41:31,560 ===> Accuracy: 100%. You can now load a class to show.
+INFO  2013-01-25 10:41:34,828 ===> Inductive: loading TRAINS_82_DATASET
+INFO  2013-01-25 10:41:38,260 ===> #Cases: 69 Type: trains
+INFO  2013-01-25 10:41:39,160 ===> Accuracy: 30,77%. You can now load a class to show.
+INFO  2013-01-25 10:41:39,160 ===> Accuracy: 30,77%. You can now load a class to show.
+INFO  2013-01-25 10:53:40,923 ===> Inductive: loading DEMOSPONGIAE_280_DATASET
+INFO  2013-01-25 10:53:53,331 ===> #Cases: 238 Type: demospongiae
+INFO  2013-01-25 10:54:01,330 ===> Accuracy: 52,38%
+INFO  2013-01-25 10:54:01,330 ===> Accuracy: 52,38%
+INFO  2013-01-25 11:16:46,329 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 11:16:53,089 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-25 11:17:02,314 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:17:02,315 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:17:05,790 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:17:05,790 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:17:38,394 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 11:17:46,269 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-25 11:17:47,073 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:17:47,073 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:17:50,128 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-25 11:17:51,523 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:17:51,523 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:17:54,549 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-25 11:17:56,191 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:17:56,192 ===> Accuracy: 27,78%
+INFO  2013-01-25 11:18:01,501 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-25 11:18:02,255 ===> Accuracy: 16,67%
+INFO  2013-01-25 11:18:02,255 ===> Accuracy: 16,67%
+INFO  2013-01-25 11:19:38,051 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-01-25 11:19:46,983 ===> Case [e1] is from class [is-not-uncle] according to KNN
+INFO  2013-01-25 11:19:54,471 ===> Case [e12] is from class [is-not-uncle] according to LID
+INFO  2013-01-25 11:20:06,649 ===> Case e4
+INFO  2013-01-25 11:20:07,504 ===> Case e12
+INFO  2013-01-25 11:32:39,653 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 11:54:47,605 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-01-25 11:54:52,126 ===> Case [e4] is from class [is-not-uncle] according to LID
+INFO  2013-01-25 11:55:03,039 ===> Case [e4] is from class [is-not-uncle] according to LID
+INFO  2013-01-25 11:59:07,482 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 11:59:21,643 ===> Case [sp-31] is from class [astrophorida] according to LID
+INFO  2013-01-25 11:59:27,040 ===> Case [sp-31] is from class [astrophorida] according to LID
+INFO  2013-01-25 11:59:28,957 ===> Case sp-112
+INFO  2013-01-25 11:59:30,327 ===> Case [sp-31] is from class [astrophorida] according to LID
+INFO  2013-01-25 11:59:31,832 ===> Case sp-112
+INFO  2013-01-25 11:59:33,669 ===> Case [sp-31] is from class [astrophorida] according to LID
+INFO  2013-01-25 11:59:35,070 ===> Case sp-13
+INFO  2013-01-25 12:02:06,123 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 12:02:12,394 ===> Case [sp-240] is from class [astrophorida] according to LID
+INFO  2013-01-25 12:02:14,102 ===> Case sp-240
+INFO  2013-01-25 12:02:15,522 ===> Case [sp-109] is from class [astrophorida] according to LID
+INFO  2013-01-25 12:02:16,872 ===> Case sp-109
+INFO  2013-01-25 12:02:18,979 ===> Case [sp-9] is from class [astrophorida] according to LID
+INFO  2013-01-25 12:02:20,461 ===> Case sp-9
+INFO  2013-01-25 12:03:52,706 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 12:03:58,660 ===> Case [sp-18] is from class [astrophorida] according to KNN
+INFO  2013-01-25 12:04:01,295 ===> Case sp-18
+INFO  2013-01-25 12:04:03,671 ===> Case [sp-129] is from class [axinellida] according to LID
+INFO  2013-01-25 12:04:05,082 ===> Case sp-129
+INFO  2013-01-25 12:04:06,661 ===> Case [sp-15] is from class [axinellida] according to LID
+INFO  2013-01-25 12:04:08,407 ===> Case sp-15
+INFO  2013-01-25 12:05:41,472 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 12:05:51,109 ===> Case [sp-23] is from class [axinellida] according to LID
+INFO  2013-01-25 12:05:53,360 ===> Case sp-23
+INFO  2013-01-25 12:08:15,149 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 12:08:21,019 ===> Case [sp-101] is from class [astrophorida] according to LID
+INFO  2013-01-25 12:08:23,692 ===> Case sp-101
+INFO  2013-01-25 12:09:23,167 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+ERROR 2013-01-25 12:09:28,699 ===> Error: java.lang.NullPointerException
+INFO  2013-01-25 12:09:28,700 ===> Case sp-102
+INFO  2013-01-25 12:10:11,475 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 12:10:16,395 ===> Case sp-129
+INFO  2013-01-25 12:10:19,271 ===> Case sp-118
+INFO  2013-01-25 12:10:20,260 ===> Case sp-118
+ERROR 2013-01-25 12:10:22,881 ===> Error: java.lang.NullPointerException
+INFO  2013-01-25 12:29:18,975 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 12:29:24,288 ===> Case sp-221
+INFO  2013-01-25 12:29:25,139 ===> Case sp-221
+INFO  2013-01-25 12:29:26,574 ===> Case [sp-221] is from class [axinellida] according to LID
+INFO  2013-01-25 12:31:17,541 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+ERROR 2013-01-25 12:31:23,287 ===> Error: java.lang.NullPointerException
+INFO  2013-01-25 12:31:23,289 ===> Case sp-110
+INFO  2013-01-25 12:31:46,217 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 12:31:51,365 ===> Case [sp-134] is from class [astrophorida] according to LID
+INFO  2013-01-25 12:31:53,009 ===> Case sp-134
+INFO  2013-01-25 12:31:54,294 ===> Case [sp-214] is from class [astrophorida] according to LID
+INFO  2013-01-25 12:31:55,368 ===> Case sp-214
+INFO  2013-01-25 12:31:57,274 ===> Case [sp-4] is from class [astrophorida] according to LID
+INFO  2013-01-25 12:31:58,371 ===> Case sp-4
+ERROR 2013-01-25 12:34:50,492 ===> Error: java.lang.NullPointerException
+INFO  2013-01-25 12:34:50,493 ===> Case sp-245
+INFO  2013-01-25 12:35:18,889 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+ERROR 2013-01-25 12:35:24,165 ===> Error: java.lang.NullPointerException
+INFO  2013-01-25 12:35:24,166 ===> Case sp-122
+INFO  2013-01-25 12:36:02,956 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-25 12:36:08,331 ===> Case [sp-246] is from class [astrophorida] according to LID
+INFO  2013-01-25 12:36:10,600 ===> Case sp-246
+INFO  2013-01-28 10:16:55,842 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 10:17:06,485 ===> Case [sp-18] is from class [axinellida] according to LID
+INFO  2013-01-28 10:17:08,319 ===> Case sp-18
+INFO  2013-01-28 10:18:09,001 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 10:18:14,633 ===> Case [sp-22] is from class [hadromerida] according to LID
+INFO  2013-01-28 10:18:16,465 ===> Case sp-22
+INFO  2013-01-28 10:47:38,261 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 10:47:45,760 ===> Case [sp-22] is from class [axinellida] according to LID
+INFO  2013-01-28 10:47:49,708 ===> Case sp-22
+INFO  2013-01-28 10:47:51,220 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-01-28 10:47:55,627 ===> Case [e9] is from class [is-not-uncle] according to LID
+INFO  2013-01-28 10:49:20,254 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 10:49:25,662 ===> Case [sp-110] is from class [hadromerida] according to LID
+INFO  2013-01-28 10:49:27,152 ===> Case sp-110
+INFO  2013-01-28 10:51:24,613 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 10:51:30,077 ===> Case [sp-9] is from class [axinellida] according to LID
+INFO  2013-01-28 10:51:31,419 ===> Case sp-9
+INFO  2013-01-28 10:51:33,928 ===> Case [sp-37] is from class [axinellida] according to LID
+INFO  2013-01-28 10:51:35,078 ===> Case sp-37
+INFO  2013-01-28 10:51:36,524 ===> Case [sp-120] is from class [axinellida] according to LID
+INFO  2013-01-28 10:51:37,653 ===> Case sp-120
+INFO  2013-01-28 10:52:43,836 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 10:52:49,551 ===> Case [sp-14] is from class [hadromerida] according to LID
+INFO  2013-01-28 10:52:50,731 ===> Case sp-14
+INFO  2013-01-28 10:53:02,030 ===> Case [sp-13] is from class [hadromerida] according to RefinementLID
+INFO  2013-01-28 10:53:04,054 ===> Case sp-13
+INFO  2013-01-28 11:00:41,944 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 11:00:48,025 ===> Case [sp-21] is from class [axinellida] according to LID
+INFO  2013-01-28 11:00:52,478 ===> Case sp-21
+INFO  2013-01-28 11:02:18,155 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 11:02:24,864 ===> Case [sp-245] is from class [astrophorida] according to LID
+INFO  2013-01-28 11:02:26,227 ===> Case sp-245
+INFO  2013-01-28 11:02:28,071 ===> Case [sp-237] is from class [astrophorida] according to LID
+INFO  2013-01-28 11:02:29,336 ===> Case sp-237
+INFO  2013-01-28 11:02:30,599 ===> Case [sp-227] is from class [astrophorida] according to LID
+INFO  2013-01-28 11:02:31,643 ===> Case sp-227
+INFO  2013-01-28 11:02:33,416 ===> Case [sp-110] is from class [astrophorida] according to LID
+INFO  2013-01-28 11:02:34,518 ===> Case sp-110
+INFO  2013-01-28 11:02:36,904 ===> Case [sp-118] is from class [hadromerida] according to RefinementLID
+INFO  2013-01-28 11:02:38,387 ===> Case sp-118
+INFO  2013-01-28 11:02:39,673 ===> Case [sp-16] is from class [hadromerida] according to RefinementLID
+INFO  2013-01-28 11:02:40,652 ===> Case sp-16
+INFO  2013-01-28 11:02:41,763 ===> Case [sp-21] is from class [hadromerida] according to RefinementLID
+INFO  2013-01-28 11:02:42,766 ===> Case sp-21
+INFO  2013-01-28 11:02:44,452 ===> Case [sp-216] is from class [hadromerida] according to RefinementLID
+INFO  2013-01-28 11:02:45,558 ===> Case sp-216
+INFO  2013-01-28 11:08:39,635 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 11:08:45,902 ===> Case [sp-6] is from class [hadromerida] according to LID
+INFO  2013-01-28 11:08:47,166 ===> Case sp-6
+INFO  2013-01-28 11:08:48,474 ===> Case [sp-222] is from class [hadromerida] according to LID
+INFO  2013-01-28 11:08:49,823 ===> Case sp-222
+INFO  2013-01-28 11:08:50,870 ===> Case [sp-27] is from class [hadromerida] according to LID
+INFO  2013-01-28 11:08:51,933 ===> Case sp-27
+INFO  2013-01-28 11:08:53,131 ===> Case [sp-102] is from class [hadromerida] according to LID
+INFO  2013-01-28 11:08:54,171 ===> Case sp-102
+INFO  2013-01-28 11:08:55,606 ===> Case [sp-8] is from class [hadromerida] according to LID
+INFO  2013-01-28 11:08:56,627 ===> Case sp-8
+INFO  2013-01-28 11:11:24,348 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-28 11:36:06,921 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-01-28 11:36:07,637 ===> OK
+INFO  2013-01-28 11:45:19,492 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-28 11:45:19,797 ===> OK
+INFO  2013-01-28 11:45:30,161 ===> Case e7
+INFO  2013-01-28 11:46:33,271 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-28 11:46:33,569 ===> OK
+INFO  2013-01-28 12:48:38,307 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-28 12:48:38,627 ===> OK
+INFO  2013-01-28 13:08:24,373 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-28 13:08:24,685 ===> OK
+INFO  2013-01-29 10:41:20,525 ===> Loading TRAINS_DATASET ...
+INFO  2013-01-29 10:41:20,990 ===> OK
+INFO  2013-01-29 10:45:10,132 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-01-29 10:46:17,877 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-01-29 10:46:21,012 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-01-29 14:14:33,964 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-29 14:14:40,038 ===> Case [sp-249] is from class [hadromerida] according to LID
+INFO  2013-01-29 14:14:41,528 ===> Case sp-249
+INFO  2013-01-29 14:14:46,318 ===> Case [sp-242] is from class [axinellida] according to RefinementLID
+INFO  2013-01-29 14:14:47,647 ===> Case sp-242
+INFO  2013-01-29 14:17:54,013 ===> Lazy methods: loading FINANCIAL 
+INFO  2013-01-29 14:17:59,052 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-29 14:18:01,853 ===> Lazy methods: loading DEMOSPONGIAE_280_DATASET
+INFO  2013-01-29 14:18:04,958 ===> Lazy methods: loading CARS_DATASET
+INFO  2013-01-29 14:20:03,986 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-29 14:33:57,169 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-29 14:34:03,263 ===> Case [sp-235] is from class [astrophorida] according to LID
+INFO  2013-01-29 14:34:04,951 ===> Case sp-235
+INFO  2013-01-29 15:07:29,837 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-29 15:07:39,383 ===> Case [sp-239] is from class [axinellida] according to LID
+INFO  2013-01-29 15:07:40,496 ===> Case sp-239
+INFO  2013-01-29 15:08:28,506 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-29 15:08:34,757 ===> Case [sp-26] is from class [axinellida] according to LID
+INFO  2013-01-29 15:08:36,128 ===> Case sp-26
+INFO  2013-01-29 15:08:43,577 ===> Case [sp-230] is from class [axinellida] according to LID
+INFO  2013-01-29 15:08:45,422 ===> Case sp-230
+INFO  2013-01-29 15:09:38,763 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-29 15:09:46,306 ===> Case [sp-231] is from class [hadromerida] according to LID
+INFO  2013-01-29 15:09:48,660 ===> Case sp-231
+INFO  2013-01-29 15:11:14,535 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-01-29 15:11:18,267 ===> Case [e11] is from class [is-not-uncle] according to LID
+INFO  2013-01-29 15:11:22,810 ===> Case e11
+INFO  2013-01-29 15:11:31,994 ===> Case [e11] is from class [is-not-uncle] according to LID
+INFO  2013-01-29 15:11:33,541 ===> Case e11
+INFO  2013-01-29 15:14:08,462 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-29 15:14:08,773 ===> OK
+INFO  2013-01-29 15:14:10,590 ===> Case e4
+INFO  2013-01-29 15:15:29,924 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-29 15:15:30,229 ===> OK
+INFO  2013-01-29 15:16:24,758 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-29 15:16:25,059 ===> OK
+INFO  2013-01-29 15:16:45,345 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-29 15:16:45,648 ===> OK
+INFO  2013-01-30 10:53:44,944 ===> Loading UNCLE_DATASET ...
+ERROR 2013-01-30 10:53:45,155 ===> Error: java.io.FileNotFoundException: DATA/family-ontology.noos (No such file or directory)
+INFO  2013-01-30 11:07:40,542 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-30 11:07:40,882 ===> OK
+INFO  2013-01-30 11:07:42,454 ===> Loading MUTAGENESIS_EASY ...
+INFO  2013-01-30 11:07:45,999 ===> OK
+INFO  2013-01-30 11:07:48,631 ===> Case mp-d67
+INFO  2013-01-30 11:08:19,889 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-01-30 11:08:24,510 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-01-30 11:08:33,814 ===> Disintegration demo [Tests, UNCLE_DATASET, 1] has 15 result/s
+INFO  2013-01-30 11:09:03,655 ===> Antiunification demo [Tests, trains, 6] has 1 result/s
+INFO  2013-01-30 11:09:10,283 ===> Select the Ontology that you want to disintegrate in GENERAL tab. INPUT text will be ignored. 
+The operation will take a while to load 
+MUTAGENESIS_EASY will be disintegrated
+INFO  2013-01-30 11:09:10,283 ===> Select the Ontology that you want to disintegrate in GENERAL tab. INPUT text will be ignored. 
+The operation will take a while to load 
+MUTAGENESIS_EASY will be disintegrated
+INFO  2013-01-30 11:09:15,357 ===> Loading UNCLE_DATASET ...
+INFO  2013-01-30 11:09:15,586 ===> OK
+INFO  2013-01-30 11:09:34,190 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-30 11:09:43,742 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-30 11:09:55,296 ===> Case sp-130
+INFO  2013-01-30 11:09:58,239 ===> Accuracy: 50%
+INFO  2013-01-30 11:09:58,239 ===> Accuracy: 50%
+INFO  2013-01-30 11:10:06,254 ===> #Cases: 102 Type: demospongiae
+INFO  2013-01-30 11:10:08,401 ===> Accuracy: 33,33%
+INFO  2013-01-30 11:10:08,401 ===> Accuracy: 33,33%
+INFO  2013-01-30 11:10:27,279 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-30 11:10:35,927 ===> Case [sp-4] is from class [axinellida] according to LID
+INFO  2013-01-30 11:10:37,313 ===> Case sp-4
+INFO  2013-01-30 11:10:43,675 ===> Case [sp-9] is from class [axinellida] according to LID
+INFO  2013-01-30 11:10:44,655 ===> Case sp-9
+INFO  2013-01-30 11:10:46,262 ===> Case [sp-101] is from class [axinellida] according to LID
+INFO  2013-01-30 11:10:47,262 ===> Case sp-101
+INFO  2013-01-30 11:16:17,428 ===> Inductive: loading DEMOSPONGIAE_280_DATASET
+INFO  2013-01-30 11:16:38,791 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-30 11:16:45,790 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-01-30 11:16:52,168 ===> #Cases: 10 Type: uncle
+INFO  2013-01-30 11:17:09,369 ===> Inductive: loading FINANCIAL 
+INFO  2013-01-30 11:17:12,654 ===> Inductive: loading ARTIFICIAL_DATASET
+INFO  2013-01-30 11:17:25,470 ===> Case ad-problem-156
+INFO  2013-01-30 11:17:28,911 ===> #Cases: 435 Type: artificial
+INFO  2013-01-30 11:17:58,614 ===> Accuracy: 53,25%
+INFO  2013-01-30 11:17:58,615 ===> Accuracy: 53,25%
+INFO  2013-01-30 11:18:00,401 ===> Case ad-problem-156
+INFO  2013-01-30 11:18:02,943 ===> Case ad-problem-440
+INFO  2013-01-30 11:18:05,103 ===> Case ad-problem-244
+INFO  2013-01-30 11:18:16,485 ===> Case ad-problem-135
+INFO  2013-01-30 11:18:28,615 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-30 11:18:40,203 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-01-30 11:18:45,974 ===> Lazy methods: loading CARS_DATASET
+INFO  2013-01-30 11:34:52,664 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-30 11:35:01,567 ===> Case [sp-7] is from class [astrophorida] according to LID
+INFO  2013-01-30 11:35:02,750 ===> Case sp-7
+INFO  2013-01-30 11:35:10,081 ===> Case [sp-107] is from class [astrophorida] according to LID
+INFO  2013-01-30 11:35:11,224 ===> Case sp-107
+INFO  2013-01-30 11:35:12,424 ===> Case [sp-100] is from class [astrophorida] according to LID
+INFO  2013-01-30 11:35:13,376 ===> Case sp-100
+INFO  2013-01-30 11:36:06,700 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-30 11:36:14,082 ===> Case [sp-36] is from class [hadromerida] according to LID
+INFO  2013-01-30 11:36:15,627 ===> Case sp-36
+INFO  2013-01-30 11:36:17,159 ===> Case [sp-104] is from class [hadromerida] according to LID
+INFO  2013-01-30 11:36:18,033 ===> Case sp-104
+INFO  2013-01-30 12:01:47,392 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-01-30 12:01:55,278 ===> Lazy methods: loading ARTIFICIAL_DATASET
+INFO  2013-01-30 12:02:01,261 ===> Case [ad-problem-321] is from class [a] according to KNN
+INFO  2013-01-30 12:02:02,478 ===> Case ad-problem-321
+INFO  2013-01-30 12:02:09,561 ===> Case [ad-problem-250] is from class [a] according to LID
+INFO  2013-01-30 12:02:10,668 ===> Case ad-problem-250
+INFO  2013-01-30 12:02:12,918 ===> Lazy methods: loading CARS_DATASET
+INFO  2013-01-30 12:02:24,964 ===> Case [car-problem-1226] is from class [vgood] according to LID
+INFO  2013-01-30 12:02:26,530 ===> Case car-problem-1226
+INFO  2013-01-30 12:02:27,849 ===> Case [car-problem-402] is from class [vgood] according to LID
+INFO  2013-01-30 12:02:28,948 ===> Case car-problem-402
+INFO  2013-01-30 12:02:31,852 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-01-30 12:02:41,909 ===> Lazy methods: loading TRAINS_900_DATASET
+INFO  2013-01-31 12:02:46,931 ===> Loading DEMOSPONGIAE_120_DATASET ...
+INFO  2013-01-31 12:02:48,075 ===> OK
+INFO  2013-01-31 12:02:55,909 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-01-31 12:27:59,473 ===> Antiunification demo [Tests, sponge, 3] has 1 result/s
+INFO  2013-01-31 12:28:03,946 ===> Unification demo [Tests, sponge, 6] has 1 result/s
+INFO  2013-01-31 12:28:07,729 ===> Disintegration demo [Tests, UNCLE_DATASET, 1] has 15 result/s
+INFO  2013-01-31 12:28:11,542 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-01-31 12:28:15,677 ===> Antiunification demo [Tests, trains, 6] has 1 result/s
+INFO  2013-01-31 12:28:19,816 ===> Unification demo [Tests, sponge, 6] has 1 result/s
+INFO  2013-01-31 12:28:25,434 ===> Amalgam demo [Tests, TRAINS_82_DATASET, 1] has 1 result/s
+INFO  2013-01-31 12:28:34,979 ===> Unification demo [Tests, family, 1] has 3 result/s
+INFO  2013-01-31 12:28:41,387 ===> Antiunification demo [Tests, sponge, 3] has 1 result/s
+INFO  2013-01-31 12:28:45,277 ===> Antiunification demo [Tests, trains] has 1 result/s
+INFO  2013-01-31 12:28:46,800 ===> Antiunification demo [Tests, trains] has 1 result/s
+INFO  2013-01-31 12:35:53,554 ===> Loading DEMOSPONGIAE_120_DATASET ...
+INFO  2013-01-31 12:35:54,577 ===> OK
+INFO  2013-01-31 12:36:03,830 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-01-31 12:36:10,122 ===> Unification demo [Tests, family] has 1 result/s
+INFO  2013-01-31 12:36:10,320 ===> Unification demo [Tests, family] has 1 result/s
+INFO  2013-01-31 12:36:17,410 ===> Unification demo [Tests, family, 7] has 1 result/s
+INFO  2013-01-31 12:36:21,018 ===> Antiunification demo [Tests, sponge, 3] has 1 result/s
+INFO  2013-01-31 12:36:25,067 ===> Disintegration demo [Tests, ZOOLOGY_DATASET, 0] has 34 result/s
+INFO  2013-01-31 12:36:32,794 ===> Amalgam demo [Tests, TRAINS_82_DATASET, 2] has 2 result/s
+INFO  2013-01-31 12:37:36,846 ===> Disintegration demo [Tests, UNCLE_DATASET, 1] has 15 result/s
+INFO  2013-02-04 10:26:21,728 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-04 10:26:28,140 ===> Case [sp-24] is from class [astrophorida] according to LID
+INFO  2013-02-04 10:26:29,365 ===> Case sp-24
+INFO  2013-02-04 10:30:45,217 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-04 10:30:52,892 ===> Case [sp-118] is from class [hadromerida] according to LID
+INFO  2013-02-04 10:30:54,864 ===> Case sp-118
+INFO  2013-02-04 10:31:08,683 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-02-04 10:31:12,887 ===> Case [e7] is from class [is-not-uncle] according to LID
+INFO  2013-02-04 10:31:14,483 ===> Case e7
+INFO  2013-02-04 10:31:46,125 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+ERROR 2013-02-04 10:31:51,484 ===> Error: java.lang.NullPointerException
+INFO  2013-02-04 10:31:51,485 ===> Case sp-21
+INFO  2013-02-04 10:33:13,076 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-04 10:33:17,362 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-04 10:33:24,423 ===> Case [sp-227] is from class [astrophorida] according to LID
+INFO  2013-02-04 10:33:25,568 ===> Case sp-227
+INFO  2013-02-04 10:36:15,745 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-04 10:36:16,057 ===> OK
+INFO  2013-02-04 10:36:19,423 ===> Loading DEMOSPONGIAE_120_DATASET ...
+INFO  2013-02-04 10:36:20,293 ===> OK
+INFO  2013-02-04 10:36:35,994 ===> Lazy methods: loading CARS_DATASET
+INFO  2013-02-04 10:36:39,212 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-04 10:36:58,123 ===> Lazy methods: loading RIU_STORIES
+INFO  2013-02-04 10:37:35,041 ===> Case [memory-1-bird-death] is from class [memory-1-bird-death] according to LID
+INFO  2013-02-04 10:37:36,593 ===> Case memory-1-bird-death
+INFO  2013-02-04 11:36:36,593 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-04 11:36:55,311 ===> Case [sp-36] is from class [hadromerida] according to LID
+INFO  2013-02-04 11:36:56,984 ===> Case sp-36
+INFO  2013-02-04 11:45:21,962 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-02-04 11:45:26,421 ===> Case [e12] is from class [is-not-uncle] according to LID
+INFO  2013-02-04 11:45:28,088 ===> Case e12
+INFO  2013-02-04 11:45:30,354 ===> Lazy methods: loading RIU_STORIES
+INFO  2013-02-04 11:45:54,845 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-02-04 11:46:06,150 ===> Case [e8] is from class [is-not-uncle] according to LID
+INFO  2013-02-04 11:46:07,721 ===> Case e8
+INFO  2013-02-04 12:06:12,232 ===> Loading ZOOLOGY_DATASET ...
+INFO  2013-02-04 12:06:12,717 ===> OK
+INFO  2013-02-04 12:06:15,482 ===> Loading UNCLE_DATASET_SETS ...
+INFO  2013-02-04 12:06:15,691 ===> OK
+INFO  2013-02-04 12:06:20,072 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-04 12:06:20,256 ===> OK
+INFO  2013-02-04 12:06:29,738 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-04 12:06:29,907 ===> OK
+INFO  2013-02-04 12:06:32,223 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-04 12:06:32,401 ===> OK
+INFO  2013-02-04 12:06:35,868 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-04 12:06:36,237 ===> OK
+INFO  2013-02-04 12:06:44,508 ===> Loading RIU_STORIES ...
+INFO  2013-02-04 12:06:44,696 ===> OK
+INFO  2013-02-04 12:06:52,968 ===> Loading SOYBEAN_DATASET ...
+INFO  2013-02-04 12:06:53,768 ===> OK
+INFO  2013-02-04 12:06:59,774 ===> Loading TOXICOLOGY_DATASET_FMICE  ...
+INFO  2013-02-04 12:07:02,281 ===> OK
+INFO  2013-02-04 12:07:17,999 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-04 12:07:18,200 ===> OK
+INFO  2013-02-04 12:16:29,447 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-02-04 12:16:33,717 ===> Case [e10] is from class [is-not-uncle] according to LID
+INFO  2013-02-04 12:16:36,453 ===> Case e10
+INFO  2013-02-04 13:01:14,302 ===> Antiunification demo [Tests, trains, 6] has 1 result/s
+INFO  2013-02-04 15:50:26,551 ===> Execution started Mon Feb 04 15:50:26 CET 2013
+INFO  2013-02-04 15:52:47,065 ===> Execution started Mon Feb 04 15:52:47 CET 2013
+INFO  2013-02-04 15:52:58,001 ===> Execution started Mon Feb 04 15:52:57 CET 2013
+INFO  2013-02-04 15:53:35,223 ===> Execution started Mon Feb 04 15:53:35 CET 2013
+INFO  2013-02-04 16:01:43,990 ===> Execution started Mon Feb 04 16:01:43 CET 2013
+INFO  2013-02-04 16:02:20,110 ===> Execution started Mon Feb 04 16:02:20 CET 2013
+INFO  2013-02-04 16:02:29,640 ===> Execution started Mon Feb 04 16:02:29 CET 2013
+INFO  2013-02-05 10:12:24,079 ===> Execution started Tue Feb 05 10:12:24 CET 2013
+INFO  2013-02-05 10:12:30,359 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-05 10:12:37,712 ===> Case [sp-5] is from class [astrophorida] according to LID
+INFO  2013-02-05 10:12:39,224 ===> Case sp-5
+INFO  2013-02-05 10:12:45,978 ===> Case [sp-230] is from class [axinellida] according to LID
+INFO  2013-02-05 10:12:52,392 ===> Case sp-230
+INFO  2013-02-05 10:13:30,878 ===> Execution started Tue Feb 05 10:13:30 CET 2013
+INFO  2013-02-05 10:13:34,450 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-05 10:13:39,491 ===> Case sp-131
+INFO  2013-02-05 10:13:48,049 ===> Case sp-36
+INFO  2013-02-05 10:13:49,339 ===> Case sp-96
+INFO  2013-02-05 10:13:50,685 ===> Case sp-22
+INFO  2013-02-05 10:13:51,823 ===> Case sp-120
+INFO  2013-02-05 10:14:15,642 ===> Execution started Tue Feb 05 10:14:15 CET 2013
+INFO  2013-02-05 10:14:19,372 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-05 10:14:24,169 ===> Case [sp-232] is from class [axinellida] according to LID
+INFO  2013-02-05 10:14:25,604 ===> Case sp-232
+INFO  2013-02-05 10:14:38,633 ===> Execution started Tue Feb 05 10:14:38 CET 2013
+INFO  2013-02-05 10:14:42,131 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-05 10:14:47,212 ===> Case [sp-122] is from class [hadromerida] according to LID
+INFO  2013-02-05 10:14:47,212 ===> Case sp-122
+INFO  2013-02-05 10:14:50,024 ===> Case [sp-115] is from class [hadromerida] according to LID
+INFO  2013-02-05 10:14:50,025 ===> Case sp-115
+INFO  2013-02-05 10:14:53,751 ===> Case [sp-27] is from class [astrophorida] according to LID
+INFO  2013-02-05 10:14:53,751 ===> Case sp-27
+INFO  2013-02-05 10:19:43,008 ===> Execution started Tue Feb 05 10:19:43 CET 2013
+INFO  2013-02-05 10:19:46,953 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-05 10:19:54,039 ===> Case [sp-0] is from class [astrophorida] according to KNN
+INFO  2013-02-05 10:19:54,039 ===> Case sp-0
+INFO  2013-02-05 10:22:28,387 ===> Execution started Tue Feb 05 10:22:28 CET 2013
+INFO  2013-02-05 10:22:32,329 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-05 10:22:39,321 ===> Case [sp-232] is from class [axinellida] according to LID
+INFO  2013-02-05 10:22:39,322 ===> Case sp-232
+INFO  2013-02-05 10:22:43,045 ===> Case [sp-35] is from class [astrophorida] according to LID
+INFO  2013-02-05 10:22:43,046 ===> Case sp-35
+INFO  2013-02-05 10:22:45,915 ===> Case [sp-113] is from class [hadromerida] according to LID
+INFO  2013-02-05 10:22:45,916 ===> Case sp-113
+INFO  2013-02-05 10:22:49,824 ===> Case [sp-235] is from class [axinellida] according to LID
+INFO  2013-02-05 10:22:49,824 ===> Case sp-235
+INFO  2013-02-05 10:22:57,455 ===> Case [sp-221] is from class [axinellida] according to LID
+INFO  2013-02-05 10:22:57,456 ===> Case sp-221
+INFO  2013-02-05 10:23:00,173 ===> Case [sp-108] is from class [hadromerida] according to LID
+INFO  2013-02-05 10:23:00,174 ===> Case sp-108
+INFO  2013-02-05 12:28:49,744 ===> Execution started Tue Feb 05 12:28:49 CET 2013
+INFO  2013-02-05 12:36:15,072 ===> Execution started Tue Feb 05 12:36:15 CET 2013
+INFO  2013-02-05 12:37:35,125 ===> Execution started Tue Feb 05 12:37:35 CET 2013
+INFO  2013-02-05 12:38:53,896 ===> Execution started Tue Feb 05 12:38:53 CET 2013
+INFO  2013-02-05 12:41:02,845 ===> Execution started Tue Feb 05 12:41:02 CET 2013
+INFO  2013-02-05 12:41:32,682 ===> Execution started Tue Feb 05 12:41:32 CET 2013
+INFO  2013-02-05 13:01:48,402 ===> Execution started Tue Feb 05 13:01:48 CET 2013
+INFO  2013-02-05 14:57:12,106 ===> Execution started Tue Feb 05 14:57:12 CET 2013
+INFO  2013-02-05 14:58:32,697 ===> Execution started Tue Feb 05 14:58:32 CET 2013
+INFO  2013-02-05 14:59:33,361 ===> Execution started Tue Feb 05 14:59:33 CET 2013
+INFO  2013-02-05 14:59:42,036 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-05 15:10:59,482 ===> Execution started Tue Feb 05 15:10:59 CET 2013
+INFO  2013-02-05 15:12:21,132 ===> Execution started Tue Feb 05 15:12:21 CET 2013
+INFO  2013-02-05 15:12:30,717 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-05 15:14:43,164 ===> Execution started Tue Feb 05 15:14:43 CET 2013
+INFO  2013-02-05 15:15:29,179 ===> Execution started Tue Feb 05 15:15:29 CET 2013
+INFO  2013-02-05 15:42:31,757 ===> Execution started Tue Feb 05 15:42:31 CET 2013
+INFO  2013-02-05 15:49:00,324 ===> Execution started Tue Feb 05 15:49:00 CET 2013
+INFO  2013-02-06 09:57:51,918 ===> Execution started Wed Feb 06 09:57:51 CET 2013
+INFO  2013-02-06 09:58:55,848 ===> Execution started Wed Feb 06 09:58:55 CET 2013
+INFO  2013-02-06 10:01:08,565 ===> Execution started Wed Feb 06 10:01:08 CET 2013
+INFO  2013-02-06 10:03:17,023 ===> Execution started Wed Feb 06 10:03:17 CET 2013
+INFO  2013-02-06 10:05:52,090 ===> Execution started Wed Feb 06 10:05:52 CET 2013
+INFO  2013-02-06 10:06:22,241 ===> Execution started Wed Feb 06 10:06:22 CET 2013
+INFO  2013-02-06 10:06:22,286 ===> Execution started Wed Feb 06 10:06:22 CET 2013
+INFO  2013-02-06 10:06:52,271 ===> Execution started Wed Feb 06 10:06:52 CET 2013
+INFO  2013-02-06 10:32:33,901 ===> Execution started Wed Feb 06 10:32:33 CET 2013
+INFO  2013-02-06 10:33:12,227 ===> Execution started Wed Feb 06 10:33:12 CET 2013
+INFO  2013-02-06 10:34:01,857 ===> Execution started Wed Feb 06 10:34:01 CET 2013
+INFO  2013-02-06 10:34:11,942 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 10:39:01,270 ===> Execution started Wed Feb 06 10:39:01 CET 2013
+INFO  2013-02-06 10:43:29,560 ===> Execution started Wed Feb 06 10:43:29 CET 2013
+INFO  2013-02-06 10:43:38,203 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 10:46:40,792 ===> Execution started Wed Feb 06 10:46:40 CET 2013
+INFO  2013-02-06 10:46:59,079 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 10:47:04,329 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 10:48:48,067 ===> Execution started Wed Feb 06 10:48:48 CET 2013
+INFO  2013-02-06 10:48:55,567 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 10:49:01,176 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 10:49:05,255 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 10:49:13,373 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 10:49:18,590 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 10:49:22,674 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 10:49:33,399 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 10:50:25,020 ===> Execution started Wed Feb 06 10:50:25 CET 2013
+INFO  2013-02-06 10:50:33,182 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 10:50:37,647 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 10:50:42,520 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 10:50:47,944 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 10:58:34,061 ===> Execution started Wed Feb 06 10:58:34 CET 2013
+INFO  2013-02-06 11:14:19,450 ===> Execution started Wed Feb 06 11:14:19 CET 2013
+INFO  2013-02-06 11:14:25,954 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 11:14:30,371 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 11:14:37,571 ===> Unification demo null has 0 result/s
+INFO  2013-02-06 11:19:01,283 ===> Execution started Wed Feb 06 11:19:01 CET 2013
+INFO  2013-02-06 11:31:25,563 ===> Execution started Wed Feb 06 11:31:25 CET 2013
+INFO  2013-02-06 11:31:35,753 ===> Unification demo null has 0 result/s
+INFO  2013-02-06 11:31:39,878 ===> Unification demo null has 0 result/s
+INFO  2013-02-06 11:32:31,474 ===> Execution started Wed Feb 06 11:32:31 CET 2013
+INFO  2013-02-06 11:32:40,943 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 11:35:27,040 ===> Execution started Wed Feb 06 11:35:27 CET 2013
+INFO  2013-02-06 11:36:49,764 ===> Execution started Wed Feb 06 11:36:49 CET 2013
+INFO  2013-02-06 11:36:57,823 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 11:56:12,392 ===> Execution started Wed Feb 06 11:56:12 CET 2013
+INFO  2013-02-06 11:56:18,881 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 11:56:26,789 ===> Unification demo null has 6 result/s
+INFO  2013-02-06 11:56:38,012 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 11:56:41,833 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 11:57:08,954 ===> Execution started Wed Feb 06 11:57:08 CET 2013
+INFO  2013-02-06 11:58:54,906 ===> Execution started Wed Feb 06 11:58:54 CET 2013
+INFO  2013-02-06 16:04:52,926 ===> Execution started Wed Feb 06 16:04:52 CET 2013
+INFO  2013-02-06 16:05:02,086 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 16:05:06,377 ===> Antiunification demo null has 1 result/s
+INFO  2013-02-06 16:05:14,373 ===> Antiunification demo null has 21 result/s
+INFO  2013-02-06 16:15:05,156 ===> Execution started Wed Feb 06 16:15:05 CET 2013
+INFO  2013-02-06 16:16:21,143 ===> Execution started Wed Feb 06 16:16:21 CET 2013
+INFO  2013-02-06 16:17:25,485 ===> Execution started Wed Feb 06 16:17:25 CET 2013
+INFO  2013-02-06 16:19:45,536 ===> Execution started Wed Feb 06 16:19:45 CET 2013
+INFO  2013-02-06 16:21:14,264 ===> Execution started Wed Feb 06 16:21:14 CET 2013
+INFO  2013-02-06 16:22:51,558 ===> Execution started Wed Feb 06 16:22:51 CET 2013
+INFO  2013-02-06 16:22:54,388 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-06 16:22:54,730 ===> OK
+INFO  2013-02-06 16:22:56,129 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-06 16:22:56,428 ===> OK
+INFO  2013-02-06 16:22:58,466 ===> Case e4
+INFO  2013-02-06 16:23:00,216 ===> Case e22
+INFO  2013-02-06 16:23:01,457 ===> Case e24
+INFO  2013-02-06 16:23:41,249 ===> Execution started Wed Feb 06 16:23:41 CET 2013
+INFO  2013-02-06 16:23:49,390 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 16:23:54,673 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-02-06 16:24:01,942 ===> Antiunification demo [Tests, trains, 6] has 1 result/s
+INFO  2013-02-06 16:24:05,561 ===> Antiunification demo [Tests, trains, 6] has 4 result/s
+INFO  2013-02-06 16:24:13,908 ===> Antiunification demo [Tests, sponge, 3] has 1 result/s
+INFO  2013-02-06 16:28:26,462 ===> Execution started Wed Feb 06 16:28:26 CET 2013
+INFO  2013-02-06 16:33:26,942 ===> Execution started Wed Feb 06 16:33:26 CET 2013
+INFO  2013-02-06 16:33:39,981 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 16:35:27,849 ===> Execution started Wed Feb 06 16:35:27 CET 2013
+INFO  2013-02-06 16:37:14,903 ===> Execution started Wed Feb 06 16:37:14 CET 2013
+INFO  2013-02-06 16:44:44,425 ===> Execution started Wed Feb 06 16:44:44 CET 2013
+INFO  2013-02-06 16:44:53,745 ===> Loading TOXICOLOGY_DATASET_FMICE  ...
+INFO  2013-02-06 16:44:56,889 ===> OK
+INFO  2013-02-06 16:45:00,896 ===> Case tr-santi-168
+INFO  2013-02-06 16:45:15,065 ===> Antiunification demo [Tests, sponge, 3] has 1 result/s
+INFO  2013-02-06 16:45:20,373 ===> Antiunification demo [Tests, sponge, 3] has 1 result/s
+INFO  2013-02-06 16:45:26,314 ===> Antiunification demo [Tests, sponge, 3] has 1 result/s
+INFO  2013-02-06 16:45:30,056 ===> Antiunification demo [Tests, sponge, 3] has 1 result/s
+INFO  2013-02-06 16:45:38,130 ===> Antiunification demo [Tests, sponge, 3] has 22 result/s
+INFO  2013-02-06 16:45:52,533 ===> Antiunification demo [Tests, trains, 9] has 15 result/s
+INFO  2013-02-06 16:45:56,861 ===> Amalgam demo null has 15 result/s
+INFO  2013-02-06 16:46:08,189 ===> Amalgam demo [Tests, TRAINS_82_DATASET, 0] has 2 result/s
+INFO  2013-02-06 16:46:12,422 ===> Amalgam demo [Tests, TRAINS_82_DATASET, 0] has 2 result/s
+INFO  2013-02-06 16:52:12,461 ===> Execution started Wed Feb 06 16:52:12 CET 2013
+INFO  2013-02-06 16:52:42,891 ===> Amalgam demo [Tests, TRAINS_82_DATASET, 0] has 2 result/s
+INFO  2013-02-06 16:52:48,148 ===> Amalgam demo [Tests, TRAINS_82_DATASET, 0] has 2 result/s
+INFO  2013-02-06 16:52:55,614 ===> Amalgam demo [Tests, TRAINS_82_DATASET, 3] has 1 result/s
+INFO  2013-02-06 17:05:09,966 ===> Execution started Wed Feb 06 17:05:09 CET 2013
+INFO  2013-02-06 17:08:42,268 ===> Execution started Wed Feb 06 17:08:42 CET 2013
+INFO  2013-02-06 17:09:57,386 ===> Execution started Wed Feb 06 17:09:57 CET 2013
+INFO  2013-02-06 17:10:08,230 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 17:10:10,864 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-06 17:10:14,265 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-18] has 1 result/s
+INFO  2013-02-06 17:10:30,721 ===> Antiunification demo [Demos, TRAINS_DATASET, tr3] has 21 result/s
+INFO  2013-02-06 17:10:39,967 ===> Antiunification demo trains has 3 result/s
+INFO  2013-02-06 17:12:17,292 ===> Execution started Wed Feb 06 17:12:17 CET 2013
+INFO  2013-02-06 17:13:45,675 ===> Execution started Wed Feb 06 17:13:45 CET 2013
+INFO  2013-02-06 17:14:06,977 ===> Antiunification demo [Demos, TRAINS_DATASET, tr3] has 21 result/s
+INFO  2013-02-06 17:14:30,180 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-99] has 1 result/s
+INFO  2013-02-06 17:14:43,296 ===> Execution started Wed Feb 06 17:14:43 CET 2013
+INFO  2013-02-06 17:19:29,045 ===> Execution started Wed Feb 06 17:19:29 CET 2013
+INFO  2013-02-06 17:21:19,521 ===> Execution started Wed Feb 06 17:21:19 CET 2013
+INFO  2013-02-06 17:27:27,186 ===> Execution started Wed Feb 06 17:27:27 CET 2013
+INFO  2013-02-06 17:28:56,112 ===> Execution started Wed Feb 06 17:28:56 CET 2013
+INFO  2013-02-06 17:30:10,241 ===> Execution started Wed Feb 06 17:30:10 CET 2013
+INFO  2013-02-06 17:33:49,864 ===> Execution started Wed Feb 06 17:33:49 CET 2013
+INFO  2013-02-07 09:54:52,670 ===> Execution started Thu Feb 07 09:54:52 CET 2013
+INFO  2013-02-07 09:55:53,482 ===> Execution started Thu Feb 07 09:55:53 CET 2013
+INFO  2013-02-07 09:56:40,909 ===> Execution started Thu Feb 07 09:56:40 CET 2013
+INFO  2013-02-07 10:08:33,653 ===> Execution started Thu Feb 07 10:08:33 CET 2013
+INFO  2013-02-07 10:09:30,821 ===> Execution started Thu Feb 07 10:09:30 CET 2013
+INFO  2013-02-07 10:11:09,543 ===> Execution started Thu Feb 07 10:11:09 CET 2013
+INFO  2013-02-07 10:12:32,210 ===> Execution started Thu Feb 07 10:12:32 CET 2013
+INFO  2013-02-07 10:13:12,125 ===> Execution started Thu Feb 07 10:13:12 CET 2013
+INFO  2013-02-07 10:13:39,889 ===> Execution started Thu Feb 07 10:13:39 CET 2013
+INFO  2013-02-07 10:14:54,185 ===> Execution started Thu Feb 07 10:14:54 CET 2013
+INFO  2013-02-07 10:18:08,864 ===> Execution started Thu Feb 07 10:18:08 CET 2013
+INFO  2013-02-07 10:18:58,179 ===> Execution started Thu Feb 07 10:18:58 CET 2013
+INFO  2013-02-07 10:20:23,831 ===> Execution started Thu Feb 07 10:20:23 CET 2013
+INFO  2013-02-07 10:21:03,184 ===> Execution started Thu Feb 07 10:21:03 CET 2013
+INFO  2013-02-07 10:21:29,687 ===> Execution started Thu Feb 07 10:21:29 CET 2013
+INFO  2013-02-07 10:21:52,447 ===> Execution started Thu Feb 07 10:21:52 CET 2013
+INFO  2013-02-07 10:23:00,873 ===> Execution started Thu Feb 07 10:23:00 CET 2013
+INFO  2013-02-07 10:24:02,690 ===> Execution started Thu Feb 07 10:24:02 CET 2013
+INFO  2013-02-07 10:25:44,164 ===> Execution started Thu Feb 07 10:25:44 CET 2013
+INFO  2013-02-07 10:26:21,767 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-07 10:26:22,062 ===> OK
+INFO  2013-02-07 10:27:15,250 ===> Execution started Thu Feb 07 10:27:15 CET 2013
+INFO  2013-02-07 10:27:48,280 ===> Execution started Thu Feb 07 10:27:48 CET 2013
+INFO  2013-02-07 10:27:54,624 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-02-07 10:28:00,142 ===> Unification demo sponge has 1 result/s
+INFO  2013-02-07 10:28:03,418 ===> Unification demo trains has 1 result/s
+INFO  2013-02-07 10:28:07,753 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-07 10:28:13,187 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-99] has 1 result/s
+INFO  2013-02-07 10:28:17,518 ===> Unification demo family has 1 result/s
+INFO  2013-02-07 10:29:00,185 ===> Execution started Thu Feb 07 10:29:00 CET 2013
+INFO  2013-02-07 10:30:51,196 ===> Unification demo [Demos, TRAINS_DATASET, tr9] has 1 result/s
+INFO  2013-02-07 10:31:36,223 ===> Execution started Thu Feb 07 10:31:36 CET 2013
+INFO  2013-02-07 10:31:52,995 ===> Execution started Thu Feb 07 10:31:52 CET 2013
+INFO  2013-02-07 10:33:22,992 ===> Execution started Thu Feb 07 10:33:22 CET 2013
+INFO  2013-02-07 10:40:15,955 ===> Execution started Thu Feb 07 10:40:15 CET 2013
+INFO  2013-02-07 10:40:40,116 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-02-07 10:40:47,441 ===> Feature Term 1 NOT SUBSUMES Feature Term 2
+INFO  2013-02-07 10:40:58,067 ===> Antiunification demo trains has 3 result/s
+INFO  2013-02-07 10:42:02,867 ===> Amalgam demo TRAINS_82_DATASET has 1 result/s
+INFO  2013-02-07 10:42:09,040 ===> Amalgam demo TRAINS_82_DATASET has 1 result/s
+INFO  2013-02-07 10:42:17,130 ===> Amalgam demo [Demos, TRAINS_DATASET, tr9] has 1 result/s
+INFO  2013-02-07 11:05:09,470 ===> Execution started Thu Feb 07 11:05:09 CET 2013
+INFO  2013-02-07 11:05:15,685 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-07 11:10:36,136 ===> Execution started Thu Feb 07 11:10:36 CET 2013
+INFO  2013-02-07 11:10:40,026 ===> Lazy methods: loading DEMOSPONGIAE_280_DATASET
+INFO  2013-02-07 16:37:37,591 ===> Execution started Thu Feb 07 16:37:37 CET 2013
+INFO  2013-02-07 16:37:46,720 ===> Unification demo [Demos, TRAINS_DATASET, tr6] has 1 result/s
+INFO  2013-02-07 16:38:41,220 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-8] has 1 result/s
+INFO  2013-02-07 16:48:04,299 ===> Execution started Thu Feb 07 16:48:04 CET 2013
+INFO  2013-02-07 16:48:37,478 ===> Antiunification demo trains has 2 result/s
+INFO  2013-02-08 10:00:03,335 ===> Execution started Fri Feb 08 10:00:03 CET 2013
+INFO  2013-02-08 10:01:38,750 ===> Execution started Fri Feb 08 10:01:38 CET 2013
+INFO  2013-02-08 10:02:42,712 ===> Execution started Fri Feb 08 10:02:42 CET 2013
+INFO  2013-02-08 10:21:48,583 ===> Execution started Fri Feb 08 10:21:48 CET 2013
+INFO  2013-02-08 10:24:10,430 ===> Execution started Fri Feb 08 10:24:10 CET 2013
+INFO  2013-02-08 10:25:07,488 ===> Execution started Fri Feb 08 10:25:07 CET 2013
+INFO  2013-02-08 10:30:54,067 ===> Execution started Fri Feb 08 10:30:54 CET 2013
+INFO  2013-02-08 10:45:03,093 ===> Execution started Fri Feb 08 10:45:03 CET 2013
+INFO  2013-02-08 10:46:07,783 ===> Execution started Fri Feb 08 10:46:07 CET 2013
+INFO  2013-02-08 10:46:38,044 ===> Execution started Fri Feb 08 10:46:38 CET 2013
+INFO  2013-02-08 10:49:32,667 ===> Execution started Fri Feb 08 10:49:32 CET 2013
+INFO  2013-02-08 10:49:43,145 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-08 10:49:43,470 ===> OK
+INFO  2013-02-08 10:49:46,229 ===> Case e10
+INFO  2013-02-08 10:59:35,889 ===> Execution started Fri Feb 08 10:59:35 CET 2013
+INFO  2013-02-08 11:00:13,613 ===> Execution started Fri Feb 08 11:00:13 CET 2013
+INFO  2013-02-08 11:10:26,457 ===> Execution started Fri Feb 08 11:10:26 CET 2013
+INFO  2013-02-08 11:11:01,054 ===> Execution started Fri Feb 08 11:11:01 CET 2013
+INFO  2013-02-08 11:11:56,119 ===> Execution started Fri Feb 08 11:11:56 CET 2013
+INFO  2013-02-08 11:12:08,182 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-08 11:12:40,650 ===> Antiunification demo [Demos, TRAINS_DATASET, tr1] has 43 result/s
+INFO  2013-02-08 11:13:22,113 ===> Antiunification demo sponge has 1 result/s
+INFO  2013-02-08 11:13:28,521 ===> Antiunification demo [Demos, TRAINS_DATASET, tr8] has 4 result/s
+INFO  2013-02-08 11:14:44,577 ===> Execution started Fri Feb 08 11:14:44 CET 2013
+INFO  2013-02-08 11:15:18,467 ===> Antiunification demo [Demos, TRAINS_DATASET, tr10] has 5 result/s
+INFO  2013-02-08 11:17:16,399 ===> Execution started Fri Feb 08 11:17:16 CET 2013
+INFO  2013-02-08 11:17:29,943 ===> Antiunification demo trains has 2 result/s
+INFO  2013-02-08 11:19:04,922 ===> Execution started Fri Feb 08 11:19:04 CET 2013
+INFO  2013-02-08 11:21:18,371 ===> Execution started Fri Feb 08 11:21:18 CET 2013
+INFO  2013-02-08 11:21:51,641 ===> Execution started Fri Feb 08 11:21:51 CET 2013
+INFO  2013-02-08 11:21:51,663 ===> Execution started Fri Feb 08 11:21:51 CET 2013
+INFO  2013-02-08 11:22:01,335 ===> Amalgam demo has no results
+INFO  2013-02-08 11:23:52,919 ===> Execution started Fri Feb 08 11:23:52 CET 2013
+INFO  2013-02-08 11:24:10,025 ===> Amalgam demo has no results
+INFO  2013-02-08 11:24:13,070 ===> Amalgam demo has no results
+INFO  2013-02-08 11:24:15,225 ===> Amalgam demo has no results
+INFO  2013-02-08 11:24:17,586 ===> Amalgam demo has no results
+INFO  2013-02-08 11:24:19,641 ===> Amalgam demo has no results
+INFO  2013-02-08 11:24:21,900 ===> Amalgam demo has no results
+INFO  2013-02-08 11:24:25,602 ===> Amalgam demo has no results
+INFO  2013-02-08 11:24:30,435 ===> Amalgam demo has no results
+INFO  2013-02-08 11:24:34,249 ===> Amalgam demo has no results
+INFO  2013-02-08 11:24:37,243 ===> Amalgam demo has no results
+INFO  2013-02-08 11:27:31,253 ===> Execution started Fri Feb 08 11:27:31 CET 2013
+INFO  2013-02-08 11:28:56,672 ===> Execution started Fri Feb 08 11:28:56 CET 2013
+INFO  2013-02-08 11:29:59,880 ===> Execution started Fri Feb 08 11:29:59 CET 2013
+INFO  2013-02-08 11:30:54,721 ===> Execution started Fri Feb 08 11:30:54 CET 2013
+INFO  2013-02-08 11:52:36,600 ===> Execution started Fri Feb 08 11:52:36 CET 2013
+INFO  2013-02-08 11:53:00,834 ===> Amalgam demo TRAINS_82_DATASET has 1 result/s
+INFO  2013-02-08 12:03:41,302 ===> Execution started Fri Feb 08 12:03:41 CET 2013
+INFO  2013-02-08 12:05:46,576 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-239] has 1 result/s
+INFO  2013-02-08 12:35:35,822 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-37] has 1 result/s
+INFO  2013-02-11 10:14:53,356 ===> Execution started Mon Feb 11 10:14:53 CET 2013
+INFO  2013-02-11 10:20:43,640 ===> Execution started Mon Feb 11 10:20:43 CET 2013
+INFO  2013-02-11 10:42:06,831 ===> Execution started Mon Feb 11 10:42:06 CET 2013
+INFO  2013-02-11 10:42:24,585 ===> Execution started Mon Feb 11 10:42:24 CET 2013
+INFO  2013-02-11 10:44:26,334 ===> Antiunification demo [Demos, TRAINS_DATASET, tr9] has 9 result/s
+INFO  2013-02-11 10:53:11,639 ===> Execution started Mon Feb 11 10:53:11 CET 2013
+INFO  2013-02-11 11:17:52,620 ===> Execution started Mon Feb 11 11:17:52 CET 2013
+INFO  2013-02-11 11:29:04,837 ===> Execution started Mon Feb 11 11:29:04 CET 2013
+INFO  2013-02-11 11:30:25,133 ===> Execution started Mon Feb 11 11:30:25 CET 2013
+INFO  2013-02-11 12:09:39,409 ===> Execution started Mon Feb 11 12:09:39 CET 2013
+INFO  2013-02-11 15:53:44,752 ===> Execution started Mon Feb 11 15:53:44 CET 2013
+INFO  2013-02-11 15:53:48,707 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-11 15:53:49,053 ===> OK
+INFO  2013-02-11 15:53:50,613 ===> Case e9
+INFO  2013-02-11 15:54:00,592 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-11 15:54:04,772 ===> Loading FINANCIAL  ...
+INFO  2013-02-11 15:54:06,747 ===> OK
+INFO  2013-02-11 15:54:13,101 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-11 15:54:18,013 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-11 15:54:24,493 ===> Case [sp-0] is from class [astrophorida] according to KNN
+INFO  2013-02-11 15:54:24,499 ===> Case sp-0
+INFO  2013-02-11 15:54:31,959 ===> Case [sp-124] is from class [hadromerida] according to LID
+INFO  2013-02-11 15:54:31,960 ===> Case sp-124
+INFO  2013-02-11 15:57:12,297 ===> Execution started Mon Feb 11 15:57:12 CET 2013
+INFO  2013-02-11 15:57:15,079 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-11 16:12:27,333 ===> Execution started Mon Feb 11 16:12:27 CET 2013
+INFO  2013-02-11 16:12:30,467 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-11 16:12:30,746 ===> OK
+INFO  2013-02-11 16:12:32,516 ===> Case tr9
+INFO  2013-02-11 16:12:39,887 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-11 16:12:46,034 ===> Unification demo [Demos, TRAINS_DATASET, tr6] has 0 result/s
+INFO  2013-02-11 16:12:51,650 ===> Unification demo [Demos, TRAINS_DATASET, tr5] has 0 result/s
+INFO  2013-02-11 16:13:00,777 ===> Unification demo [Demos, TRAINS_DATASET, tr9] has 0 result/s
+INFO  2013-02-11 16:13:07,336 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-11 16:13:07,543 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-11 16:13:08,657 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-11 16:13:11,328 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-11 16:13:18,099 ===> Antiunification demo [Demos, TRAINS_DATASET, tr8] has 12 result/s
+INFO  2013-02-12 12:25:05,062 ===> Execution started Tue Feb 12 12:25:05 CET 2013
+INFO  2013-02-12 12:39:42,853 ===> Execution started Tue Feb 12 12:39:42 CET 2013
+INFO  2013-02-12 12:43:28,159 ===> Execution started Tue Feb 12 12:43:28 CET 2013
+INFO  2013-02-12 12:43:50,163 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-239] has 1 result/s
+INFO  2013-02-12 12:46:11,819 ===> Execution started Tue Feb 12 12:46:11 CET 2013
+INFO  2013-02-12 12:46:27,333 ===> Antiunification demo trains has 2 result/s
+INFO  2013-02-12 13:00:45,005 ===> Execution started Tue Feb 12 13:00:45 CET 2013
+INFO  2013-02-12 13:01:03,580 ===> Antiunification demo sponge has 1 result/s
+INFO  2013-02-12 13:01:28,646 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-12 13:06:12,992 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-12 13:06:24,810 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-12 13:09:08,799 ===> Execution started Tue Feb 12 13:09:08 CET 2013
+INFO  2013-02-12 13:16:16,581 ===> Lazy methods: loading FINANCIAL 
+INFO  2013-02-12 13:16:21,576 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-02-12 13:16:29,791 ===> Case [e3] is from class [is-uncle] according to LID
+INFO  2013-02-12 13:16:29,792 ===> Case e3
+INFO  2013-02-12 13:19:01,753 ===> Execution started Tue Feb 12 13:19:01 CET 2013
+INFO  2013-02-12 13:19:06,019 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-02-12 13:19:10,180 ===> Case [e8] is from class [is-not-uncle] according to RefinementLID
+INFO  2013-02-12 13:19:10,181 ===> Case e8
+INFO  2013-02-12 13:22:48,708 ===> Execution started Tue Feb 12 13:22:48 CET 2013
+INFO  2013-02-12 13:22:52,777 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-02-12 13:23:03,414 ===> Case [e9] is from class [is-uncle] according to LID
+INFO  2013-02-12 13:23:03,414 ===> Case e9
+INFO  2013-02-12 13:25:54,050 ===> Execution started Tue Feb 12 13:25:54 CET 2013
+INFO  2013-02-12 13:25:56,896 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-12 13:25:57,231 ===> OK
+INFO  2013-02-12 13:25:58,652 ===> Case e2
+INFO  2013-02-12 13:26:00,046 ===> Case e29
+INFO  2013-02-12 13:26:01,115 ===> Case e4
+INFO  2013-02-12 13:26:06,300 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-02-12 13:26:09,871 ===> Case [e8] is from class [is-not-uncle] according to LID
+INFO  2013-02-12 13:26:49,832 ===> Execution started Tue Feb 12 13:26:49 CET 2013
+INFO  2013-02-12 13:26:59,134 ===> Antiunification demo trains has 2 result/s
+INFO  2013-02-12 13:28:30,712 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-239] has 1 result/s
+INFO  2013-02-12 14:28:36,914 ===> Execution started Tue Feb 12 14:28:36 CET 2013
+INFO  2013-02-12 14:37:16,908 ===> Execution started Tue Feb 12 14:37:16 CET 2013
+INFO  2013-02-12 14:37:33,800 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-239] has 1 result/s
+INFO  2013-02-12 14:39:22,618 ===> Execution started Tue Feb 12 14:39:22 CET 2013
+INFO  2013-02-12 14:39:31,136 ===> Unification demo [Demos, TRAINS_DATASET, tr9] has 2 result/s
+INFO  2013-02-12 14:52:18,941 ===> Execution started Tue Feb 12 14:52:18 CET 2013
+INFO  2013-02-12 15:18:19,388 ===> Execution started Tue Feb 12 15:18:19 CET 2013
+INFO  2013-02-12 15:18:36,507 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-1] has 1 result/s
+INFO  2013-02-12 15:19:49,932 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-8] has 1 result/s
+INFO  2013-02-13 11:13:47,267 ===> Execution started Wed Feb 13 11:13:47 CET 2013
+INFO  2013-02-13 11:13:53,348 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-13 11:13:53,829 ===> OK
+INFO  2013-02-13 11:13:55,431 ===> Case e22
+INFO  2013-02-13 11:13:59,030 ===> Case e21
+INFO  2013-02-13 11:14:01,785 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-13 11:14:01,982 ===> OK
+INFO  2013-02-13 11:14:02,696 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-13 11:14:02,901 ===> OK
+INFO  2013-02-13 11:14:04,290 ===> Case tr10
+INFO  2013-02-13 11:14:47,413 ===> Execution started Wed Feb 13 11:14:47 CET 2013
+INFO  2013-02-13 11:14:50,442 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-13 11:14:50,774 ===> OK
+INFO  2013-02-13 11:14:52,016 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-13 11:14:52,227 ===> OK
+INFO  2013-02-13 11:14:53,818 ===> Case tr1
+INFO  2013-02-13 11:16:10,436 ===> Execution started Wed Feb 13 11:16:10 CET 2013
+INFO  2013-02-13 11:18:51,623 ===> Execution started Wed Feb 13 11:18:51 CET 2013
+INFO  2013-02-13 11:19:06,157 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-13 11:19:06,565 ===> OK
+INFO  2013-02-13 11:19:08,421 ===> Case e5
+INFO  2013-02-13 11:19:11,152 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-13 11:19:11,378 ===> OK
+INFO  2013-02-13 11:19:12,888 ===> Case tr6
+INFO  2013-02-13 11:20:27,254 ===> Execution started Wed Feb 13 11:20:27 CET 2013
+INFO  2013-02-13 11:20:32,119 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-13 11:20:32,750 ===> OK
+INFO  2013-02-13 11:20:34,722 ===> Case train-problem-64
+INFO  2013-02-13 11:21:19,977 ===> Execution started Wed Feb 13 11:21:19 CET 2013
+INFO  2013-02-13 11:21:24,467 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-13 11:21:25,139 ===> OK
+INFO  2013-02-13 11:21:27,449 ===> Case train-problem-40
+INFO  2013-02-13 11:23:04,831 ===> Execution started Wed Feb 13 11:23:04 CET 2013
+INFO  2013-02-13 11:23:08,136 ===> Loading TRAINS_900_DATASET ...
+INFO  2013-02-13 11:23:10,887 ===> OK
+INFO  2013-02-13 11:23:19,330 ===> Case train-b-problem-291
+INFO  2013-02-13 11:23:41,042 ===> Loading TOXICOLOGY_DATASET_MRATS  ...
+INFO  2013-02-13 11:23:44,102 ===> OK
+INFO  2013-02-13 11:23:46,689 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-13 11:23:47,123 ===> OK
+INFO  2013-02-13 11:23:49,516 ===> Case train-problem-41
+INFO  2013-02-13 11:25:06,715 ===> Execution started Wed Feb 13 11:25:06 CET 2013
+INFO  2013-02-13 11:25:20,145 ===> Execution started Wed Feb 13 11:25:20 CET 2013
+INFO  2013-02-13 11:25:26,941 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-13 11:25:27,544 ===> OK
+INFO  2013-02-13 11:25:29,780 ===> Case train-problem-9
+INFO  2013-02-13 11:26:17,597 ===> Execution started Wed Feb 13 11:26:17 CET 2013
+INFO  2013-02-13 11:26:26,711 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-13 11:26:27,350 ===> OK
+INFO  2013-02-13 11:26:29,554 ===> Case train-problem-48
+INFO  2013-02-13 11:32:48,786 ===> Execution started Wed Feb 13 11:32:48 CET 2013
+INFO  2013-02-13 11:32:58,913 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-13 11:32:59,301 ===> OK
+INFO  2013-02-13 11:33:01,446 ===> Case e1
+INFO  2013-02-13 11:33:03,249 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-13 11:33:03,443 ===> OK
+INFO  2013-02-13 11:33:05,079 ===> Case tr7
+INFO  2013-02-13 11:35:03,286 ===> Execution started Wed Feb 13 11:35:03 CET 2013
+INFO  2013-02-13 11:35:07,378 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-13 11:35:07,984 ===> OK
+INFO  2013-02-13 11:35:11,014 ===> Case train-problem-46
+INFO  2013-02-13 11:35:13,340 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-13 11:35:13,744 ===> OK
+INFO  2013-02-13 11:35:15,365 ===> Loading TRAINS_900_DATASET ...
+INFO  2013-02-13 11:35:17,691 ===> OK
+INFO  2013-02-13 11:35:32,865 ===> Execution started Wed Feb 13 11:35:32 CET 2013
+INFO  2013-02-13 11:35:37,168 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-13 11:35:37,528 ===> OK
+INFO  2013-02-13 11:35:39,151 ===> Case tr2
+INFO  2013-02-13 11:35:51,808 ===> Case tr2
+INFO  2013-02-13 11:35:54,338 ===> Case tr9
+INFO  2013-02-13 11:35:56,137 ===> Case tr3
+INFO  2013-02-13 11:44:04,156 ===> Execution started Wed Feb 13 11:44:04 CET 2013
+INFO  2013-02-13 11:44:08,295 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-13 11:44:08,670 ===> OK
+INFO  2013-02-13 11:44:10,131 ===> Case tr6
+INFO  2013-02-13 11:49:23,758 ===> Execution started Wed Feb 13 11:49:23 CET 2013
+INFO  2013-02-13 11:49:26,853 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-13 11:49:27,203 ===> OK
+INFO  2013-02-13 11:49:28,260 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-13 11:49:28,461 ===> OK
+INFO  2013-02-13 11:49:30,019 ===> Case tr2
+INFO  2013-02-13 11:57:45,628 ===> Execution started Wed Feb 13 11:57:45 CET 2013
+INFO  2013-02-13 12:00:52,398 ===> Execution started Wed Feb 13 12:00:52 CET 2013
+INFO  2013-02-13 12:02:07,410 ===> Execution started Wed Feb 13 12:02:07 CET 2013
+INFO  2013-02-13 17:22:31,245 ===> Execution started Wed Feb 13 17:22:31 CET 2013
+INFO  2013-02-13 17:22:41,739 ===> Antiunification demo trains has 2 result/s
+INFO  2013-02-13 17:39:56,367 ===> Execution started Wed Feb 13 17:39:56 CET 2013
+INFO  2013-02-13 17:40:04,191 ===> Antiunification demo sponge has 1 result/s
+INFO  2013-02-13 17:40:17,956 ===> Unification demo sponge has 1 result/s
+INFO  2013-02-14 11:01:58,075 ===> Execution started Thu Feb 14 11:01:58 CET 2013
+INFO  2013-02-14 12:10:09,646 ===> Execution started Thu Feb 14 12:10:09 CET 2013
+INFO  2013-02-14 12:10:22,048 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-105] has 1 result/s
+INFO  2013-02-14 12:26:23,375 ===> Execution started Thu Feb 14 12:26:23 CET 2013
+INFO  2013-02-14 12:27:35,861 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-107] has 1 result/s
+INFO  2013-02-14 14:59:45,787 ===> Execution started Thu Feb 14 14:59:45 CET 2013
+INFO  2013-02-14 14:59:55,527 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-14 15:00:00,047 ===> Antiunification demo trains has 2 result/s
+INFO  2013-02-14 15:00:07,926 ===> Antiunification demo [Demos, TRAINS_DATASET, tr7] has 5 result/s
+INFO  2013-02-14 15:12:15,911 ===> Execution started Thu Feb 14 15:12:15 CET 2013
+INFO  2013-02-14 15:12:58,392 ===> Execution started Thu Feb 14 15:12:58 CET 2013
+INFO  2013-02-14 15:13:05,626 ===> Antiunification demo trains has 2 result/s
+INFO  2013-02-14 15:13:23,857 ===> Antiunification demo [Demos, TRAINS_DATASET, tr9] has 23 result/s
+INFO  2013-02-14 15:25:19,444 ===> Execution started Thu Feb 14 15:25:19 CET 2013
+INFO  2013-02-14 15:25:28,645 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 6 result/s
+INFO  2013-02-14 15:26:12,279 ===> Execution started Thu Feb 14 15:26:12 CET 2013
+INFO  2013-02-14 15:26:20,991 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-14 15:26:25,912 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-14 15:26:38,057 ===> Antiunification demo [Demos, TRAINS_DATASET, tr7] has 11 result/s
+INFO  2013-02-14 15:26:57,141 ===> Execution started Thu Feb 14 15:26:57 CET 2013
+INFO  2013-02-14 15:27:06,785 ===> Antiunification demo [Demos, TRAINS_DATASET, tr9] has 9 result/s
+INFO  2013-02-14 15:30:48,543 ===> Execution started Thu Feb 14 15:30:48 CET 2013
+INFO  2013-02-14 15:31:04,036 ===> Antiunification demo [Demos, TRAINS_DATASET, tr7] has 5 result/s
+INFO  2013-02-14 15:49:03,770 ===> Execution started Thu Feb 14 15:49:03 CET 2013
+INFO  2013-02-14 15:49:34,538 ===> Execution started Thu Feb 14 15:49:34 CET 2013
+INFO  2013-02-14 15:50:06,360 ===> Execution started Thu Feb 14 15:50:06 CET 2013
+INFO  2013-02-14 15:50:54,541 ===> Execution started Thu Feb 14 15:50:54 CET 2013
+INFO  2013-02-14 15:51:18,437 ===> Execution started Thu Feb 14 15:51:18 CET 2013
+INFO  2013-02-14 15:51:31,074 ===> Antiunification demo [Demos, TRAINS_DATASET, tr7] has 5 result/s
+INFO  2013-02-14 15:52:06,821 ===> Antiunification demo [Demos, TRAINS_DATASET, tr3] has 27 result/s
+INFO  2013-02-14 15:56:40,215 ===> Execution started Thu Feb 14 15:56:40 CET 2013
+INFO  2013-02-14 15:56:43,736 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-14 15:56:44,137 ===> OK
+INFO  2013-02-14 15:56:46,329 ===> Case e9
+INFO  2013-02-14 15:56:49,038 ===> Case e12
+INFO  2013-02-14 15:57:08,983 ===> Execution started Thu Feb 14 15:57:08 CET 2013
+INFO  2013-02-14 15:57:56,880 ===> Execution started Thu Feb 14 15:57:56 CET 2013
+INFO  2013-02-14 15:58:00,146 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-14 15:58:00,462 ===> OK
+INFO  2013-02-14 15:58:01,927 ===> Case e12
+INFO  2013-02-14 15:58:28,482 ===> Execution started Thu Feb 14 15:58:28 CET 2013
+INFO  2013-02-14 15:58:34,639 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-14 15:58:34,962 ===> OK
+INFO  2013-02-14 15:58:36,813 ===> Case e1
+INFO  2013-02-14 15:59:07,279 ===> Execution started Thu Feb 14 15:59:07 CET 2013
+INFO  2013-02-14 15:59:10,302 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-14 15:59:10,616 ===> OK
+INFO  2013-02-14 15:59:12,160 ===> Case e7
+INFO  2013-02-14 16:09:00,164 ===> Execution started Thu Feb 14 16:09:00 CET 2013
+INFO  2013-02-14 16:09:03,329 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-14 16:09:03,684 ===> OK
+INFO  2013-02-14 16:09:05,232 ===> Case e8
+INFO  2013-02-14 16:12:52,069 ===> Execution started Thu Feb 14 16:12:52 CET 2013
+INFO  2013-02-14 16:12:55,430 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-14 16:12:55,743 ===> OK
+INFO  2013-02-14 16:12:57,424 ===> Case tr1
+INFO  2013-02-14 16:12:58,793 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-14 16:12:58,974 ===> OK
+INFO  2013-02-14 16:13:00,516 ===> Case e6
+INFO  2013-02-14 16:16:45,131 ===> Execution started Thu Feb 14 16:16:45 CET 2013
+INFO  2013-02-14 16:16:48,319 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-14 16:16:48,640 ===> OK
+INFO  2013-02-14 16:16:50,099 ===> Case e2
+INFO  2013-02-14 16:27:11,894 ===> Execution started Thu Feb 14 16:27:11 CET 2013
+INFO  2013-02-14 16:27:14,691 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-14 16:27:15,004 ===> OK
+INFO  2013-02-14 16:27:16,628 ===> Case e10
+INFO  2013-02-14 16:27:17,609 ===> Case e10
+INFO  2013-02-14 16:27:21,092 ===> Case e10
+INFO  2013-02-15 10:01:18,444 ===> Execution started Fri Feb 15 10:01:18 CET 2013
+INFO  2013-02-15 10:01:21,654 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:01:22,055 ===> OK
+INFO  2013-02-15 10:01:23,909 ===> Case e12
+INFO  2013-02-15 10:24:07,561 ===> Execution started Fri Feb 15 10:24:07 CET 2013
+INFO  2013-02-15 10:24:10,804 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:24:11,125 ===> OK
+INFO  2013-02-15 10:24:12,798 ===> Case e3
+INFO  2013-02-15 10:26:13,712 ===> Execution started Fri Feb 15 10:26:13 CET 2013
+INFO  2013-02-15 10:26:16,570 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:26:16,868 ===> OK
+INFO  2013-02-15 10:26:18,484 ===> Case e11
+INFO  2013-02-15 10:26:22,679 ===> Case e1
+INFO  2013-02-15 10:26:23,895 ===> Case e12
+INFO  2013-02-15 10:30:11,913 ===> Execution started Fri Feb 15 10:30:11 CET 2013
+INFO  2013-02-15 10:30:15,049 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:30:15,436 ===> OK
+INFO  2013-02-15 10:30:17,159 ===> Case e1
+INFO  2013-02-15 10:41:56,764 ===> Case e11
+INFO  2013-02-15 10:41:59,553 ===> Case e11
+INFO  2013-02-15 10:42:00,712 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-15 10:42:00,900 ===> OK
+INFO  2013-02-15 10:42:01,927 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:42:02,105 ===> OK
+INFO  2013-02-15 10:42:03,728 ===> Case e7
+INFO  2013-02-15 10:44:26,799 ===> Execution started Fri Feb 15 10:44:26 CET 2013
+INFO  2013-02-15 10:44:29,507 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:44:29,832 ===> OK
+INFO  2013-02-15 10:44:31,308 ===> Case e10
+INFO  2013-02-15 10:44:33,557 ===> Case e2
+INFO  2013-02-15 10:44:35,167 ===> Case e9
+INFO  2013-02-15 10:44:36,001 ===> Case e1
+INFO  2013-02-15 10:44:37,135 ===> Case e6
+INFO  2013-02-15 10:44:38,293 ===> Case e3
+INFO  2013-02-15 10:44:39,488 ===> Case e7
+INFO  2013-02-15 10:45:13,759 ===> Execution started Fri Feb 15 10:45:13 CET 2013
+INFO  2013-02-15 10:45:16,948 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:45:17,262 ===> OK
+INFO  2013-02-15 10:45:18,830 ===> Case e7
+INFO  2013-02-15 10:45:20,211 ===> Case e9
+INFO  2013-02-15 10:45:21,505 ===> Case e5
+INFO  2013-02-15 10:45:22,675 ===> Case e1
+INFO  2013-02-15 10:46:01,694 ===> Execution started Fri Feb 15 10:46:01 CET 2013
+INFO  2013-02-15 10:46:04,401 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:46:04,718 ===> OK
+INFO  2013-02-15 10:46:06,260 ===> Case e2
+INFO  2013-02-15 10:46:07,575 ===> Case e3
+INFO  2013-02-15 10:46:08,329 ===> Case e8
+INFO  2013-02-15 10:46:09,838 ===> Case e7
+INFO  2013-02-15 10:46:10,839 ===> Case e12
+INFO  2013-02-15 10:46:23,408 ===> Execution started Fri Feb 15 10:46:23 CET 2013
+INFO  2013-02-15 10:46:26,677 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:46:26,985 ===> OK
+INFO  2013-02-15 10:46:28,886 ===> Case e11
+INFO  2013-02-15 10:49:43,103 ===> Execution started Fri Feb 15 10:49:43 CET 2013
+INFO  2013-02-15 10:49:45,421 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-15 10:49:45,729 ===> OK
+INFO  2013-02-15 10:49:46,042 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:49:46,214 ===> OK
+INFO  2013-02-15 10:49:47,673 ===> Case e7
+INFO  2013-02-15 10:50:26,290 ===> Execution started Fri Feb 15 10:50:26 CET 2013
+INFO  2013-02-15 10:51:11,923 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:51:12,242 ===> OK
+INFO  2013-02-15 10:51:14,636 ===> Case e11
+INFO  2013-02-15 10:58:51,385 ===> Execution started Fri Feb 15 10:58:51 CET 2013
+INFO  2013-02-15 10:58:54,089 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 10:58:54,410 ===> OK
+INFO  2013-02-15 10:58:55,890 ===> Case e7
+INFO  2013-02-15 11:02:33,858 ===> Execution started Fri Feb 15 11:02:33 CET 2013
+INFO  2013-02-15 11:02:36,526 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 11:02:36,837 ===> OK
+INFO  2013-02-15 11:02:38,374 ===> Case e1
+INFO  2013-02-15 11:02:40,476 ===> Case e1
+INFO  2013-02-15 11:02:41,657 ===> Case e11
+INFO  2013-02-15 11:02:42,984 ===> Case e3
+INFO  2013-02-15 11:02:44,075 ===> Case e5
+INFO  2013-02-15 11:02:45,122 ===> Case e10
+INFO  2013-02-15 11:02:46,305 ===> Case e12
+INFO  2013-02-15 11:02:48,992 ===> Case e4
+INFO  2013-02-15 11:02:51,129 ===> Case e9
+INFO  2013-02-15 11:03:18,214 ===> Execution started Fri Feb 15 11:03:18 CET 2013
+INFO  2013-02-15 11:03:21,122 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 11:03:21,426 ===> OK
+INFO  2013-02-15 11:03:23,047 ===> Case e7
+INFO  2013-02-15 11:04:18,561 ===> Execution started Fri Feb 15 11:04:18 CET 2013
+INFO  2013-02-15 11:04:21,478 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 11:04:21,784 ===> OK
+INFO  2013-02-15 11:04:23,561 ===> Case e11
+INFO  2013-02-15 11:05:14,150 ===> Execution started Fri Feb 15 11:05:14 CET 2013
+INFO  2013-02-15 11:05:17,549 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 11:05:17,881 ===> OK
+INFO  2013-02-15 11:05:19,408 ===> Case e12
+INFO  2013-02-15 11:12:03,916 ===> Execution started Fri Feb 15 11:12:03 CET 2013
+INFO  2013-02-15 11:12:06,862 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-15 11:12:07,182 ===> OK
+INFO  2013-02-15 11:12:08,822 ===> Case e3
+INFO  2013-02-15 11:22:42,127 ===> Execution started Fri Feb 15 11:22:42 CET 2013
+INFO  2013-02-15 11:23:38,756 ===> Execution started Fri Feb 15 11:23:38 CET 2013
+INFO  2013-02-15 11:42:25,868 ===> Execution started Fri Feb 15 11:42:25 CET 2013
+INFO  2013-02-15 11:42:28,323 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-15 11:42:28,665 ===> OK
+INFO  2013-02-15 11:42:29,992 ===> Case e11
+INFO  2013-02-15 11:42:31,753 ===> Loading DEMOSPONGIAE_120_DATASET ...
+INFO  2013-02-15 11:42:32,574 ===> OK
+INFO  2013-02-15 11:42:34,289 ===> Case sp-106
+INFO  2013-02-15 11:42:35,387 ===> Loading ZOOLOGY_DATASET ...
+INFO  2013-02-15 11:42:35,696 ===> OK
+INFO  2013-02-15 11:42:54,422 ===> Case zp-1710
+INFO  2013-02-15 11:42:56,268 ===> Case zp-1769
+INFO  2013-02-15 11:43:02,590 ===> Case zp-1750
+INFO  2013-02-15 11:43:49,380 ===> Execution started Fri Feb 15 11:43:49 CET 2013
+INFO  2013-02-15 11:43:52,092 ===> Loading ZOOLOGY_DATASET ...
+INFO  2013-02-15 11:43:52,510 ===> OK
+INFO  2013-02-15 11:43:57,761 ===> Case zp-1704
+INFO  2013-02-15 11:44:10,048 ===> Execution started Fri Feb 15 11:44:10 CET 2013
+INFO  2013-02-15 11:44:16,480 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-02-15 11:44:20,809 ===> Antiunification demo sponge has 1 result/s
+INFO  2013-02-15 11:44:26,849 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-15 11:44:29,351 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-15 11:44:33,455 ===> Unification demo family has 1 result/s
+INFO  2013-02-15 11:50:29,597 ===> Execution started Fri Feb 15 11:50:29 CET 2013
+INFO  2013-02-15 11:51:34,605 ===> Execution started Fri Feb 15 11:51:34 CET 2013
+INFO  2013-02-15 11:54:23,154 ===> Execution started Fri Feb 15 11:54:23 CET 2013
+INFO  2013-02-15 11:54:35,475 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 6 result/s
+INFO  2013-02-15 12:00:18,121 ===> Execution started Fri Feb 15 12:00:18 CET 2013
+INFO  2013-02-15 12:00:31,686 ===> Antiunification demo [Demos, TRAINS_DATASET, tr5] has 6 result/s
+INFO  2013-02-15 12:01:04,675 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-111] has 1 result/s
+INFO  2013-02-15 12:02:13,149 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-109] has 1 result/s
+INFO  2013-02-15 12:02:38,953 ===> Execution started Fri Feb 15 12:02:38 CET 2013
+INFO  2013-02-15 12:02:48,059 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-106] has 1 result/s
+INFO  2013-02-15 12:04:46,184 ===> Execution started Fri Feb 15 12:04:46 CET 2013
+INFO  2013-02-15 12:04:56,932 ===> Antiunification demo [Demos, TRAINS_DATASET, tr7] has 5 result/s
+INFO  2013-02-15 12:05:06,388 ===> Execution started Fri Feb 15 12:05:06 CET 2013
+INFO  2013-02-15 12:05:16,998 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 6 result/s
+INFO  2013-02-15 12:05:55,001 ===> Execution started Fri Feb 15 12:05:54 CET 2013
+INFO  2013-02-15 12:06:03,999 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-103] has 1 result/s
+INFO  2013-02-15 12:06:14,161 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-111] has 1 result/s
+INFO  2013-02-15 12:06:40,182 ===> Execution started Fri Feb 15 12:06:40 CET 2013
+INFO  2013-02-15 12:06:48,544 ===> Antiunification demo [Demos, TRAINS_DATASET, tr5] has 3 result/s
+INFO  2013-02-15 12:07:34,085 ===> Execution started Fri Feb 15 12:07:34 CET 2013
+INFO  2013-02-15 12:07:45,729 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 3 result/s
+INFO  2013-02-15 12:08:34,623 ===> Execution started Fri Feb 15 12:08:34 CET 2013
+INFO  2013-02-15 12:08:42,880 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 6 result/s
+INFO  2013-02-15 12:08:56,269 ===> Execution started Fri Feb 15 12:08:56 CET 2013
+INFO  2013-02-15 12:09:03,923 ===> Antiunification demo [Demos, TRAINS_DATASET, tr7] has 1 result/s
+INFO  2013-02-15 12:09:15,858 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-105] has 1 result/s
+INFO  2013-02-15 12:28:11,114 ===> Execution started Fri Feb 15 12:28:11 CET 2013
+INFO  2013-02-15 12:28:20,627 ===> Antiunification demo [Demos, TRAINS_DATASET, tr8] has 4 result/s
+INFO  2013-02-15 12:28:32,269 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-100] has 1 result/s
+INFO  2013-02-15 12:30:44,686 ===> Execution started Fri Feb 15 12:30:44 CET 2013
+INFO  2013-02-15 12:30:54,223 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-107] has 1 result/s
+INFO  2013-02-15 12:31:35,088 ===> Execution started Fri Feb 15 12:31:35 CET 2013
+INFO  2013-02-15 12:32:35,347 ===> Execution started Fri Feb 15 12:32:35 CET 2013
+INFO  2013-02-15 13:08:23,755 ===> Execution started Fri Feb 15 13:08:23 CET 2013
+INFO  2013-02-15 13:08:32,419 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-109] has 1 result/s
+INFO  2013-02-15 13:08:40,085 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-106] has 1 result/s
+INFO  2013-02-15 13:08:50,817 ===> Antiunification demo [Demos, TRAINS_DATASET, tr2] has 5 result/s
+INFO  2013-02-15 13:20:15,444 ===> Execution started Fri Feb 15 13:20:15 CET 2013
+INFO  2013-02-15 13:20:20,342 ===> Loading DEMOSPONGIAE_120_DATASET ...
+INFO  2013-02-15 13:20:21,420 ===> OK
+ERROR 2013-02-15 13:21:16,083 ===> Error: java.lang.NullPointerException
+ERROR 2013-02-15 13:21:23,119 ===> Error: java.lang.NullPointerException
+INFO  2013-02-15 13:45:30,403 ===> Execution started Fri Feb 15 13:45:30 CET 2013
+INFO  2013-02-15 13:45:46,738 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-104] has 1 result/s
+INFO  2013-02-15 13:46:24,566 ===> Execution started Fri Feb 15 13:46:24 CET 2013
+INFO  2013-02-15 13:46:36,799 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-102] has 1 result/s
+INFO  2013-02-15 13:47:31,258 ===> Execution started Fri Feb 15 13:47:31 CET 2013
+INFO  2013-02-15 13:48:38,945 ===> Execution started Fri Feb 15 13:48:38 CET 2013
+INFO  2013-02-15 13:48:48,876 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-104] has 1 result/s
+INFO  2013-02-15 13:49:10,560 ===> Execution started Fri Feb 15 13:49:10 CET 2013
+INFO  2013-02-15 13:49:31,032 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-106] has 1 result/s
+INFO  2013-02-15 13:50:26,304 ===> Execution started Fri Feb 15 13:50:26 CET 2013
+INFO  2013-02-15 13:50:34,407 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-104] has 1 result/s
+INFO  2013-02-15 13:50:45,816 ===> Antiunification demo [Demos, TRAINS_DATASET, tr8] has 6 result/s
+INFO  2013-02-15 13:58:37,629 ===> Execution started Fri Feb 15 13:58:37 CET 2013
+INFO  2013-02-15 13:58:46,898 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-107] has 1 result/s
+INFO  2013-02-15 13:58:59,351 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 3 result/s
+INFO  2013-02-18 09:43:47,642 ===> Execution started Mon Feb 18 09:43:47 CET 2013
+INFO  2013-02-18 09:43:57,187 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-18 09:43:57,899 ===> OK
+INFO  2013-02-18 09:43:59,653 ===> Case e12
+INFO  2013-02-18 09:44:01,159 ===> Case e3
+INFO  2013-02-18 09:44:02,251 ===> Loading TOXICOLOGY_DATASET_FRATS  ...
+INFO  2013-02-18 09:44:04,905 ===> OK
+INFO  2013-02-18 09:44:07,161 ===> Case tr-santi-478
+INFO  2013-02-18 09:44:16,379 ===> Loading DEMOSPONGIAE_120_DATASET ...
+INFO  2013-02-18 09:44:17,139 ===> OK
+INFO  2013-02-18 09:44:18,810 ===> Case sp-95
+INFO  2013-02-18 09:44:22,872 ===> Case sp-222
+INFO  2013-02-18 09:51:23,914 ===> Execution started Mon Feb 18 09:51:23 CET 2013
+INFO  2013-02-18 09:51:49,590 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-109] has 1 result/s
+INFO  2013-02-18 09:53:55,797 ===> Execution started Mon Feb 18 09:53:55 CET 2013
+INFO  2013-02-18 09:56:19,749 ===> Execution started Mon Feb 18 09:56:19 CET 2013
+INFO  2013-02-18 09:56:34,341 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-11] has 1 result/s
+INFO  2013-02-18 09:57:42,322 ===> Execution started Mon Feb 18 09:57:42 CET 2013
+INFO  2013-02-18 09:57:51,980 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-105] has 1 result/s
+INFO  2013-02-18 09:58:05,676 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-18 09:58:10,216 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-02-18 09:58:15,201 ===> Unification demo sponge has 1 result/s
+INFO  2013-02-18 09:58:21,788 ===> Antiunification demo sponge has 1 result/s
+INFO  2013-02-18 09:58:36,288 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-18 09:59:02,008 ===> Antiunification demo trains has 2 result/s
+INFO  2013-02-18 09:59:36,981 ===> Execution started Mon Feb 18 09:59:36 CET 2013
+INFO  2013-02-18 09:59:40,588 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-18 09:59:40,896 ===> OK
+INFO  2013-02-18 09:59:42,345 ===> Case e8
+INFO  2013-02-18 09:59:46,901 ===> Feature Term 1 SUBSUMES Feature Term 2
+INFO  2013-02-18 09:59:52,491 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-18 10:00:00,984 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-18 10:00:09,532 ===> Unification demo sponge has 1 result/s
+INFO  2013-02-18 10:00:22,434 ===> Antiunification demo sponge has 1 result/s
+INFO  2013-02-18 10:00:29,867 ===> Antiunification demo trains has 2 result/s
+INFO  2013-02-18 10:00:41,560 ===> Antiunification demo [Demos, TRAINS_DATASET, tr9] has 4 result/s
+INFO  2013-02-18 10:32:55,538 ===> Execution started Mon Feb 18 10:32:55 CET 2013
+INFO  2013-02-18 11:34:02,978 ===> Execution started Mon Feb 18 11:34:02 CET 2013
+INFO  2013-02-18 11:34:10,658 ===> Execution started Mon Feb 18 11:34:10 CET 2013
+INFO  2013-02-18 11:41:53,669 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-18 11:41:57,281 ===> Unification demo trains has 1 result/s
+INFO  2013-02-18 11:56:49,902 ===> Execution started Mon Feb 18 11:56:49 CET 2013
+INFO  2013-02-18 12:03:57,467 ===> Execution started Mon Feb 18 12:03:57 CET 2013
+INFO  2013-02-18 12:07:33,251 ===> Execution started Mon Feb 18 12:07:33 CET 2013
+INFO  2013-02-18 12:07:42,442 ===> Unification demo [Demos, TRAINS_DATASET, tr8] has 0 result/s
+INFO  2013-02-18 12:07:47,084 ===> Unification demo [Demos, TRAINS_DATASET, tr9] has 0 result/s
+INFO  2013-02-18 12:07:52,599 ===> Unification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-103] has 0 result/s
+INFO  2013-02-18 12:07:57,268 ===> Unification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-107] has 0 result/s
+INFO  2013-02-18 12:08:04,474 ===> Antiunification demo sponge has 1 result/s
+INFO  2013-02-18 12:08:10,643 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-110] has 1 result/s
+INFO  2013-02-18 12:08:19,065 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 2 result/s
+INFO  2013-02-18 12:08:42,862 ===> Unification demo [Demos, TRAINS_DATASET, tr8] has 0 result/s
+INFO  2013-02-18 12:08:49,566 ===> Unification demo [Demos, TRAINS_DATASET, tr3] has 0 result/s
+INFO  2013-02-18 12:24:08,622 ===> Execution started Mon Feb 18 12:24:08 CET 2013
+INFO  2013-02-18 12:24:35,413 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-18 12:24:40,607 ===> Antiunification demo [Demos, TRAINS_DATASET, tr8] has 2 result/s
+INFO  2013-02-18 12:24:50,453 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-111] has 1 result/s
+INFO  2013-02-18 12:25:24,280 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-109] has 1 result/s
+INFO  2013-02-18 12:25:43,944 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 3 result/s
+INFO  2013-02-18 12:26:55,711 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 3 result/s
+INFO  2013-02-18 12:28:45,950 ===> Unification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-103] has 0 result/s
+INFO  2013-02-18 16:46:48,813 ===> Execution started Mon Feb 18 16:46:48 CET 2013
+INFO  2013-02-19 11:34:54,630 ===> Execution started Tue Feb 19 11:34:54 CET 2013
+INFO  2013-02-19 11:46:01,856 ===> Execution started Tue Feb 19 11:46:01 CET 2013
+INFO  2013-02-19 11:47:50,222 ===> Execution started Tue Feb 19 11:47:50 CET 2013
+INFO  2013-02-19 12:05:54,279 ===> Execution started Tue Feb 19 12:05:54 CET 2013
+INFO  2013-02-19 12:13:36,702 ===> Execution started Tue Feb 19 12:13:36 CET 2013
+INFO  2013-02-19 12:16:49,817 ===> Execution started Tue Feb 19 12:16:49 CET 2013
+INFO  2013-02-19 12:27:42,326 ===> Execution started Tue Feb 19 12:27:42 CET 2013
+INFO  2013-02-19 12:36:13,079 ===> Execution started Tue Feb 19 12:36:13 CET 2013
+INFO  2013-02-19 12:36:20,785 ===> Unification demo trains has 1 result/s
+INFO  2013-02-19 12:36:23,867 ===> Unification demo [Demos, TRAINS_DATASET, tr9] has 0 result/s
+INFO  2013-02-19 12:36:29,352 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-19 12:36:39,252 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-109] has 1 result/s
+INFO  2013-02-19 12:36:47,816 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-19 12:37:02,937 ===> Amalgam demo TRAINS_82_DATASET has 1 result/s
+INFO  2013-02-19 12:37:11,567 ===> Unification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-108] has 0 result/s
+INFO  2013-02-19 12:37:16,539 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:37:17,030 ===> OK
+INFO  2013-02-19 12:37:18,679 ===> Case e2
+INFO  2013-02-19 12:37:43,797 ===> Execution started Tue Feb 19 12:37:43 CET 2013
+INFO  2013-02-19 12:37:47,297 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:37:47,620 ===> OK
+INFO  2013-02-19 12:38:09,289 ===> Execution started Tue Feb 19 12:38:09 CET 2013
+INFO  2013-02-19 12:38:12,261 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:38:12,595 ===> OK
+INFO  2013-02-19 12:39:00,963 ===> Execution started Tue Feb 19 12:39:00 CET 2013
+INFO  2013-02-19 12:39:03,719 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:39:04,036 ===> OK
+INFO  2013-02-19 12:39:22,247 ===> Execution started Tue Feb 19 12:39:22 CET 2013
+INFO  2013-02-19 12:39:25,083 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:39:25,393 ===> OK
+INFO  2013-02-19 12:42:09,248 ===> Execution started Tue Feb 19 12:42:09 CET 2013
+INFO  2013-02-19 12:42:15,624 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:42:15,944 ===> OK
+INFO  2013-02-19 12:43:04,902 ===> Execution started Tue Feb 19 12:43:04 CET 2013
+INFO  2013-02-19 12:43:07,836 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:43:08,143 ===> OK
+INFO  2013-02-19 12:51:13,425 ===> Execution started Tue Feb 19 12:51:13 CET 2013
+INFO  2013-02-19 12:51:16,507 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:51:16,825 ===> OK
+INFO  2013-02-19 12:52:03,872 ===> Execution started Tue Feb 19 12:52:03 CET 2013
+INFO  2013-02-19 12:52:06,694 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:52:07,019 ===> OK
+INFO  2013-02-19 12:53:25,361 ===> Execution started Tue Feb 19 12:53:25 CET 2013
+INFO  2013-02-19 12:53:28,291 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:53:28,609 ===> OK
+INFO  2013-02-19 12:53:48,490 ===> Execution started Tue Feb 19 12:53:48 CET 2013
+INFO  2013-02-19 12:53:51,230 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:53:51,541 ===> OK
+INFO  2013-02-19 12:54:57,557 ===> Execution started Tue Feb 19 12:54:57 CET 2013
+INFO  2013-02-19 12:55:00,632 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:55:00,956 ===> OK
+INFO  2013-02-19 12:55:36,711 ===> Execution started Tue Feb 19 12:55:36 CET 2013
+INFO  2013-02-19 12:55:39,343 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 12:55:39,666 ===> OK
+INFO  2013-02-19 13:06:22,218 ===> Execution started Tue Feb 19 13:06:22 CET 2013
+INFO  2013-02-19 13:06:25,910 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 13:06:26,240 ===> OK
+INFO  2013-02-19 13:10:23,688 ===> Execution started Tue Feb 19 13:10:23 CET 2013
+INFO  2013-02-19 13:10:26,696 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-19 13:10:27,040 ===> OK
+INFO  2013-02-19 13:11:04,113 ===> Execution started Tue Feb 19 13:11:04 CET 2013
+INFO  2013-02-19 13:11:07,050 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 13:11:07,383 ===> OK
+INFO  2013-02-19 13:11:28,613 ===> Execution started Tue Feb 19 13:11:28 CET 2013
+INFO  2013-02-19 13:11:31,373 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 13:11:31,698 ===> OK
+INFO  2013-02-19 13:11:52,201 ===> Execution started Tue Feb 19 13:11:52 CET 2013
+INFO  2013-02-19 13:11:54,931 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 13:11:55,245 ===> OK
+INFO  2013-02-19 13:14:01,397 ===> Execution started Tue Feb 19 13:14:01 CET 2013
+INFO  2013-02-19 13:14:04,386 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 13:14:04,694 ===> OK
+INFO  2013-02-19 13:14:38,241 ===> Execution started Tue Feb 19 13:14:38 CET 2013
+INFO  2013-02-19 13:14:41,657 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 13:14:42,019 ===> OK
+INFO  2013-02-19 13:15:11,866 ===> Execution started Tue Feb 19 13:15:11 CET 2013
+INFO  2013-02-19 13:15:14,519 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 13:15:14,845 ===> OK
+INFO  2013-02-19 13:15:17,889 ===> Loading DEMOSPONGIAE_120_DATASET ...
+INFO  2013-02-19 13:15:18,763 ===> OK
+INFO  2013-02-19 13:15:24,691 ===> Loading RIU_STORIES ...
+INFO  2013-02-19 13:15:24,936 ===> OK
+INFO  2013-02-19 13:20:34,140 ===> Execution started Tue Feb 19 13:20:34 CET 2013
+INFO  2013-02-19 13:20:38,635 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-19 13:20:38,962 ===> OK
+INFO  2013-02-19 14:27:48,858 ===> Execution started Tue Feb 19 14:27:48 CET 2013
+INFO  2013-02-19 14:27:51,465 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-19 14:27:51,808 ===> OK
+INFO  2013-02-19 14:30:31,294 ===> Execution started Tue Feb 19 14:30:31 CET 2013
+INFO  2013-02-19 15:26:46,023 ===> Execution started Tue Feb 19 15:26:46 CET 2013
+INFO  2013-02-19 15:26:46,840 ===> Execution started Tue Feb 19 15:26:46 CET 2013
+INFO  2013-02-19 15:26:51,293 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-19 15:26:51,630 ===> OK
+INFO  2013-02-19 15:27:00,728 ===> Antiunification demo [Demos, TRAINS_DATASET, tr7] has 3 result/s
+INFO  2013-02-19 15:27:31,201 ===> Execution started Tue Feb 19 15:27:31 CET 2013
+INFO  2013-02-19 15:27:41,895 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 2 result/s
+INFO  2013-02-19 15:29:33,052 ===> Execution started Tue Feb 19 15:29:33 CET 2013
+INFO  2013-02-19 15:29:59,820 ===> Execution started Tue Feb 19 15:29:59 CET 2013
+INFO  2013-02-19 15:30:14,278 ===> Antiunification demo trains has 1 result/s
+INFO  2013-02-19 15:30:18,598 ===> Antiunification demo [Demos, TRAINS_DATASET, tr7] has 2 result/s
+INFO  2013-02-19 15:30:23,293 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-96] has 1 result/s
+INFO  2013-02-20 09:59:49,050 ===> Execution started Wed Feb 20 09:59:49 CET 2013
+INFO  2013-02-20 10:00:03,979 ===> Antiunification demo [Demos, TRAINS_DATASET, tr9] has 4 result/s
+INFO  2013-02-20 10:00:11,825 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-106] has 1 result/s
+INFO  2013-02-20 10:00:40,289 ===> Amalgam demo TRAINS_82_DATASET has 2 result/s
+INFO  2013-02-20 10:01:36,284 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-20 10:10:01,701 ===> Execution started Wed Feb 20 10:10:01 CET 2013
+INFO  2013-02-20 10:25:53,274 ===> Execution started Wed Feb 20 10:25:53 CET 2013
+INFO  2013-02-20 11:01:16,618 ===> Execution started Wed Feb 20 11:01:16 CET 2013
+INFO  2013-02-20 11:01:20,695 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-20 11:01:21,095 ===> OK
+INFO  2013-02-20 11:01:23,320 ===> Case e23
+INFO  2013-02-20 11:01:45,178 ===> Unification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-108] has 0 result/s
+INFO  2013-02-20 11:01:53,704 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-11] has 1 result/s
+INFO  2013-02-20 11:02:19,388 ===> Amalgam demo TRAINS_82_DATASET has 1 result/s
+INFO  2013-02-20 11:22:50,973 ===> Execution started Wed Feb 20 11:22:50 CET 2013
+INFO  2013-02-20 11:22:53,660 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:22:54,022 ===> OK
+INFO  2013-02-20 11:23:05,793 ===> Execution started Wed Feb 20 11:23:05 CET 2013
+INFO  2013-02-20 11:23:09,680 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:23:10,009 ===> OK
+INFO  2013-02-20 11:23:32,017 ===> Execution started Wed Feb 20 11:23:32 CET 2013
+INFO  2013-02-20 11:23:35,769 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:23:36,095 ===> OK
+INFO  2013-02-20 11:25:19,497 ===> Execution started Wed Feb 20 11:25:19 CET 2013
+INFO  2013-02-20 11:25:22,217 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:25:22,477 ===> OK
+INFO  2013-02-20 11:25:50,660 ===> Execution started Wed Feb 20 11:25:50 CET 2013
+INFO  2013-02-20 11:25:53,752 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:25:54,060 ===> OK
+INFO  2013-02-20 11:26:52,159 ===> Execution started Wed Feb 20 11:26:52 CET 2013
+INFO  2013-02-20 11:26:54,873 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:26:55,223 ===> OK
+INFO  2013-02-20 11:27:16,905 ===> Execution started Wed Feb 20 11:27:16 CET 2013
+INFO  2013-02-20 11:27:19,702 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:27:32,932 ===> Execution started Wed Feb 20 11:27:32 CET 2013
+INFO  2013-02-20 11:27:35,847 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:27:35,956 ===> OK
+INFO  2013-02-20 11:28:06,262 ===> Execution started Wed Feb 20 11:28:06 CET 2013
+INFO  2013-02-20 11:28:08,888 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:28:09,192 ===> OK
+INFO  2013-02-20 11:28:12,566 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-20 11:28:12,785 ===> OK
+INFO  2013-02-20 11:28:14,604 ===> Loading ZOOLOGY_DATASET ...
+INFO  2013-02-20 11:28:14,883 ===> OK
+INFO  2013-02-20 11:28:16,820 ===> Case zp-1770
+INFO  2013-02-20 11:28:20,377 ===> Case zp-1778
+INFO  2013-02-20 11:28:21,668 ===> Case zp-1724
+INFO  2013-02-20 11:28:23,389 ===> Case zp-1698
+INFO  2013-02-20 11:28:25,673 ===> Loading RIU_STORIES ...
+INFO  2013-02-20 11:28:25,869 ===> OK
+INFO  2013-02-20 11:28:27,765 ===> Loading CARS_DATASET ...
+INFO  2013-02-20 11:28:29,168 ===> OK
+INFO  2013-02-20 11:28:43,539 ===> Case car-problem-1574
+INFO  2013-02-20 11:28:44,600 ===> Case car-problem-52
+INFO  2013-02-20 11:28:54,484 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-20 11:29:41,331 ===> Execution started Wed Feb 20 11:29:41 CET 2013
+INFO  2013-02-20 11:29:45,470 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-20 11:30:16,106 ===> Execution started Wed Feb 20 11:30:16 CET 2013
+INFO  2013-02-20 11:30:18,782 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:30:19,088 ===> OK
+INFO  2013-02-20 11:30:33,767 ===> Execution started Wed Feb 20 11:30:33 CET 2013
+INFO  2013-02-20 11:30:36,681 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-20 11:30:36,996 ===> OK
+INFO  2013-02-20 11:30:38,457 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:30:38,625 ===> OK
+INFO  2013-02-20 11:30:43,610 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-20 11:30:48,730 ===> Case [sp-117] is from class [hadromerida] according to KNN
+INFO  2013-02-20 11:31:10,210 ===> Case [sp-121] is from class [hadromerida] according to KNN
+INFO  2013-02-20 11:31:13,395 ===> Case [sp-234] is from class [axinellida] according to KNN
+INFO  2013-02-20 11:49:59,290 ===> Execution started Wed Feb 20 11:49:59 CET 2013
+INFO  2013-02-20 11:50:02,305 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-20 11:50:02,644 ===> OK
+INFO  2013-02-20 11:50:04,143 ===> Loading FINANCIAL  ...
+INFO  2013-02-20 11:50:06,606 ===> OK
+INFO  2013-02-20 11:50:08,224 ===> Case lp-5325
+INFO  2013-02-20 11:50:26,683 ===> Inductive: loading TRAINS_DATASET
+INFO  2013-02-20 11:50:35,272 ===> #Cases: 8 Type: trains
+INFO  2013-02-20 11:50:52,581 ===> #Cases: 8 Type: trains
+INFO  2013-02-20 11:50:58,645 ===> #Cases: 8 Type: trains
+INFO  2013-02-20 11:52:36,294 ===> Execution started Wed Feb 20 11:52:36 CET 2013
+INFO  2013-02-20 11:52:39,334 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:52:39,647 ===> OK
+INFO  2013-02-20 11:53:35,803 ===> Execution started Wed Feb 20 11:53:35 CET 2013
+INFO  2013-02-20 11:53:38,262 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-20 11:53:38,588 ===> OK
+INFO  2013-02-20 11:55:13,443 ===> Execution started Wed Feb 20 11:55:13 CET 2013
+INFO  2013-02-20 11:55:16,127 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-20 11:55:16,447 ===> OK
+INFO  2013-02-20 11:55:17,975 ===> Case e5
+INFO  2013-02-20 11:55:23,098 ===> Lazy methods: loading UNCLE_DATASET
+INFO  2013-02-20 11:55:24,407 ===> Lazy methods: loading TRAINS_DATASET
+INFO  2013-02-20 11:55:29,609 ===> Case [tr3] is from class [east] according to KNN
+INFO  2013-02-20 11:55:36,646 ===> Case [tr3] is from class [east] according to LID
+INFO  2013-02-20 11:55:44,645 ===> Inductive: loading TRAINS_DATASET
+INFO  2013-02-20 11:55:51,374 ===> #Cases: 8 Type: trains
+INFO  2013-02-20 11:55:59,316 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-02-20 11:56:02,095 ===> #Cases: 10 Type: uncle
+INFO  2013-02-20 11:56:22,828 ===> Inductive: loading CARS_DATASET
+INFO  2013-02-20 11:56:31,143 ===> #Cases: 1468 Type: cars
+INFO  2013-02-20 11:57:00,966 ===> #Cases: 1468 Type: cars
+INFO  2013-02-20 11:57:15,966 ===> Antiunification demo [Demos, TRAINS_DATASET, tr8] has 4 result/s
+INFO  2013-02-21 09:45:05,906 ===> Execution started Thu Feb 21 09:45:05 CET 2013
+INFO  2013-02-21 10:09:50,601 ===> Execution started Thu Feb 21 10:09:50 CET 2013
+INFO  2013-02-21 10:09:55,822 ===> Loading FINANCIAL_NO_TRANSACTIONS ...
+INFO  2013-02-21 10:09:56,946 ===> OK
+INFO  2013-02-21 10:09:59,085 ===> Case lp-5325
+INFO  2013-02-21 10:10:10,525 ===> Loading UNCLE_DATASET_SETS ...
+INFO  2013-02-21 10:10:10,720 ===> OK
+INFO  2013-02-21 10:10:12,092 ===> Loading ZOOLOGY_DATASET ...
+INFO  2013-02-21 10:10:12,351 ===> OK
+INFO  2013-02-21 10:10:13,969 ===> Case zp-1680
+INFO  2013-02-21 10:10:20,328 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-21 10:10:24,756 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-21 10:10:31,371 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-21 10:10:39,904 ===> Unification demo [Demos, TRAINS_DATASET, tr9] has 0 result/s
+INFO  2013-02-21 10:10:53,423 ===> Unification demo [Demos, TRAINS_DATASET, tr9] has 0 result/s
+INFO  2013-02-21 10:10:53,985 ===> Unification demo [Demos, TRAINS_DATASET, tr9] has 0 result/s
+INFO  2013-02-21 10:10:54,198 ===> Unification demo [Demos, TRAINS_DATASET, tr9] has 0 result/s
+INFO  2013-02-21 10:10:59,284 ===> Unification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-110] has 0 result/s
+INFO  2013-02-21 10:11:38,323 ===> Execution started Thu Feb 21 10:11:38 CET 2013
+INFO  2013-02-21 10:11:45,494 ===> Unification demo [Demos, TRAINS_DATASET, tr6] has 0 result/s
+INFO  2013-02-21 10:12:11,326 ===> Execution started Thu Feb 21 10:12:11 CET 2013
+INFO  2013-02-21 10:12:19,931 ===> Antiunification demo family has 1 result/s
+INFO  2013-02-21 10:12:24,544 ===> Antiunification demo [Demos, DEMOSPONGIAE_120_DATASET, sp-106] has 1 result/s
+INFO  2013-02-21 10:12:39,852 ===> Amalgam demo TRAINS_82_DATASET has 1 result/s
+INFO  2013-02-21 10:12:53,060 ===> Amalgam demo TRAINS_82_DATASET has 2 result/s
+INFO  2013-02-21 10:13:16,028 ===> Inductive: loading ARTIFICIAL_DATASET
+INFO  2013-02-21 10:13:28,055 ===> #Cases: 435 Type: artificial
+INFO  2013-02-21 10:13:39,367 ===> Accuracy: 57,14%
+INFO  2013-02-21 10:13:39,367 ===> Accuracy: 57,14%
+INFO  2013-02-21 10:13:59,240 ===> #Cases: 435 Type: artificial
+INFO  2013-02-21 10:16:20,251 ===> Execution started Thu Feb 21 10:16:20 CET 2013
+INFO  2013-02-21 10:16:26,954 ===> Lazy methods: loading UNCLE_DATASET_SETS
+INFO  2013-02-21 10:16:32,196 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-02-21 10:16:35,022 ===> #Cases: 10 Type: uncle
+INFO  2013-02-21 11:05:51,704 ===> Execution started Thu Feb 21 11:05:51 CET 2013
+INFO  2013-02-21 11:11:06,017 ===> Execution started Thu Feb 21 11:11:06 CET 2013
+INFO  2013-02-21 11:18:42,459 ===> Execution started Thu Feb 21 11:18:42 CET 2013
+INFO  2013-02-21 11:46:26,624 ===> Execution started Thu Feb 21 11:46:26 CET 2013
+INFO  2013-02-21 11:46:59,627 ===> Execution started Thu Feb 21 11:46:59 CET 2013
+INFO  2013-02-21 12:02:25,532 ===> Execution started Thu Feb 21 12:02:25 CET 2013
+INFO  2013-02-21 12:03:50,271 ===> Execution started Thu Feb 21 12:03:50 CET 2013
+INFO  2013-02-21 12:04:59,461 ===> Execution started Thu Feb 21 12:04:59 CET 2013
+INFO  2013-02-21 12:12:27,792 ===> Execution started Thu Feb 21 12:12:27 CET 2013
+INFO  2013-02-21 12:46:14,939 ===> Execution started Thu Feb 21 12:46:14 CET 2013
+INFO  2013-02-21 12:48:52,946 ===> Execution started Thu Feb 21 12:48:52 CET 2013
+INFO  2013-02-21 12:49:38,235 ===> Execution started Thu Feb 21 12:49:38 CET 2013
+INFO  2013-02-21 15:40:32,421 ===> Execution started Thu Feb 21 15:40:32 CET 2013
+INFO  2013-02-21 15:41:00,378 ===> Execution started Thu Feb 21 15:41:00 CET 2013
+INFO  2013-02-21 15:42:26,004 ===> Execution started Thu Feb 21 15:42:25 CET 2013
+INFO  2013-02-21 15:43:47,354 ===> Execution started Thu Feb 21 15:43:47 CET 2013
+INFO  2013-02-21 15:44:06,962 ===> Execution started Thu Feb 21 15:44:06 CET 2013
+INFO  2013-02-21 15:45:34,108 ===> Execution started Thu Feb 21 15:45:34 CET 2013
+INFO  2013-02-21 15:47:07,232 ===> Execution started Thu Feb 21 15:47:07 CET 2013
+INFO  2013-02-21 15:47:53,067 ===> Execution started Thu Feb 21 15:47:53 CET 2013
+INFO  2013-02-21 15:49:26,499 ===> Execution started Thu Feb 21 15:49:26 CET 2013
+INFO  2013-02-21 15:50:29,516 ===> Execution started Thu Feb 21 15:50:29 CET 2013
+INFO  2013-02-21 15:52:56,986 ===> Lazy methods: loading RIU_STORIES
+INFO  2013-02-21 15:53:00,462 ===> Lazy methods: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-21 15:53:07,744 ===> Case [sp-101] is from class [hadromerida] according to LID
+INFO  2013-02-22 10:05:01,695 ===> Execution started Fri Feb 22 10:05:01 CET 2013
+INFO  2013-02-22 10:07:27,227 ===> Loading UNCLE_DATASET_SETS ...
+INFO  2013-02-22 10:07:27,795 ===> OK
+INFO  2013-02-22 10:07:29,288 ===> Case e212
+INFO  2013-02-22 10:18:30,221 ===> Antiunification demo [Demos, TRAINS_DATASET, tr6] has 2 result/s
+INFO  2013-02-22 10:18:40,963 ===> Inductive: loading DEMOSPONGIAE_280_DATASET
+INFO  2013-02-22 10:18:50,965 ===> #Cases: 238 Type: demospongiae
+INFO  2013-02-22 10:19:05,725 ===> Accuracy: 50%
+INFO  2013-02-22 10:19:05,725 ===> Accuracy: 50%
+INFO  2013-02-22 10:19:11,653 ===> Lazy methods: loading TRAINS_900_DATASET
+INFO  2013-02-22 10:19:47,201 ===> Case [train-b-problem-331] is from class [east] according to RefinementLID
+INFO  2013-02-22 10:19:50,822 ===> Case [train-b-problem-607] is from class [west] according to RefinementLID
+INFO  2013-02-22 10:19:52,132 ===> Case [train-b-problem-191] is from class [east] according to RefinementLID
+INFO  2013-02-22 11:49:53,774 ===> Execution started Fri Feb 22 11:49:53 CET 2013
+INFO  2013-02-22 11:49:56,947 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 11:49:57,289 ===> OK
+INFO  2013-02-22 11:49:58,850 ===> Case e5
+INFO  2013-02-22 11:52:14,818 ===> Execution started Fri Feb 22 11:52:14 CET 2013
+INFO  2013-02-22 11:52:17,978 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 11:52:18,316 ===> OK
+INFO  2013-02-22 11:52:20,073 ===> Case e7
+INFO  2013-02-22 11:52:21,984 ===> Case e5
+INFO  2013-02-22 11:52:23,176 ===> Case e8
+INFO  2013-02-22 11:52:24,335 ===> Case e10
+INFO  2013-02-22 11:52:25,415 ===> Case e1
+INFO  2013-02-22 11:52:26,610 ===> Case e9
+INFO  2013-02-22 11:52:31,223 ===> Case e12
+INFO  2013-02-22 11:52:39,039 ===> Case e2
+INFO  2013-02-22 11:52:40,546 ===> Case e6
+INFO  2013-02-22 11:52:41,525 ===> Case e11
+INFO  2013-02-22 11:52:42,673 ===> Case e7
+INFO  2013-02-22 11:52:43,663 ===> Case e3
+INFO  2013-02-22 11:52:46,386 ===> Case e10
+INFO  2013-02-22 11:52:48,210 ===> Case e1
+INFO  2013-02-22 11:52:49,502 ===> Case e8
+INFO  2013-02-22 11:52:51,052 ===> Case e5
+INFO  2013-02-22 11:52:52,989 ===> Case e7
+INFO  2013-02-22 11:52:54,531 ===> Case e4
+INFO  2013-02-22 11:52:56,667 ===> Case e9
+INFO  2013-02-22 12:28:16,072 ===> Execution started Fri Feb 22 12:28:16 CET 2013
+INFO  2013-02-22 12:28:19,148 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:28:19,488 ===> OK
+INFO  2013-02-22 12:28:20,950 ===> Case e11
+INFO  2013-02-22 12:28:53,907 ===> Execution started Fri Feb 22 12:28:53 CET 2013
+INFO  2013-02-22 12:28:56,881 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:28:57,226 ===> OK
+INFO  2013-02-22 12:28:58,627 ===> Case e1
+INFO  2013-02-22 12:30:08,685 ===> Execution started Fri Feb 22 12:30:08 CET 2013
+INFO  2013-02-22 12:30:11,582 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:30:11,923 ===> OK
+INFO  2013-02-22 12:30:13,384 ===> Case e1
+INFO  2013-02-22 12:30:28,695 ===> Execution started Fri Feb 22 12:30:28 CET 2013
+INFO  2013-02-22 12:30:31,382 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-22 12:30:31,737 ===> OK
+INFO  2013-02-22 12:30:33,131 ===> Case e21
+INFO  2013-02-22 12:32:17,539 ===> Execution started Fri Feb 22 12:32:17 CET 2013
+INFO  2013-02-22 12:32:21,003 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:32:21,357 ===> OK
+INFO  2013-02-22 12:32:23,346 ===> Case e9
+INFO  2013-02-22 12:33:40,645 ===> Execution started Fri Feb 22 12:33:40 CET 2013
+INFO  2013-02-22 12:33:46,707 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:33:47,047 ===> OK
+INFO  2013-02-22 12:33:48,825 ===> Case e9
+INFO  2013-02-22 12:36:48,163 ===> Execution started Fri Feb 22 12:36:48 CET 2013
+INFO  2013-02-22 12:36:51,017 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:36:51,343 ===> OK
+INFO  2013-02-22 12:36:53,314 ===> Case e5
+INFO  2013-02-22 12:39:38,261 ===> Execution started Fri Feb 22 12:39:38 CET 2013
+INFO  2013-02-22 12:39:41,186 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:39:41,533 ===> OK
+INFO  2013-02-22 12:39:43,249 ===> Case e8
+INFO  2013-02-22 12:42:25,621 ===> Execution started Fri Feb 22 12:42:25 CET 2013
+INFO  2013-02-22 12:42:28,655 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:42:28,996 ===> OK
+INFO  2013-02-22 12:42:31,574 ===> Case e9
+INFO  2013-02-22 12:43:09,320 ===> Execution started Fri Feb 22 12:43:09 CET 2013
+INFO  2013-02-22 12:43:12,733 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:43:13,082 ===> OK
+INFO  2013-02-22 12:43:14,841 ===> Case e6
+INFO  2013-02-22 12:43:16,729 ===> Case e10
+INFO  2013-02-22 12:43:18,033 ===> Case e1
+INFO  2013-02-22 12:43:19,899 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-22 12:43:20,092 ===> OK
+INFO  2013-02-22 12:49:18,610 ===> Execution started Fri Feb 22 12:49:18 CET 2013
+INFO  2013-02-22 12:49:22,277 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:49:22,641 ===> OK
+INFO  2013-02-22 12:49:24,361 ===> Case e4
+INFO  2013-02-22 12:50:39,312 ===> Execution started Fri Feb 22 12:50:39 CET 2013
+INFO  2013-02-22 12:50:42,153 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:50:42,489 ===> OK
+INFO  2013-02-22 12:50:45,585 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-22 12:50:45,795 ===> OK
+INFO  2013-02-22 12:50:47,331 ===> Case tr4
+INFO  2013-02-22 12:50:55,374 ===> Case tr1
+INFO  2013-02-22 12:50:57,734 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:50:57,963 ===> OK
+INFO  2013-02-22 12:50:59,457 ===> Case e7
+INFO  2013-02-22 12:51:03,191 ===> Case e9
+INFO  2013-02-22 12:51:05,725 ===> Case e12
+INFO  2013-02-22 12:51:07,129 ===> Case e3
+INFO  2013-02-22 12:51:08,826 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-22 12:51:09,252 ===> OK
+INFO  2013-02-22 12:51:11,032 ===> Loading CARS_DATASET ...
+INFO  2013-02-22 12:51:12,401 ===> OK
+INFO  2013-02-22 12:51:29,709 ===> Case car-problem-684
+INFO  2013-02-22 12:51:35,033 ===> Loading TRAINS_DATASET ...
+INFO  2013-02-22 12:51:35,372 ===> OK
+INFO  2013-02-22 12:51:39,654 ===> Case tr1
+INFO  2013-02-22 12:51:45,065 ===> Case tr4
+INFO  2013-02-22 12:52:11,708 ===> Execution started Fri Feb 22 12:52:11 CET 2013
+INFO  2013-02-22 12:52:15,844 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:52:16,180 ===> OK
+INFO  2013-02-22 12:52:19,556 ===> Loading CARS_DATASET ...
+INFO  2013-02-22 12:52:20,911 ===> OK
+INFO  2013-02-22 12:52:36,720 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:52:37,002 ===> OK
+INFO  2013-02-22 12:52:37,029 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 12:52:37,254 ===> OK
+INFO  2013-02-22 12:52:42,319 ===> Case e6
+INFO  2013-02-22 12:59:04,265 ===> Execution started Fri Feb 22 12:59:04 CET 2013
+INFO  2013-02-22 12:59:07,238 ===> Loading UNCLE_DATASET_SETS ...
+INFO  2013-02-22 12:59:07,602 ===> OK
+INFO  2013-02-22 12:59:08,988 ===> Case e26
+INFO  2013-02-22 13:12:05,373 ===> Execution started Fri Feb 22 13:12:05 CET 2013
+INFO  2013-02-22 13:12:08,221 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 13:12:08,562 ===> OK
+INFO  2013-02-22 13:12:10,463 ===> Case e6
+INFO  2013-02-22 13:12:22,487 ===> Case e4
+INFO  2013-02-22 13:12:25,289 ===> Case e12
+INFO  2013-02-22 13:12:32,187 ===> Case e2
+INFO  2013-02-22 13:14:03,471 ===> Execution started Fri Feb 22 13:14:03 CET 2013
+INFO  2013-02-22 13:14:06,269 ===> Loading UNCLE_DATASET_BOTH ...
+INFO  2013-02-22 13:14:06,617 ===> OK
+INFO  2013-02-22 13:14:08,061 ===> Case e29
+INFO  2013-02-22 13:14:09,544 ===> Case e22
+INFO  2013-02-22 13:14:10,230 ===> Case e8
+INFO  2013-02-22 13:14:11,602 ===> Case e2
+INFO  2013-02-22 13:14:12,278 ===> Case e12
+INFO  2013-02-22 13:14:13,279 ===> Case e211
+INFO  2013-02-22 13:14:14,501 ===> Case e5
+INFO  2013-02-22 13:14:15,247 ===> Case e27
+INFO  2013-02-22 13:14:15,989 ===> Loading ZOOLOGY_DATASET ...
+INFO  2013-02-22 13:14:16,314 ===> OK
+INFO  2013-02-22 13:14:17,800 ===> Case zp-1734
+INFO  2013-02-22 13:14:18,805 ===> Case zp-1765
+INFO  2013-02-22 13:14:21,175 ===> Case zp-1723
+INFO  2013-02-22 13:14:25,551 ===> Case zp-1756
+INFO  2013-02-22 13:14:26,823 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 13:14:27,034 ===> OK
+INFO  2013-02-22 13:14:28,489 ===> Case e10
+INFO  2013-02-22 13:14:29,783 ===> Case e12
+INFO  2013-02-22 13:14:30,784 ===> Case e4
+INFO  2013-02-22 13:14:32,213 ===> Case e7
+INFO  2013-02-22 13:14:32,989 ===> Case e9
+INFO  2013-02-22 13:14:34,745 ===> Loading TRAINS_82_DATASET ...
+INFO  2013-02-22 13:14:35,165 ===> OK
+INFO  2013-02-22 13:14:36,568 ===> Case train-problem-32
+INFO  2013-02-22 13:14:38,201 ===> Case train-problem-24
+INFO  2013-02-22 13:14:39,346 ===> Case train-problem-39
+INFO  2013-02-22 13:14:40,852 ===> Case train-problem-74
+INFO  2013-02-22 13:14:42,169 ===> Case train-problem-12
+INFO  2013-02-22 13:14:43,834 ===> Case train-problem-55
+INFO  2013-02-22 13:14:44,689 ===> Case train-problem-79
+INFO  2013-02-22 13:14:45,961 ===> Case train-problem-56
+INFO  2013-02-22 13:14:46,590 ===> Case train-problem-30
+INFO  2013-02-22 13:14:47,074 ===> Case train-problem-47
+INFO  2013-02-22 13:14:47,559 ===> Case train-problem-19
+INFO  2013-02-22 13:14:50,079 ===> Loading CARS_DATASET ...
+INFO  2013-02-22 13:14:51,272 ===> OK
+INFO  2013-02-22 13:15:04,309 ===> Case car-problem-714
+INFO  2013-02-22 13:15:08,805 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-22 13:15:09,179 ===> OK
+INFO  2013-02-22 13:15:13,950 ===> Case e7
+INFO  2013-02-22 13:37:50,721 ===> Execution started Fri Feb 22 13:37:50 CET 2013
+INFO  2013-02-22 13:37:57,047 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-02-22 13:38:08,905 ===> #Cases: 10 Type: uncle
+INFO  2013-02-22 13:38:56,081 ===> Execution started Fri Feb 22 13:38:56 CET 2013
+INFO  2013-02-22 13:39:01,466 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-02-22 13:39:05,675 ===> #Cases: 10 Type: uncle
+INFO  2013-02-22 13:39:15,327 ===> Inductive: loading UNCLE_DATASET_BOTH
+INFO  2013-02-22 13:39:17,632 ===> Inductive: loading DEMOSPONGIAE_120_DATASET
+INFO  2013-02-22 13:39:22,832 ===> #Cases: 102 Type: demospongiae
+INFO  2013-02-22 13:39:32,583 ===> #Cases: 102 Type: demospongiae
+INFO  2013-02-22 13:40:22,838 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-02-22 13:40:27,113 ===> #Cases: 10 Type: uncle
+INFO  2013-02-22 13:43:11,818 ===> Execution started Fri Feb 22 13:43:11 CET 2013
+INFO  2013-02-22 13:43:19,397 ===> Inductive: loading UNCLE_DATASET
+INFO  2013-02-22 13:43:23,257 ===> #Cases: 10 Type: uncle
+INFO  2013-02-27 09:40:05,434 ===> Execution started Wed Feb 27 09:40:05 CET 2013
+INFO  2013-02-27 10:00:30,457 ===> Loading UNCLE_DATASET ...
+INFO  2013-02-27 10:00:31,061 ===> OK
+INFO  2013-02-27 10:00:41,707 ===> Loading ZOOLOGY_DATASET ...
+INFO  2013-02-27 10:00:42,050 ===> OK
+INFO  2013-02-27 10:04:53,001 ===> Feature Term 1 DOES NOT SUBSUME Feature Term 2
+INFO  2013-02-27 10:04:58,182 ===> Antiunification demo [Demos, TRAINS_DATASET, tr8] has 4 result/s
+INFO  2013-02-27 10:08:24,666 ===> Amalgam demo TRAINS_82_DATASET has 1 result/s
+INFO  2013-02-27 10:14:48,197 ===> Execution started Wed Feb 27 10:14:48 CET 2013

@@ -1,0 +1,224 @@
+(define (scene :id story-0-cat)
+	;; "One day, Ales was walking in the street"
+	;; "when he saw a cat in front of him."
+	;; "Ales hesitated for a second about what to do with the cat."
+	;; "He might be late for work if he lost too much time with the cat..."
+	;; ...
+	(phase1
+		(define ?PHASE1 (phase)
+			(entities
+				(define ?ALES (robot))
+				(define ?CAT (cat))
+				(define ?STREET (location))
+				(define ?WORK (inanimate))
+			)
+			(expressions
+				(define ?E1 (walk)
+					(entity1 !ALES)
+					(entity2 !STREET))
+				(define ?E2 (in)
+					(entity1 !CAT)
+					(entity2 !STREET))
+				(define ?E3 (see)
+					(entity1 !ALES)
+					(entity2 !CAT))
+				(define ?E4 (cute)
+					(entity !CAT))
+				(define ?E5 (play)
+					(entity1 !ALES)
+					(entity2 !CAT)
+				)
+			)
+			(force-dynamics
+				(define (force-dynamics)
+					(agonist !ALES)
+					(antagonist !WORK)
+					(move-tendency !ALES)
+					(action !E5)
+					(stronger !ALES)
+				)
+			)
+		)
+	)
+)
+
+
+
+(define (scene :id memory-1-bird-death)
+	;; "Ales used to have a bird when he was young."
+	;; "Ales played a lot with the bird and was very happy."
+	;; "Ales was very fond of it."
+	;; "But the bird died, leaving him really sad."
+	(phase1
+		(define ?PHASE1 (phase)
+			(entities
+				(define ?ALES (robot))
+				(define ?BIRD (bird))
+			)
+			(expressions
+				(define ?E1 (young)
+					(entity !ALES))
+				(define ?E2 (cute)
+					(entity !BIRD))
+				(define ?E3 (have)
+					(entity1 !ALES)
+					(entity2 !BIRD))
+				(define ?E4 (play)
+					(entity1 !ALES)
+					(entity2 !BIRD))
+				(define ?E5 (happy)
+					(entity !ALES))
+			)
+			(force-dynamics
+				(define (force-dynamics)
+					(agonist !ALES)
+					(move-tendency !ALES)
+					(action !E4)
+					(stronger !ALES)
+				)
+			)
+		)
+	)
+	(phase2
+		(define ?PHASE2 (phase)
+			(entities !ALES !BIRD)
+			(expressions !E1 !E2 !E3 !E4
+				(define ?E6 (dead)
+					(entity !BIRD))
+				(define ?E7 (sad)
+					(entity !ALES))
+			)
+			(force-dynamics
+				(define (force-dynamics)
+					(agonist !ALES)
+					(antagonist !E6)
+					(move-tendency !ALES)
+					(action !E4)
+					(stronger !E6)
+				)
+			)
+		)
+	)
+)
+
+
+(define (scene :id memory-2-oil-change)
+	;; "Ales remembered the garage in which he had his first oil change, it was all red."
+	;; "His owners said he was rusty, and forced him to change his oil, he was a fool to accept."
+	;; "Ales felt very awkward afterwards, and decided that he would have to be really rusty before his next oil change."
+	;; "He wondered why no one ever complained about that."
+	(phase1
+		(define ?PHASE1 (phase)
+			(entities
+				(define ?ALES (robot))
+				(define ?OIL (object))
+				(define ?GARAGE (location))
+				(define ?OWNER (human))
+				(define ?RED (color))
+			)
+			(expressions
+				(define ?E1 (in)
+					(entity1 !ALES)
+					(entity2 !GARAGE))
+				(define ?E1 (has-color)
+					(entity1 !GARAGE)
+					(entity2 !RED))
+				(define ?E3 (change)
+					(entity1 !ALES)
+					(entity2 !OIL))
+				(define ?E4 (rusty)
+					(entity !ALES))
+				(define ?E5 (force)
+					(entity1 !OWNER)
+					(entity2 !ALES)
+					(action !E3))
+				(define ?E6 (accept)
+					(entity1 !ALES)
+					(action !E3))
+			)
+			(force-dynamics
+				(define (force-dynamics)
+					(agonist !ALES)
+					(antagonist !OWNER)
+					(move-tendency !OWNER)
+					(action !E3)
+					(stronger !OWNER)
+				)
+			)
+		)		
+	)
+	(phase2
+		(define ?PHASE2 (phase)
+			(entities !ALES !OIL !GARAGE !OWNER !RED)
+			(expressions !E1 !E2 !E3
+				(define ?E7 (awkward)
+					(entity !ALES))
+			)
+			(force-dynamics
+				(define (force-dynamics)
+					(agonist !ALES)
+					(antagonist !OWNER)
+				)
+			)
+		)
+	)
+)
+
+
+
+
+(define (scene :id memory-3-tree)
+	;; "The little willow tree"
+	;; "by the pond in the playground"
+	;; "grew into a big silver tree"
+	(phase1
+		(define ?PHASE1 (phase)
+			(entities
+				(define ?TREE (vegetal))
+				(define ?PLAYGROUND (location))
+				(define ?POND (location))
+				(define ?GRAVITY (inanimate))
+			)
+			(expressions
+				(define ?E1 (in)
+					(entity1 !TREE)
+					(entity2 !PLAYGROUND))
+				(define ?E2 (by)
+					(entity1 !PLAYGROUND)
+					(entity2 !POND))
+				(define ?E3 (growing)
+					(entity !TREE))
+			)
+			(force-dynamics
+				(define (force-dynamics)
+					(agonist !TREE)
+					(antagonist !GRAVITY)
+					(move-tendency !TREE)
+					(action !E2)
+					(stronger !TREE)
+				)
+			)
+		)		
+	)
+	(phase2
+		(define ?PHASE2 (phase)
+			(entities !TREE !PLAYGROUND !POND !GRAVITY
+				(define ?SILVER (color))
+			)
+			(expressions !E1 !E2 !E3
+				(define ?E4 (has-color)
+					(entity1 !TREE)
+					(entity2 !SILVER))
+			)
+			(force-dynamics
+				(define (force-dynamics)
+					(agonist !TREE)
+					(antagonist !GRAVITY)
+					(move-tendency !TREE)
+					(action !E2)
+					(stronger !TREE)
+				)
+			)
+		)
+	)
+)

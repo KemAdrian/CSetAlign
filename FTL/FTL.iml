@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/libs/cream106.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/libs/prefuse.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/libs/weka.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/libs/colt.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/libs/JaCoP-3.1.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/libs/Jama-1.0.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/libs/grappa1_2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/libs/log4j-1.2.17.jar!/" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
+      <src_folder value="file://$MODULE_DIR$/argumentationMeaning" expected_position="1" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/argumentationMeaning" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="junit4">
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="cream106.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/cream106.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="prefuse.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/prefuse.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="weka.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/weka.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="colt.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/colt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="JaCoP-3.1.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/JaCoP-3.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Jama-1.0.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/Jama-1.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="grappa1_2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/grappa1_2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="log4j-1.2.17.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/log4j-1.2.17.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="inheritedJdk" />
+  </component>
+</module>
