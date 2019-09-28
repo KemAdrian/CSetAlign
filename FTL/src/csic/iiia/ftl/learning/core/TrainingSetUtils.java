@@ -25,32 +25,16 @@
   
  package csic.iiia.ftl.learning.core;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Random;
-import java.util.Set;
-import java.util.Vector;
-
-import csic.iiia.ftl.base.core.FTKBase;
-import csic.iiia.ftl.base.core.FeatureTerm;
-import csic.iiia.ftl.base.core.FloatFeatureTerm;
-import csic.iiia.ftl.base.core.IntegerFeatureTerm;
-import csic.iiia.ftl.base.core.Ontology;
-import csic.iiia.ftl.base.core.Path;
-import csic.iiia.ftl.base.core.Symbol;
-import csic.iiia.ftl.base.core.SymbolFeatureTerm;
+import csic.iiia.ftl.base.core.*;
 import csic.iiia.ftl.base.utils.FeatureTermException;
 import csic.iiia.ftl.base.utils.Pair;
 import csic.iiia.ftl.base.utils.Sampler;
 import evaluation.ExpFileManager;
 import tools.LPkg;
+
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -1295,9 +1279,9 @@ public class TrainingSetUtils {
 			ts.solution_path.features.add(new Symbol("label"));
 			break;			
 		case SEAT_TEST:
-			dm.importNOOS("Resources/seat-ontology.noos", o);
-			dm.importNOOS("Resources/seat-dm.noos",o);
-			case_base.importNOOS("Resources/seat-cases-test.noos", o);
+			dm.importNOOS("FTL/Resources/seat-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/seat-dm.noos",o);
+			case_base.importNOOS("FTL/Resources/seat-cases-test.noos", o);
 			
 			ts.name = "seat";
 			ts.problem_sort = o.getSort("seat-case");

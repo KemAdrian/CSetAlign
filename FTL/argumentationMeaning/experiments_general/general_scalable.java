@@ -8,7 +8,7 @@ import tools.FTGen;
 
 public class general_scalable {
 		// IVs of the experiments
-	private static int N = 25;
+	private static int N = 20;
 	private static int DOMAIN  = TrainingSetUtils.DEMOSPONGIAE_280_DATASET;
 	private static String STRATEGY = "EXT";
 	private static String DOMAIN_NAME = getDomainName(DOMAIN);
@@ -27,8 +27,9 @@ public class general_scalable {
 		int min = 100;
 		int max = 1000;
 		int pace = 100;
+
 		// Create contexts
-		FTGen.initialize(3, true, min, max, pace, N);
+		FTGen.initialize(3, false, true, min, max, pace, N);
 		System.out.println(FTGen.saved.size());
 		// Create file for experiments
 		ExpFileManager.createDraft();
@@ -49,7 +50,7 @@ public class general_scalable {
 					// do nothing
 					Thread.sleep(1000);
 					// Check that it didn't get stuck in a loop
-					if(System.currentTimeMillis() - t1 > 100000000) {
+					if((System.currentTimeMillis() - t1) > 100000000) {
 						System.out.println("    > INTERRUPTING <");
 						t.interrupt();
 						break;

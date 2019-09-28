@@ -1,20 +1,13 @@
 package tools;
 
+import csic.iiia.ftl.base.core.*;
+import csic.iiia.ftl.base.utils.FeatureTermException;
+import semiotic_elements.Sign;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-
-import csic.iiia.ftl.base.core.FTKBase;
-import csic.iiia.ftl.base.core.FeatureTerm;
-import csic.iiia.ftl.base.core.Ontology;
-import csic.iiia.ftl.base.core.Path;
-import csic.iiia.ftl.base.core.Sort;
-import csic.iiia.ftl.base.core.Symbol;
-import csic.iiia.ftl.base.core.TermFeatureTerm;
-import csic.iiia.ftl.base.utils.FeatureTermException;
-import csic.iiia.ftl.base.utils.SingletonFeatureTermException;
-import semiotic_elements.Sign;
 
 public class LPkg {
 	
@@ -40,6 +33,8 @@ public class LPkg {
 	}
 	
 	public static FeatureTerm generic(){
+		if(generic == null)
+			return null;
 		try {
 			return generic.clone(dm, o);
 		} catch (FeatureTermException e) {
@@ -91,16 +86,23 @@ public class LPkg {
 	public static void set_different_solutions(Collection<FeatureTerm> d_s) {
 		LPkg.different_solutions = new HashSet<>(d_s);
 	}
+
+	static void set_paths(Path d_path, Path s_path){
+		dp = d_path;
+		sp = s_path;
+	}
+
+	static void set_generic(FeatureTerm g){
+		generic = g;
+	}
 	
 	public static FeatureTerm createFeature(FeatureTerm d, FeatureTerm s){
 		TermFeatureTerm f = (TermFeatureTerm) LPkg.generic();
 		try {
+			assert f != null;
 			f.setName(new Symbol(UUID.randomUUID().toString()));
 			f.defineFeatureValue(dp, d);
 			f.defineFeatureValue(sp, s);
-		} catch (SingletonFeatureTermException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (FeatureTermException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
