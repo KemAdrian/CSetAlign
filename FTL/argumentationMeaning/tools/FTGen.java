@@ -13,6 +13,7 @@ public class FTGen {
 	public static List<TrainingSetProperties> saved = new ArrayList<>();
 	private static Map<TrainingSetProperties, Integer> ft_shares = new HashMap<>();
 	private static Map<TrainingSetProperties, List<List<Integer>>> id_sizes = new HashMap<>();
+	private  static Map<TrainingSetProperties, List<Pair<Double, Double>>> parameters = new HashMap<>();
 	private static Map<TrainingSetProperties, List<Rule>> saved_rules = new HashMap<>();
 	public static  int current = -1;
 	
@@ -29,6 +30,89 @@ public class FTGen {
 	public static double sd_gen_size = 3.;
 	// Random generator
 	public static Random r;
+
+	public static void parametric_initialize(int solution_number, int min, int max, int pace, int nb, Loop<Pair<Double, Double>> sort_size_list, Loop<Pair<Double, Double >> id_size_list, Loop<Pair<Double, Double>> gen_size_list ){
+	    // Create a new ontology
+        Ontology base_ontology ;
+        Ontology o;
+        FTKBase dm;
+        FTKBase case_base;
+        if(!LPkg.initialized()) {
+            // Initialize
+            o = new Ontology();
+            dm = new FTKBase();
+            try {
+                base_ontology = new BaseOntology();
+                // Set up
+                o.uses(base_ontology);
+                dm.create_boolean_objects(o);
+            } catch (Exception e) {
+                System.out.println("Problem generating the new ontology");
+            }
+        }
+        else {
+            o = LPkg.ontology();
+            dm = LPkg.dm();
+        }
+        // Define case base
+        case_base = new FTKBase();
+        case_base.uses(dm);
+        LPkg.initialize(null, o, dm, null, null, new HashSet<>());
+        // Save the old parameters
+        Pair<Double, Double> old_sort_sizes = new Pair<>(m_sort_size, sd_sort_size);
+        Pair<Double, Double> old_id_sizes = new Pair<>(m_id_size, sd_id_size);
+        Pair<Double, Double> old_gen_sizes = new Pair<>(m_gen_size, sd_gen_size);
+        // Create loop iterators
+        Iterator<Pair<Double, Double>> sort_size_iterator = sort_size_list.listIterator();
+        Iterator<Pair<Double, Double>> id_size_iterator = id_size_list.listIterator();
+        Iterator<Pair<Double, Double>> gen_size_iterator = gen_size_list.listIterator();
+        // For each n, create a different set of different length data sets
+        List<List<TrainingSetProperties>> training_sets = new ArrayList<>();
+        for(int i=0; i<nb; i++){
+            Pair<Double, Double> current_sort_sizes = sort_size_iterator.next();
+            Pair<Double, Double> current_id_sizes = id_size_iterator.next();
+            Pair<Double, Double> current_gen_sizes = gen_size_iterator.next();
+            m_sort_size = current_sort_sizes.getLeft();
+            sd_sort_size = current_sort_sizes.getRight();
+            m_id_size = current_id_sizes.getLeft();
+            sd_id_size = current_id_sizes.getRight();
+            m_gen_size = current_gen_sizes.getLeft();
+            sd_gen_size = current_gen_sizes.getRight();
+            training_sets.add(differentLengthDataSet(solution_number, min, max, pace, o, dm, case_base));
+        }
+        // Restore parameters values
+        m_sort_size = old_sort_sizes.getLeft();
+        sd_sort_size = old_sort_sizes.getRight();
+        m_id_size = old_id_sizes.getLeft();
+        sd_id_size = old_id_sizes.getRight();
+        m_gen_size = old_gen_sizes.getLeft();
+        sd_gen_size = old_gen_sizes.getRight();
+        // Add each of them sequentially
+        for(int i=min; i<max; i+=pace){
+            for(List<TrainingSetProperties> t_test : training_sets){
+                TrainingSetProperties to_add = new TrainingSetProperties();
+                TrainingSetProperties model = t_test.get((i-min)/pace);
+                to_add.cases = new ArrayList<>(model.cases);
+                to_add.description_path = model.description_path;
+                to_add.solution_path = model.solution_path;
+                saved.add(to_add);
+                current = saved.size() -1;
+                id_sizes.put(to_add, id_sizes.get(model));
+                ft_shares.put(to_add, ft_shares.get(model));
+                saved_rules.put(to_add, saved_rules.get(model));
+            }
+        }
+        // Remove the models
+        for(List<TrainingSetProperties> t_set : training_sets){
+            for(TrainingSetProperties model : t_set){
+                saved.remove(model);
+                id_sizes.remove(model);
+                ft_shares.remove(model);
+                saved_rules.remove(model);
+                current = saved.size() -1;
+            }
+        }
+	}
 	
 	public static void initialize(int solution_number, boolean same_data_set, boolean sequential, int min, int max, int pace, int nb) {
 		// Create a new ontology
@@ -79,8 +163,6 @@ public class FTGen {
 					current = saved.size() -1;
 				}
 			}
-
-
 		}
 		else if(sequential) {
 			// For each n, create a different set of different length data sets

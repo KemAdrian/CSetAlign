@@ -5,10 +5,12 @@ import evaluation.ExpFileManager;
 import identifiers.Counter;
 import run_general_scripts.run_general;
 import tools.FTGen;
+import tools.Loop;
+import tools.Pair;
 
 public class general_scalable {
 		// IVs of the experiments
-	private static int N = 20;
+	private static int N = 120;
 	private static int DOMAIN  = TrainingSetUtils.DEMOSPONGIAE_280_DATASET;
 	private static String STRATEGY = "EXT";
 	private static String DOMAIN_NAME = getDomainName(DOMAIN);
@@ -25,11 +27,27 @@ public class general_scalable {
 		
 		// Bracket for context size
 		int min = 100;
-		int max = 1000;
+		int max = 101;
 		int pace = 100;
 
+		// Initialize parameters
+        Loop<Pair<Double, Double>> sort_size_list = new Loop<>();
+        Loop<Pair<Double, Double >> id_size_list = new Loop<>();
+        Loop<Pair<Double, Double>> gen_size_list = new Loop<>();
+
+        double var = 0.;
+		for(int i=6; i<11; i++){
+		    for(int j=1; j<5; j++) {
+                for (int k = 2; k < 7; k++) {
+                    sort_size_list.add(new Pair<>((double) i, var));
+                    id_size_list.add(new Pair<>((double) j, var));
+                    gen_size_list.add(new Pair<>((double) k, var));
+                }
+            }
+        }
+
 		// Create contexts
-		FTGen.initialize(3, false, true, min, max, pace, N);
+		FTGen.parametric_initialize(3, min, max, pace, N, sort_size_list, id_size_list, gen_size_list);
 		System.out.println(FTGen.saved.size());
 		// Create file for experiments
 		ExpFileManager.createDraft();
