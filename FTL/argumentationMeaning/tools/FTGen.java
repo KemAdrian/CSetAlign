@@ -13,7 +13,6 @@ public class FTGen {
 	public static List<TrainingSetProperties> saved = new ArrayList<>();
 	private static Map<TrainingSetProperties, Integer> ft_shares = new HashMap<>();
 	private static Map<TrainingSetProperties, List<List<Integer>>> id_sizes = new HashMap<>();
-	private  static Map<TrainingSetProperties, List<Pair<Double, Double>>> parameters = new HashMap<>();
 	private static Map<TrainingSetProperties, List<Rule>> saved_rules = new HashMap<>();
 	public static  int current = -1;
 	

@@ -1,15 +1,5 @@
 package agents;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import argumentation.Argumentation;
 import argumentation.BoundaryFix;
 import containers.ContrastSet;
@@ -23,23 +13,8 @@ import evaluation.ExpFileManager;
 import identifiers.ArgID;
 import identifiers.ConID;
 import identifiers.GenID;
-import interfaces.Agent;
-import interfaces.Container;
-import interfaces.Message;
-import interfaces.Node;
-import interfaces.SemioticElement;
-import messages.Assert;
-import messages.Baptise;
-import messages.CheckSelf;
-import messages.CheckSize;
-import messages.Discuss;
-import messages.Evaluation;
-import messages.Intransitive;
-import messages.Remove;
-import messages.Replace;
-import messages.Seize;
-import messages.SendExamples;
-import messages.Vote;
+import interfaces.*;
+import messages.*;
 import null_objects.NullConID;
 import null_objects.NullConcept;
 import null_objects.NullContainer;
@@ -47,11 +22,13 @@ import semiotic_elements.Concept;
 import semiotic_elements.Example;
 import semiotic_elements.Generalization;
 import semiotic_elements.Sign;
-import tools.Mailbox;
-import tools.RTriplet;
-import tools.Token;
-import tools.ToolSet;
-import tools.Triplet;
+import tools.*;
+
+import java.util.*;
+import java.util.Map.Entry;
+
+import static java.util.Objects.requireNonNull;
+import static tools.ToolSet.*;
 
 /***
  *  The {@link Agent_General} is class of {@link Agent} that search systematically for disagreements.
@@ -64,37 +41,36 @@ import tools.Triplet;
 public class Agent_General implements Agent{
 	
 	// Communication
+	private Mailbox mail;
 	public String nick;
-	public Mailbox mail;
 	public State current_state;
 	public Triplet<ConID, ConID, Relation> disagreement;
 	
 	// Collections of Triplets
 	// Agreements
-	public LinkedList<Triplet<ConID, ConID, Relation>> SelfDisagreements;
-	public LinkedList<Triplet<ConID, ConID, Relation>> SemanticDisagreements;
-	public LinkedList<Triplet<ConID, ConID, Relation>> UntransDisagreements;
-	public LinkedList<Triplet<ConID, ConID, Relation>> LexicalDisagreements;
+	private LinkedList<Triplet<ConID, ConID, Relation>> SelfDisagreements;
+	private LinkedList<Triplet<ConID, ConID, Relation>> SemanticDisagreements;
+	private LinkedList<Triplet<ConID, ConID, Relation>> UntransDisagreements;
+	private LinkedList<Triplet<ConID, ConID, Relation>> LexicalDisagreements;
 	// Relations and Hierarchies
-	public List<Triplet<ConID, ConID, RTriplet>> mRTriplets;
-	public List<Triplet<ConID, ConID, RTriplet>> oRTriplets;
-	public List<Triplet<ConID, ConID, RTriplet>> ovRTriplets;
+	private List<Triplet<ConID, ConID, RTriplet>> mRTriplets;
+	private List<Triplet<ConID, ConID, RTriplet>> oRTriplets;
+	private List<Triplet<ConID, ConID, RTriplet>> ovRTriplets;
 	public List<Triplet<ConID, ConID, Hierarchy>> Hierarchies;
 	// Argumentation
+	private BoundaryFix boundaryFix;
 	public Argumentation argumentation;
-	public BoundaryFix boundaryFix;
-	public boolean attempt_reshape;
 	// Containers
 	public ContrastSet Ki;
 	public ContrastSet K;
 	public ContrastSet H;
 	// Concepts
-	public List<Concept> m_new_concepts;
-	public List<Concept> o_new_concepts;
+	private List<Concept> m_new_concepts;
+	private List<Concept> o_new_concepts;
 	
 	// AMAIL stuff
-	public Set<Example> positiveExamples;
-	public Set<Example> negativeExamples;
+	private Set<Example> positiveExamples;
+	private Set<Example> negativeExamples;
 	
 	// Exchanged elements
 	public Map<GenID, Generalization> g_exchanged;
@@ -123,14 +99,14 @@ public class Agent_General implements Agent{
 		this.H = new ContrastSet(new HashSet<>(), new HashSet<>());
 		this.K.context.addAll(Ki.context);
 		this.H.context.addAll(Ki.context);
-		this.mRTriplets = new ArrayList<Triplet<ConID, ConID, RTriplet>>();
-		this.oRTriplets = new ArrayList<Triplet<ConID, ConID, RTriplet>>();
-		this.ovRTriplets = new ArrayList<Triplet<ConID, ConID, RTriplet>>();
-		this.Hierarchies = new ArrayList<Triplet<ConID, ConID, Hierarchy>>();
-		this.SelfDisagreements = new LinkedList<Triplet<ConID, ConID, Relation>>();
-		this.SemanticDisagreements = new LinkedList<Triplet<ConID, ConID, Relation>>();
-		this.UntransDisagreements = new LinkedList<Triplet<ConID, ConID, Relation>>();
-		this.LexicalDisagreements = new LinkedList<Triplet<ConID, ConID, Relation>>();
+		this.mRTriplets = new ArrayList<>();
+		this.oRTriplets = new ArrayList<>();
+		this.ovRTriplets = new ArrayList<>();
+		this.Hierarchies = new ArrayList<>();
+		this.SelfDisagreements = new LinkedList<>();
+		this.SemanticDisagreements = new LinkedList<>();
+		this.UntransDisagreements = new LinkedList<>();
+		this.LexicalDisagreements = new LinkedList<>();
 		this.m_new_concepts = new ArrayList<>();
 		this.o_new_concepts = new ArrayList<>();
 		this.positiveExamples = new HashSet<>();
@@ -183,7 +159,7 @@ public class Agent_General implements Agent{
 			this.current_state = buildExtensionalDefinition();
 			break;
 		case BuildIDState:
-			this.current_state = buildIntensionalDefiniton();
+			this.current_state = buildIntensionalDefinition();
 			break;
 		case BuildIdsState:
 			this.current_state = buildIds();
@@ -198,7 +174,7 @@ public class Agent_General implements Agent{
 			this.current_state = checkId();
 			break;
 		case CheckOtherInternalEqualitiesState:
-			this.current_state = checkOtherInternalEqualites();
+			this.current_state = checkOtherInternalEqualities();
 			break;
 		case CheckSelfInternalEqualitiesState:
 			this.current_state = checkSelfInternalEqualities();
@@ -231,7 +207,7 @@ public class Agent_General implements Agent{
 			this.current_state = receiveIntensionalDefinition();
 			break;
 		case SendEvaluationState:
-			this.current_state = sendnewEvaluation();
+			this.current_state = sendNewEvaluation();
 			break;
 		case SendExternalEqualitiesState:
 			this.current_state = sendExternalEqualities();
@@ -241,9 +217,6 @@ public class Agent_General implements Agent{
 			break;
 		case SendSelfInternalEqualitiesState:
 			this.current_state = sendSelfInternalEqualities();
-			break;
-		case Stop:
-			this.current_state = State.Stop;
 			break;
 		case UpdateContrastSetState:
 			this.current_state = updateContrastSet();
@@ -274,7 +247,7 @@ public class Agent_General implements Agent{
 	}
 	
 	
-	public State sendIntensionalDefinition(){
+	private State sendIntensionalDefinition(){
 		List<Message> to_send = new ArrayList<>();
 		// Reset the list of new concepts
 		m_new_concepts = new ArrayList<>();
@@ -296,7 +269,7 @@ public class Agent_General implements Agent{
 		return State.ReceiveIDState;
 	}
 	
-	public State receiveIntensionalDefinition(){
+	private State receiveIntensionalDefinition(){
 		// Reset the list of new concepts
 		o_new_concepts = new ArrayList<>();
 		// Adding concepts of the other
@@ -319,15 +292,15 @@ public class Agent_General implements Agent{
 	}
 	
 	// Pick a disagreement to argue about
-	public State chooseDisagreement(){
+	private State chooseDisagreement(){
 		//Getting the received examples
 		for (Message m : mail.getMessages(Performative.SendExamples)) {
 			mail.readMessage(m);
 			Collection<Example> examples = mail.example_list;
 			System.out.println("   > Adding " + examples.size() + " examples to contrast set ");
-			K.addExamples(new HashSet<Example>(examples));
+			K.addExamples(new HashSet<>(examples));
 			System.out.println("   > Adding " + examples.size() + " examples to hypothesis");
-			H.addExamples(new HashSet<Example>(examples));
+			H.addExamples(new HashSet<>(examples));
 			e_exchanged.addAll((new HashSet<>(examples)));
 		}
 		this.cleanMailbox(Performative.SendExamples);
@@ -337,7 +310,7 @@ public class Agent_General implements Agent{
 		System.out.println("Hierarchies  : "+Hierarchies);
 		// If the self and semantic disagreements are empty, time to look for untranslatable disagreements
 		if(SelfDisagreements.isEmpty() && SemanticDisagreements.isEmpty())
-			UntransDisagreements = new LinkedList<>(this.findUntranslatables());
+			UntransDisagreements = new LinkedList<>(this.findUntranslatable());
 		// Display disagreements
 		System.out.println("   > Self disagreements : "+SelfDisagreements);
 		System.out.println("   > Semantinc disagreements : "+SemanticDisagreements);
@@ -379,6 +352,7 @@ public class Agent_General implements Agent{
 			return State.VoteForSignsState;
 		}
 		// Move to the new state according to the disagreement that has been chosen
+		assert disagreement != null;
 		System.out.println("   > New Disagreement to discuss: "+disagreement.getLeft()+" vs "+disagreement.getMiddle()+": "+disagreement.getRight());
 		// If the disagreement is an internal disagreement (self disagreement, go to fix boundaries)
 		if(isSelfDisagreement(disagreement))
@@ -395,7 +369,7 @@ public class Agent_General implements Agent{
 		return State.Stop;
 	}
 	
-	public State deleteBlind() {
+	private State deleteBlind() {
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Check which concept has the more examples
@@ -411,6 +385,7 @@ public class Agent_General implements Agent{
 		cleanMailbox(Performative.Remove);
 		// If not, select a concept to remove (the one with the smallest number of proper examples)
 		if(remove == null) {
+			assert evaluation != null;
 			if(evaluation.getRight().getTriplet()[0] < evaluation.getRight().getTriplet()[2]) {
 				remove = getConcept(evaluation.getLeft());
 			}
@@ -431,7 +406,7 @@ public class Agent_General implements Agent{
 		return State.ChooseDisagreementState;
 	}
 	
-	public State fixBoundaries() {
+	private State fixBoundaries() {
 		// Prepare the list of concepts to add
 		m_new_concepts = new ArrayList<>();
 		o_new_concepts = new ArrayList<>();
@@ -502,7 +477,7 @@ public class Agent_General implements Agent{
 			if (!to_add.toExamples().isEmpty()) {
 				Set<Example> updated_context = boundaryFix.argumentation.context.get(to_add.getLabel());
 				updated_context.addAll(to_add.toExamples());
-				updated_context = new HashSet<>(ToolSet.cleanDuplicates(updated_context));
+				updated_context = new HashSet<>(cleanDuplicates(updated_context));
 				boundaryFix.argumentation.context.put(to_add.getLabel(), updated_context);
 				K.addExamples(to_add.toExamples());
 				H.addExamples(to_add.toExamples());
@@ -568,7 +543,7 @@ public class Agent_General implements Agent{
 		return State.FixBoundariesState;
 	}
 	
-	public State buildExtensionalDefinition(){
+	private State buildExtensionalDefinition(){
 		// Create a list of messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Get the two involved concepts
@@ -577,8 +552,8 @@ public class Agent_General implements Agent{
 		Concept c2 = getConcept(disagreement.getMiddle());
 		// If we are in an untranslatable disagreement, one of the two concepts will be null
 		if(disagreement.getRight() == Relation.Untrans) {
-			positiveExamples = new HashSet<Example>(ToolSet.union(c1.extensional_definition, c2.extensional_definition));
-			negativeExamples = new HashSet<Example>(ToolSet.substract(K.context, positiveExamples));
+			positiveExamples = new HashSet<>(union(c1.extensional_definition, c2.extensional_definition));
+			negativeExamples = new HashSet<>(substract(K.context, positiveExamples));
 		}
 		// In the case of an inclusion, the new concept will be the part of the hypernym that is not the hyponym
 		if(disagreement.getRight() == Relation.Inclusion){
@@ -586,13 +561,15 @@ public class Agent_General implements Agent{
 			Concept hyponym = getHyponym(c1.id, c2.id);
 			System.out.println(hypernym);
 			System.out.println(hyponym);
-			positiveExamples = new HashSet<Example>(ToolSet.substract(hypernym.extensional_definition, hyponym.extensional_definition));
-			negativeExamples = new HashSet<Example>(ToolSet.substract(K.context, positiveExamples));
+			assert hypernym != null;
+			assert hyponym != null;
+			positiveExamples = new HashSet<>(substract(hypernym.extensional_definition, hyponym.extensional_definition));
+			negativeExamples = new HashSet<>(substract(K.context, positiveExamples));
 		}
 		// In the case of an overlap, the new concept will be the part that is covered by both concepts
 		if(disagreement.getRight() == Relation.Overlap){
-			positiveExamples = new HashSet<Example>(ToolSet.intersection(c1.extensional_definition, c2.extensional_definition));
-			negativeExamples = new HashSet<Example>(ToolSet.substract(K.context, positiveExamples));
+			positiveExamples = new HashSet<>(intersection(c1.extensional_definition, c2.extensional_definition));
+			negativeExamples = new HashSet<>(substract(K.context, positiveExamples));
 		}
 		// In the case of
 		System.out.println("   > number of positive examples: "+positiveExamples.size());
@@ -604,13 +581,13 @@ public class Agent_General implements Agent{
 		return State.CheckEDState;
 	}
 	
-	public State checkExtension() {
+	private State checkExtension() {
 		// Create a list of messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Get the two extensional definitions sizes
 		System.out.println("   > Checking the size of the predicted extensional definitions");
-		Integer m_size = positiveExamples.size();
-		Integer o_size = -1;
+		int m_size = positiveExamples.size();
+		int o_size = -1;
 		for(Message m : mail.getMessages(Performative.ExtSize)) {
 			mail.readMessage(m);
 			o_size = mail.integer;
@@ -623,7 +600,7 @@ public class Agent_General implements Agent{
 		argumentation = new Argumentation(this);
 		argumentation.setUpExamples(positiveExamples, negativeExamples);
 		// Check if the decision of who creates the new concept has been seized
-		Boolean seized = false;
+		boolean seized = false;
 		System.out.println("   > Check if the argumentation has been seized...");
 		for(Message m : mail.getMessages(Performative.Seize)) {
 			mail.readMessage(m);
@@ -634,15 +611,15 @@ public class Agent_General implements Agent{
 		cleanMailbox(Performative.Seize);
 		// Dispense of creating the new concept the agent that does not have to
 		if(!seized) {
-			argumentation.exempted = !(isMyBusiness() && positiveExamples.size() >= ToolSet.THRESHOLD);
+			argumentation.exempted = !(isMyBusiness() && positiveExamples.size() >= THRESHOLD);
 			System.out.println("     > seizing the argumentation: this agent creates the new concept is "+!argumentation.exempted);
 			toSend.add(new Seize(State.CheckEDState, !argumentation.exempted));
 		}
 		// If not, green light to argue but first, set max FP size and max FN size
 		System.out.println("   > Setting max false positives and negatives...");
-		argumentation.MAX_FP = (int) Math.floor((ToolSet.THRESHOLD - 1) / 4);
-		argumentation.MMAX_FN = Math.min(m_size - ToolSet.THRESHOLD, argumentation.MAX_FP);
-		argumentation.OMAX_FN = Math.min(o_size - ToolSet.THRESHOLD, argumentation.MAX_FP);
+		argumentation.MAX_FP = ((int) Math.floor((THRESHOLD - 1)) / 4);
+		argumentation.MMAX_FN = Math.min(m_size - THRESHOLD, argumentation.MAX_FP);
+		argumentation.OMAX_FN = Math.min(o_size - THRESHOLD, argumentation.MAX_FP);
 		System.out.println("     > Max false positives : "+argumentation.MAX_FP);
 		System.out.println("     > Max false negatives for my Idef : "+argumentation.MMAX_FN);
 		System.out.println("     > Max false negatives for other's Idef : "+argumentation.OMAX_FN);
@@ -651,7 +628,7 @@ public class Agent_General implements Agent{
 		return State.BuildIDState;
 	}
 	
-	public State buildIntensionalDefiniton(){
+	private State buildIntensionalDefinition(){
 		// Read mail
 		System.out.println("   > Checking nodes to delete...");
 		for(Message m : mail.getMessages(Performative.AcceptAttack)) {
@@ -701,7 +678,7 @@ public class Agent_General implements Agent{
 				System.out.println("     > Adding examples...");
 				Set<Example> updated_context = argumentation.context.get(to_add.getLabel());
 				updated_context.addAll(to_add.toExamples());
-				updated_context = new HashSet<>(ToolSet.cleanDuplicates(updated_context));
+				updated_context = new HashSet<>(cleanDuplicates(updated_context));
 				argumentation.context.put(to_add.getLabel(), updated_context);
 				K.addExamples(to_add.toExamples());
 				H.addExamples(to_add.toExamples());
@@ -750,7 +727,7 @@ public class Agent_General implements Agent{
 		return State.BuildSignState;
 	}
 	
-	public State buildSign() {
+	private State buildSign() {
 		// Eventual list of signs to send
 		List<Message> toSend = new LinkedList<>();
 		// Check if the other created the signs:
@@ -789,7 +766,7 @@ public class Agent_General implements Agent{
 		return State.BuildIdsState;
 	}
 	
-	public State buildIds() {
+	private State buildIds() {
 		// Eventual list of signs to send
 		List<Message> toSend = new LinkedList<>();
 		// Check if the other created the signs:
@@ -817,7 +794,7 @@ public class Agent_General implements Agent{
 		return State.CheckIdsState;
 	}
 	
-	public State checkId() {
+	private State checkId() {
 		System.out.println("   > Checking if we received new ids...");
 		for (Message m : mail.getMessages(Performative.Baptise)) {
 			mail.readMessage(m);
@@ -830,13 +807,13 @@ public class Agent_General implements Agent{
 			return State.DeleteConState;
 		return State.BuildConState;
 	}
-	
-	public State buildConcept(){
+
+	private State buildConcept(){
 		// Reset list of new concepts
 		m_new_concepts = new ArrayList<>();
 		o_new_concepts = new ArrayList<>();
 		// Get the semiotic elements of the new concept
-		Sign sign = new Sign(argumentation.con_newSign.toString());
+		Sign sign = new Sign(argumentation.con_newSign);
 		ConID m_id = argumentation.m_con_id;
 		ConID o_id = argumentation.o_con_id; 
 		Set<Generalization> m_idef = argumentation.getIdef();
@@ -856,6 +833,7 @@ public class Agent_General implements Agent{
 			Concept hyponym = getHyponym(disagreement.getLeft(), disagreement.getMiddle());
 			System.out.println("     > The hyponym was "+hyponym);
 			// Create the concept
+			assert hyponym != null;
 			Concept h_new_concept = new Concept(argumentation.hypo_id, new Sign(argumentation.hypo_newSign), new HashSet<>(hyponym.intensional_definition), new HashSet<>(hyponym.extensional_definition));
 			System.out.println("     > Creating the new co-hyponym "+h_new_concept);
 			// Add it to the same container as the hypernym
@@ -870,6 +848,7 @@ public class Agent_General implements Agent{
 			// Recall that the co-hyponym sign's should be changed
 			//replaceConcept(hyponym, argumentation.hypo_newSign);
 			// Remove hypernym
+			assert hypernym != null;
 			removeConcept(hypernym);
 		}
 		// Add the concepts
@@ -895,8 +874,8 @@ public class Agent_General implements Agent{
 		}
 		return State.SendEvaluationState;
 	}
-	
-	public State deleteUnachieved() {
+
+	private State deleteUnachieved() {
 		// Reset list of new concepts
 		m_new_concepts = new ArrayList<>();
 		o_new_concepts = new ArrayList<>();
@@ -910,6 +889,7 @@ public class Agent_General implements Agent{
 		if(disagreement.getRight() == Relation.Inclusion) {
 			Concept hyponym = getHyponym(disagreement.getLeft(), disagreement.getMiddle());
 			Concept hypernym = getHypernym(disagreement.getLeft(), disagreement.getMiddle());
+			assert hyponym != null;
 			Concept h_new_concept = new Concept(argumentation.hypo_id, new Sign(argumentation.hypo_newSign), new HashSet<>(hyponym.intensional_definition), new HashSet<>(hyponym.extensional_definition));
 			System.out.println("       > Creating the new concept "+h_new_concept);
 			// Add it to the same container as the hypernym
@@ -924,6 +904,7 @@ public class Agent_General implements Agent{
 			// Recall that the co-hyponym sign's should be changed
 			//replaceConcept(hyponym, argumentation.hypo_newSign);
 			// Remove Hypernym
+			assert hypernym != null;
 			removeConcept(hypernym);
 			System.out.println("     > Disagreement was an inclusion, deleting hypernym and adding hyponym");
 		}
@@ -934,8 +915,8 @@ public class Agent_General implements Agent{
 		}
 		return State.SendEvaluationState;
 	}
-	
-	public State sendnewEvaluation() {
+
+	private State sendNewEvaluation() {
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Check if the self evaluations should be made
@@ -951,7 +932,7 @@ public class Agent_General implements Agent{
 		for(Concept Ci : m_new_concepts) {
 			for(Concept Cj : H.getAllConcepts()) {
 				RTriplet rt = new RTriplet(Ci.id, Cj.id, evaluation(Ci, Cj));
-				toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, rt)));
+				toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<>(Ci.id, Cj.id, rt)));
 				System.out.println("     > "+Ci+" vs "+Cj+" = "+rt);
 			}
 		}
@@ -960,7 +941,7 @@ public class Agent_General implements Agent{
 		for(Concept Ci : K.getAllConcepts()) {
 			for(Concept Cj : o_new_concepts) {
 				RTriplet rt = new RTriplet(Ci.id, Cj.id, evaluation(Ci, Cj));
-				toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, rt)));
+				toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<>(Ci.id, Cj.id, rt)));
 				System.out.println("     > "+Ci+" vs "+Cj+" = "+rt);
 			}
 		}
@@ -969,7 +950,7 @@ public class Agent_General implements Agent{
 		for(Concept Ci : m_new_concepts) {
 			for(Concept Cj : o_new_concepts) {
 				RTriplet rt = new RTriplet(Ci.id, Cj.id, evaluation(Ci, Cj));
-				toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, rt)));
+				toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<>(Ci.id, Cj.id, rt)));
 				System.out.println("     > "+Ci+" vs "+Cj+" = "+rt);
 			}
 		}
@@ -982,7 +963,7 @@ public class Agent_General implements Agent{
 					Concept Ci = m_new_concepts.get(i);
 					Concept Cj = m_new_concepts.get(j);
 					RTriplet rt = new RTriplet(Ci.id, Cj.id, evaluation(Ci, Cj));
-					toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, rt)));
+					toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<>(Ci.id, Cj.id, rt)));
 					System.out.println("     > "+Ci+" vs "+Cj+" = "+rt);
 				}
 			}
@@ -993,7 +974,7 @@ public class Agent_General implements Agent{
 					Concept Ci = o_new_concepts.get(i);
 					Concept Cj = o_new_concepts.get(j);
 					RTriplet rt = new RTriplet(Ci.id, Cj.id, evaluation(Ci, Cj));
-					toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, rt)));
+					toSend.add(new Evaluation(State.DraftEvaluationState, new Triplet<>(Ci.id, Cj.id, rt)));
 					System.out.println("     > "+Ci+" vs "+Cj+" = "+rt);
 				}
 			}
@@ -1013,7 +994,7 @@ public class Agent_General implements Agent{
 	}
 	
 	// First tentative to build the overall r-triplet
-	public State draftEvaluation() {
+	private State draftEvaluation() {
 		// List of messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Has the evaluation been seized?
@@ -1051,7 +1032,7 @@ public class Agent_General implements Agent{
 				if((overall_evaluation[i] < 0) && (m_evaluation[i] < o_evaluation[i] || (m_evaluation[i] == o_evaluation[i] && !seized))){
 					// If yes, send them
 					Collection<Example> candidates = requestExamples(Ci.id, Cj.id, i);
-					Collection<Example> selected = ToolSet.substract(candidates, e_exchanged);
+					Collection<Example> selected = substract(candidates, e_exchanged);
 					e_exchanged.addAll(selected);
 					toSend.add(new SendExamples(this, State.UpdateEvaluationState, selected));
 					// Check if the agents have the same number of examples and hasn't been seized
@@ -1061,14 +1042,14 @@ public class Agent_General implements Agent{
 					}
 				}
 			}
-			toSend.add(new Evaluation(State.UpdateEvaluationState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, overall_rt)));
+			toSend.add(new Evaluation(State.UpdateEvaluationState, new Triplet<>(Ci.id, Cj.id, overall_rt)));
 		}
 		cleanMailbox(Performative.Evaluation);
 		sendMessages(toSend);
 		return State.UpdateEvaluationState;
 	}
-	
-	public State sendUpdatedEvaluation() {
+
+	private State sendUpdatedEvaluation() {
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Add examples
@@ -1088,7 +1069,7 @@ public class Agent_General implements Agent{
 			Concept Cj = getConcept(T.getMiddle());
 			System.out.println("   > Checking the evaluation between "+Ci+" and "+Cj+"...");
 			RTriplet rt = new RTriplet(Ci.id, Cj.id, evaluation(Ci, Cj));
-			toSend.add(new Evaluation(State.MakeEvaluationState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, rt)));
+			toSend.add(new Evaluation(State.MakeEvaluationState, new Triplet<>(Ci.id, Cj.id, rt)));
 			System.out.println("     > "+Ci+" vs "+Cj+" = "+rt);
 		}
 		cleanMailbox(Performative.Evaluation);
@@ -1096,8 +1077,8 @@ public class Agent_General implements Agent{
 		sendMessages(toSend);
 		return State.MakeEvaluationState;
 	}
-	
-	public State makeOverallEvaluation() {
+
+	private State makeOverallEvaluation() {
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Read new evaluation
@@ -1115,27 +1096,27 @@ public class Agent_General implements Agent{
 			RTriplet overall_rt = m_rt.rectify(o_rt);
 			System.out.println("     > Overall evaluation: "+overall_rt);
 			// Add the RTriplet
-			mRTriplets.add(new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, m_rt));
-			oRTriplets.add(new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, o_rt));
-			ovRTriplets.add(new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, overall_rt));
+			mRTriplets.add(new Triplet<>(Ci.id, Cj.id, m_rt));
+			oRTriplets.add(new Triplet<>(Ci.id, Cj.id, o_rt));
+			ovRTriplets.add(new Triplet<>(Ci.id, Cj.id, overall_rt));
 			// If it's an inclusion, add the hierarchy
 			if(agree(overall_rt.getTriplet()) == Relation.Inclusion) {
-				Triplet<ConID, ConID, Hierarchy> new_hierarchy = new Triplet<ConID, ConID, Hierarchy>(Ci.id, Cj.id, hierarchyKind(overall_rt.getTriplet()));
+				Triplet<ConID, ConID, Hierarchy> new_hierarchy = new Triplet<>(Ci.id, Cj.id, hierarchyKind(overall_rt.getTriplet()));
 				Hierarchies.add(new_hierarchy);
 			}
 			// Send the overall relation to the other agent
-			toSend.add(new messages.Relation(State.UpdateDisagreementsState, new Triplet<ConID, ConID, Relation>(Ci.id, Cj.id, agree(overall_rt.getTriplet()))));
+			toSend.add(new messages.Relation(State.UpdateDisagreementsState, new Triplet<>(Ci.id, Cj.id, agree(overall_rt.getTriplet()))));
 		}
 		sendMessages(toSend);
 		cleanMailbox(Performative.Evaluation);
 		return State.UpdateDisagreementsState;
 	}
-	
-	public State updateDisagreements() {
+
+	private State updateDisagreements() {
 		for(Message m : mail.getMessages(Performative.Relation)) {
 			mail.readMessage(m);
 			Triplet<ConID, ConID, Relation> relation = mail.relation;
-			System.out.println("   > Checkign the relation between "+relation.getLeft()+" and "+relation.getMiddle()+"...");
+			System.out.println("   > Checking the relation between "+relation.getLeft()+" and "+relation.getMiddle()+"...");
 			if(isDisagreement(relation))
 				addDisagreement(relation);
 		}
@@ -1147,7 +1128,7 @@ public class Agent_General implements Agent{
 	}
 	
 	// Removing self equalities
-	public State sendSelfInternalEqualities() {
+	private State sendSelfInternalEqualities() {
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Check which of our concepts are equivalents
@@ -1156,7 +1137,7 @@ public class Agent_General implements Agent{
 			for(Concept Cj : m_new_concepts) {
 				if(!Ci.equals(Cj) && (agree(Ci, Cj) == Relation.Equivalence || agree(Ci,Cj) == Relation.Blind)) {
 					RTriplet rt = new RTriplet(Ci.id, Cj.id, evaluation(Ci, Cj));
-					toSend.add(new Evaluation(State.CheckOtherInternalEqualitiesState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, rt)));
+					toSend.add(new Evaluation(State.CheckOtherInternalEqualitiesState, new Triplet<>(Ci.id, Cj.id, rt)));
 					System.out.println("     > Found the concepts "+Ci+" and "+Cj+"!");
 				}
 			}
@@ -1165,7 +1146,7 @@ public class Agent_General implements Agent{
 		return State.CheckOtherInternalEqualitiesState;
 	}
 	
-	public State checkOtherInternalEqualites() {
+	private State checkOtherInternalEqualities() {
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Read new evaluations
@@ -1194,20 +1175,20 @@ public class Agent_General implements Agent{
 				if((overall_evaluation[i] < 0) && (m_evaluation[i] < o_evaluation[i] || (m_evaluation[i] == o_evaluation[i]))){
 					// If yes, send them
 					Collection<Example> candidates = requestExamples(Ci.id, Cj.id, i);
-					Collection<Example> selected = ToolSet.substract(candidates, e_exchanged);
+					Collection<Example> selected = substract(candidates, e_exchanged);
 					e_exchanged.addAll(selected);
-					toSend.add(new SendExamples(this, State.CheckSelfInternalEqualitiesState, ToolSet.substract(candidates, e_exchanged)));
+					toSend.add(new SendExamples(this, State.CheckSelfInternalEqualitiesState, substract(candidates, e_exchanged)));
 				}
 			}
 			// Notify the other agent
-			toSend.add(new Evaluation(State.CheckSelfInternalEqualitiesState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, overall_rt)));
+			toSend.add(new Evaluation(State.CheckSelfInternalEqualitiesState, new Triplet<>(Ci.id, Cj.id, overall_rt)));
 		}
 		cleanMailbox(Performative.Evaluation);
 		sendMessages(toSend);
 		return State.CheckSelfInternalEqualitiesState;
 	}
 	
-	public State checkSelfInternalEqualities() {
+	private State checkSelfInternalEqualities() {
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Add examples
@@ -1244,20 +1225,20 @@ public class Agent_General implements Agent{
 				if((overall_evaluation[i] < 0) && (m_evaluation[i] < o_evaluation[i])){
 					// If yes, send them
 					Collection<Example> candidates = requestExamples(Ci.id, Cj.id, i);
-					Collection<Example> selected = ToolSet.substract(candidates, e_exchanged);
+					Collection<Example> selected = substract(candidates, e_exchanged);
 					e_exchanged.addAll(selected);
-					toSend.add(new SendExamples(this, State.ValidOtherInternalEqualitiesState, ToolSet.substract(candidates, e_exchanged)));
+					toSend.add(new SendExamples(this, State.ValidOtherInternalEqualitiesState, substract(candidates, e_exchanged)));
 				}
 			}
 			// Notify the other agent
-			toSend.add(new Evaluation(State.ValidOtherInternalEqualitiesState, new Triplet<ConID, ConID, RTriplet>(Ci.id, Cj.id, overall_rt)));
+			toSend.add(new Evaluation(State.ValidOtherInternalEqualitiesState, new Triplet<>(Ci.id, Cj.id, overall_rt)));
 		}
 		cleanMailbox(Performative.Evaluation);
 		sendMessages(toSend);
 		return State.ValidOtherInternalEqualitiesState;
 	}
 	
-	public State validOtherInternalEqualities() {
+	private State validOtherInternalEqualities() {
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Add examples
@@ -1298,7 +1279,7 @@ public class Agent_General implements Agent{
 	
 	
 	// Removing other multiple equalites
-	public State sendExternalEqualities() {
+	private State sendExternalEqualities() {
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Check, for each of our concept, if two of the other's concepts are equivalent with it
@@ -1306,7 +1287,7 @@ public class Agent_General implements Agent{
 		for(Concept Ci : K.getAllConcepts()) {
 			List<ConID> equivalents = new ArrayList<>();
 			for(Concept Cj : H.getAllConcepts()) {
-				RTriplet rt = getOverallRTriplet(Ci.id, Cj.id).getRight();
+				RTriplet rt = requireNonNull(getOverallRTriplet(Ci.id, Cj.id)).getRight();
 				if(agree(rt.getTriplet()) == Relation.Equivalence) {
 					equivalents.add(Cj.id);
 				}
@@ -1326,7 +1307,7 @@ public class Agent_General implements Agent{
 		return State.UpdateContrastSetState;
 	}
 	
-	public State updateContrastSet(){
+	private State updateContrastSet(){
 		// Messages to send
 		List<Message> toSend = new ArrayList<>();
 		// Keep track of concepts that have been removed
@@ -1395,8 +1376,8 @@ public class Agent_General implements Agent{
 		return State.UpdateHypothesisState;
 	}
 	
-	public State updateHypothesis() {
-		// Remove the concets that have been deleted from the other agent's contrast set
+	private State updateHypothesis() {
+		// Remove the concepts that have been deleted from the other agent's contrast set
 		System.out.println("   > Removing contrast sets from our hypothesis...");
 		for (Message m : mail.getMessages(Performative.Remove)) {
 			mail.readMessage(m);
@@ -1408,7 +1389,7 @@ public class Agent_General implements Agent{
 		return State.ChooseDisagreementState;
 	}
 	
-	public State updateSign(){
+	private State updateSign(){
 		// List of eventual new signs to send
 		List<Message> toSend = new ArrayList<>();
 		// New signs for the new concepts
@@ -1470,13 +1451,13 @@ public class Agent_General implements Agent{
 		// Delete the disagreement
 		removeDisagreement(disagreement);
 		this.disagreement = null;
-		// Delet the relations that are not disagreements
+		// Delete the relations that are not disagreements
 		this.cleanDisagreements();
 		// Move on
 		return State.ChooseDisagreementState;
 	}
 	
-	public State voteForSign(){
+	private State voteForSign(){
 		List<Message> toSend = new LinkedList<>();
 		// Check whether or not the other agent will count the votes
 		boolean seized = false;
@@ -1492,7 +1473,7 @@ public class Agent_General implements Agent{
 		}
 		for(Concept Ci : Ki.getAllConcepts()){
 			for(Concept Cj : K.getAllConcepts()){
-				Triplet<String, String, Double> t = new Triplet<String, String, Double>(Cj.sign(), Ci.sign(), Double.valueOf(ToolSet.intersection(Ci.extensional_definition, Cj.extensional_definition).size()) / Ci.extensional_definition.size());
+				Triplet<String, String, Double> t = new Triplet<>(Cj.sign(), Ci.sign(), (double) intersection(Ci.extensional_definition, Cj.extensional_definition).size() / Ci.extensional_definition.size());
 				toSend.add(new Vote(State.ElectSignsState, t));
 				System.out.println("   > The agent sends "+t.getRight()+" votes to name the concept "+t.getLeft()+" with the sign "+t.getMiddle());
 			}
@@ -1501,7 +1482,7 @@ public class Agent_General implements Agent{
 		return State.ElectSignsState;
 	}
 	
-	public State electSign(){
+	private State electSign(){
 		// Check whether or not the other agent counted the votes
 		boolean seized = false;
 		for(Message m : mail.getMessages(Performative.Seize)) {
@@ -1540,17 +1521,15 @@ public class Agent_General implements Agent{
 			mail.readMessage(m);
 			Triplet<String, String, Double> t = mail.vote;
 			Map<String, Double> v = vote.get(t.getLeft());
-			if (v.get(t.getMiddle()) == null)
-				v.put(t.getMiddle(), 0.);
+			v.putIfAbsent(t.getMiddle(), 0.);
 			v.put(t.getMiddle(), v.get(t.getMiddle()) + t.getRight());
 		}
 		// Put own votes
 		for(Concept Ci : Ki.getAllConcepts()){
 			for(Concept Cj : K.getAllConcepts()){
 				Map<String,Double> v = vote.get(Cj.sign());
-				if(v.get(Ci.sign()) == null)
-					v.put(Ci.sign(), 0.);
-				v.put(Ci.sign(), v.get(Ci.sign()) + Double.valueOf(ToolSet.intersection(Ci.extensional_definition, Cj.extensional_definition).size()) / Ci.extensional_definition.size());
+				v.putIfAbsent(Ci.sign(), 0.);
+				v.put(Ci.sign(), v.get(Ci.sign()) + (double) intersection(Ci.extensional_definition, Cj.extensional_definition).size() / Ci.extensional_definition.size());
 			}
 		}
 		// For each past concept, replace a new concept's name
@@ -1660,40 +1639,41 @@ public class Agent_General implements Agent{
 	}
 	
 	// Getter for collections
-	public Triplet<ConID, ConID, Relation> getRelation(ConID id1, ConID id2){
+	private Triplet<ConID, ConID, Relation> getRelation(ConID id1, ConID id2){
 		Triplet<ConID, ConID, RTriplet> t = getOverallRTriplet(id1, id2);
-		return new Triplet<ConID, ConID, Relation>(id1, id2, agree(t.getRight().getTriplet()));
+		assert t != null;
+		return new Triplet<>(id1, id2, agree(t.getRight().getTriplet()));
 	}
-	
-	public Triplet<ConID, ConID,RTriplet> getOwnRTriplet(ConID id1, ConID id2){
+
+	private Triplet<ConID, ConID,RTriplet> getOwnRTriplet(ConID id1, ConID id2){
 		for(Triplet<ConID, ConID, RTriplet> t : mRTriplets)
 			if(id1.equals(t.getLeft()) && id2.equals(t.getMiddle()) || (id1.equals(t.getMiddle()) && id2.equals(t.getLeft())))
 				return t;
 		return null;
 	}
-	
-	public Triplet<ConID, ConID,RTriplet> getOtherRTriplet(ConID id1, ConID id2){
+
+	private Triplet<ConID, ConID,RTriplet> getOtherRTriplet(ConID id1, ConID id2){
 		for(Triplet<ConID, ConID, RTriplet> t : oRTriplets)
 			if(id1.equals(t.getLeft()) && id2.equals(t.getMiddle()) || (id1.equals(t.getMiddle()) && id2.equals(t.getLeft())))
 				return t;
 		return null;
 	}
 	
-	public Triplet<ConID, ConID,RTriplet> getOverallRTriplet(ConID id1, ConID id2){
+	private Triplet<ConID, ConID,RTriplet> getOverallRTriplet(ConID id1, ConID id2){
 		for(Triplet<ConID, ConID, RTriplet> t : ovRTriplets)
 			if(id1.equals(t.getLeft()) && id2.equals(t.getMiddle()) || (id1.equals(t.getMiddle()) && id2.equals(t.getLeft())))
 				return t;
 		return null;
 	}
 	
-	public Triplet<ConID, ConID, Hierarchy> getHierarchies(ConID id1, ConID id2){
+	private Triplet<ConID, ConID, Hierarchy> getHierarchies(ConID id1, ConID id2){
 		for(Triplet<ConID, ConID, Hierarchy> t : Hierarchies)
 			if(id1.equals(t.getLeft()) && id2.equals(t.getMiddle()) || (id1.equals(t.getMiddle()) && id2.equals(t.getLeft())))
 				return t;
 		return null;
 	}
 	
-	public Triplet<ConID, ConID, Relation> getDisagreement(ConID id1, ConID id2, Relation d){
+	private Triplet<ConID, ConID, Relation> getDisagreement(ConID id1, ConID id2, Relation d){
 		for(Triplet<ConID, ConID, Relation> t : getAllDisagreements()) {
 			if (t.getRight() == d)
 				if(id1.equals(t.getLeft()) && id2.equals(t.getMiddle()) || (id1.equals(t.getMiddle()) && id2.equals(t.getLeft())))
@@ -1703,7 +1683,7 @@ public class Agent_General implements Agent{
 		return null;
 	}
 	
-public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
+	private Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		Set<Triplet<ConID, ConID, RTriplet>> output = new HashSet<>();
 		output.addAll(mRTriplets);
 		output.addAll(oRTriplets);
@@ -1719,9 +1699,10 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		output.addAll(UntransDisagreements);
 		return output;
 	}
-	
-	public Concept getHyponym(ConID id1, ConID id2) {
+
+	private Concept getHyponym(ConID id1, ConID id2) {
 		Triplet<ConID, ConID, Hierarchy> h = getHierarchies(id1, id2);
+		assert h != null;
 		if(h.getRight() == Hierarchy.Hyponymy)
 			return getConcept(h.getLeft());
 		else if(h.getRight() == Hierarchy.Hyperonymy)
@@ -1730,10 +1711,11 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 			return null;
 	}
 	
-	public Concept getHypernym(ConID id1, ConID id2) {
+	private Concept getHypernym(ConID id1, ConID id2) {
 		Triplet<ConID, ConID, Hierarchy> h = getHierarchies(id1, id2);
 		if(h == null)
 			System.out.println(Hierarchies);
+		assert h != null;
 		if(h.getRight() == Hierarchy.Hyperonymy)
 			return getConcept(h.getLeft());
 		else if(h.getRight() == Hierarchy.Hyponymy)
@@ -1756,7 +1738,7 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		return output;
 	}
 	
-	public Container getContainer(ConID id) {
+	private Container getContainer(ConID id) {
 		if(!K.getConcept(id).isNull())
 			return K;
 		if(!H.getConcept(id).isNull())
@@ -1803,39 +1785,29 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		return true;
 	}
 	
-	public void replaceConcept(Concept replaced, String replacing) {
-		Concept to_change_sign = replaced;
-		to_change_sign.sign = new Sign(replacing);
+	private void replaceConcept(Concept replaced, String replacing) {
+		replaced.sign = new Sign(replacing);
 	}
 	
 	// Evaluation functions
 	public int[] evaluation(SemioticElement se1, SemioticElement se2){
-		int A = 0;
-		int B = 0;
-		int AB = 0;
-		A = Math.min(ToolSet.substract(se1.getExtension(K), se2.getExtension(K)).size(),ToolSet.THRESHOLD);
-		B = Math.min(ToolSet.substract(se2.getExtension(K), se1.getExtension(K)).size(),ToolSet.THRESHOLD);
-		AB = Math.min(ToolSet.intersection(se1.getExtension(K), se2.getExtension(K)).size(),ToolSet.THRESHOLD);
-		int[] out = {A, AB, B};
-		return out;
+		int A = Math.min(substract(se1.getExtension(K), se2.getExtension(K)).size(), THRESHOLD);
+		int B = Math.min(substract(se2.getExtension(K), se1.getExtension(K)).size(), THRESHOLD);
+		int AB = Math.min(intersection(se1.getExtension(K), se2.getExtension(K)).size(), THRESHOLD);
+		return new int[]{A, AB, B};
 	}
-	
 	
 	public int[] evaluation(Set<SemioticElement> set1, Set<SemioticElement> set2) {
 		HashSet<Example> tt1 = new HashSet<>();
 		HashSet<Example> tt2 = new HashSet<>();
-		int A = 0;
-		int B = 0;
-		int AB = 0;
 		for(SemioticElement se1 : set1)
 			tt1.addAll(se1.getExtension(K));
 		for(SemioticElement se2 : set2)
 			tt2.addAll(se2.getExtension(K));
-		A = Math.min(ToolSet.substract(tt1, tt2).size(),ToolSet.THRESHOLD);
-		B = Math.min(ToolSet.substract(tt2, tt1).size(),ToolSet.THRESHOLD);
-		AB = Math.min(ToolSet.intersection(tt1, tt2).size(),ToolSet.THRESHOLD);
-		int[] out = {A, AB, B};
-		return out;
+		int A = Math.min(substract(tt1, tt2).size(), THRESHOLD);
+		int B = Math.min(substract(tt2, tt1).size(), THRESHOLD);
+		int AB = Math.min(intersection(tt1, tt2).size(), THRESHOLD);
+		return new int[]{A, AB, B};
 	}
 
 	public  int[] evaluation(SemioticElement se1, Set<SemioticElement> set2) {
@@ -1852,15 +1824,15 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 	public Relation agree(int[] ev){
 		if(ev[0] < 0 || ev[1] < 0 || ev[2] <0 )
 			return null;
-		if((ev[0] < ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD)|| (ev[0] >= ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD) || (ev[0] < ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD))
+		if((ev[0] < THRESHOLD && ev[1] < THRESHOLD && ev[2] < THRESHOLD)|| (ev[0] >= THRESHOLD && ev[1] < THRESHOLD && ev[2] < THRESHOLD) || (ev[0] < THRESHOLD && ev[1] < THRESHOLD && ev[2] >= THRESHOLD))
 			return Relation.Blind;
-		if(ev[0] < ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD)
+		if(ev[0] < THRESHOLD && ev[1] >= THRESHOLD && ev[2] < THRESHOLD)
 			return Relation.Equivalence;
-		if(ev[0] >= ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD)
+		if(ev[0] >= THRESHOLD && ev[1] < THRESHOLD && ev[2] >= THRESHOLD)
 			return Relation.Disjunction;
-		if((ev[0] < ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD) || (ev[0] >= ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2]< ToolSet.THRESHOLD))
+		if((ev[0] < THRESHOLD && ev[1] >= THRESHOLD && ev[2] >= THRESHOLD) || (ev[0] >= THRESHOLD && ev[1] >= THRESHOLD && ev[2]< THRESHOLD))
 			return Relation.Inclusion;
-		if(ev[0] >= ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD)
+		if(ev[0] >= THRESHOLD && ev[1] >= THRESHOLD && ev[2] >= THRESHOLD)
 			return Relation.Overlap;
 		return null;
 	}
@@ -1869,15 +1841,15 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		int[] ev = evaluation(se1, se2);
 		if(ev[0] < 0 || ev[1] < 0 || ev[2] <0 )
 			return null;
-		if((ev[0] < ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD)|| (ev[0] >= ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD) || (ev[0] < ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD))
+		if((ev[0] < THRESHOLD && ev[1] < THRESHOLD && ev[2] < THRESHOLD)|| (ev[0] >= THRESHOLD && ev[1] < THRESHOLD && ev[2] < THRESHOLD) || (ev[0] < THRESHOLD && ev[1] < THRESHOLD && ev[2] >= THRESHOLD))
 			return Relation.Blind;
-		if(ev[0] < ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD)
+		if(ev[0] < THRESHOLD && ev[1] >= THRESHOLD && ev[2] < THRESHOLD)
 			return Relation.Equivalence;
-		if(ev[0] >= ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD)
+		if(ev[0] >= THRESHOLD && ev[1] < THRESHOLD && ev[2] >= THRESHOLD)
 			return Relation.Disjunction;
-		if((ev[0] < ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD) || (ev[0] >= ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2]< ToolSet.THRESHOLD))
+		if((ev[0] < THRESHOLD && ev[1] >= THRESHOLD && ev[2] >= THRESHOLD) || (ev[0] >= THRESHOLD && ev[1] >= THRESHOLD && ev[2]< THRESHOLD))
 			return Relation.Inclusion;
-		if(ev[0] >= ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD)
+		if(ev[0] >= THRESHOLD && ev[1] >= THRESHOLD && ev[2] >= THRESHOLD)
 			return Relation.Overlap;
 		return null;
 	}
@@ -1886,15 +1858,15 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		int[] ev = evaluation(set1, set2);
 		if(ev[0] < 0 || ev[1] < 0 || ev[2] <0 )
 			return null;
-		if((ev[0] < ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD)|| (ev[0] >= ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD) || (ev[0] < ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD))
+		if((ev[0] < THRESHOLD && ev[1] < THRESHOLD && ev[2] < THRESHOLD)|| (ev[0] >= THRESHOLD && ev[1] < THRESHOLD && ev[2] < THRESHOLD) || (ev[0] < THRESHOLD && ev[1] < THRESHOLD && ev[2] >= THRESHOLD))
 			return Relation.Blind;
-		if(ev[0] < ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD)
+		if(ev[0] < THRESHOLD && ev[1] >= THRESHOLD && ev[2] < THRESHOLD)
 			return Relation.Equivalence;
-		if(ev[0] >= ToolSet.THRESHOLD && ev[1] < ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD)
+		if(ev[0] >= THRESHOLD && ev[1] < THRESHOLD && ev[2] >= THRESHOLD)
 			return Relation.Disjunction;
-		if((ev[0] < ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD) || (ev[0] >= ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2]< ToolSet.THRESHOLD))
+		if((ev[0] < THRESHOLD && ev[1] >= THRESHOLD && ev[2] >= THRESHOLD) || (ev[0] >= THRESHOLD && ev[1] >= THRESHOLD && ev[2]< THRESHOLD))
 			return Relation.Inclusion;
-		if(ev[0] >= ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD)
+		if(ev[0] >= THRESHOLD && ev[1] >= THRESHOLD && ev[2] >= THRESHOLD)
 			return Relation.Overlap;
 		return null;
 	}
@@ -1916,34 +1888,31 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		return ToolSet.adjunctSet(I,context);
 	}
 
-	public boolean isDisagreement(Triplet<ConID, ConID, Relation> t){
+	private boolean isDisagreement(Triplet<ConID, ConID, Relation> t){
 		if(t.getRight() == Relation.Overlap || t.getRight() == Relation.Inclusion || t.getRight() == Relation.Blind)
 			return true;
 		else if(t.getRight().equals(Relation.Equivalence) && !getConcept(t.getLeft()).sign().equals(getConcept(t.getMiddle()).sign()))
 			return true;
-		else if(t.getRight().equals(Relation.Disjunction) && getConcept(t.getLeft()).sign().equals(getConcept(t.getMiddle()).sign()))
-			return true;
-		else
-			return false;
+		else return t.getRight().equals(Relation.Disjunction) && getConcept(t.getLeft()).sign().equals(getConcept(t.getMiddle()).sign());
 	}
 	
-	public boolean isSelfDisagreement(Triplet<ConID, ConID, Relation> t) {
+	private boolean isSelfDisagreement(Triplet<ConID, ConID, Relation> t) {
 		return getContainer(t.getLeft()) == getContainer(t.getMiddle());
 	}
 	
-	public boolean isSelfSelfDisagreement(Triplet<ConID, ConID, Relation> t) {
+	private boolean isSelfSelfDisagreement(Triplet<ConID, ConID, Relation> t) {
 		if(!isDisagreement(t))
 			return false;
 		return getContainer(t.getLeft()) == K && getContainer(t.getMiddle()) == K;
 	}
 	
-	public boolean isOtherSelfDisagreement(Triplet<ConID, ConID, Relation> t) {
+	private boolean isOtherSelfDisagreement(Triplet<ConID, ConID, Relation> t) {
 		if(!isDisagreement(t))
 			return false;
 		return getContainer(t.getLeft()) == H && getContainer(t.getMiddle()) == H;
 	}
 	
-	public boolean isMyBusiness() {
+	private boolean isMyBusiness() {
 		if(isSelfSelfDisagreement(disagreement)) {
 			System.out.println("       > The disagreement is a self disagreement of mine, it is my business");
 			return true;
@@ -1958,17 +1927,17 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 			ConID nonNull = (!Ci.isNull())? Ci : Cj;
 			return(getContainer(nonNull) == K);
 		}
-		RTriplet m_rt = getOwnRTriplet(Ci, Cj).getRight();
-		RTriplet o_rt = getOtherRTriplet(Ci, Cj).getRight();
-		boolean only_to_have_examples = (m_rt.getTriplet(Ci, Cj)[1] == ToolSet.THRESHOLD && o_rt.getTriplet(Ci, Cj)[1] < ToolSet.THRESHOLD);
-		boolean have_the_examples = m_rt.getTriplet(Ci, Cj)[1] == ToolSet.THRESHOLD;
+		RTriplet m_rt = requireNonNull(getOwnRTriplet(Ci, Cj)).getRight();
+		RTriplet o_rt = requireNonNull(getOtherRTriplet(Ci, Cj)).getRight();
+		boolean only_to_have_examples = (m_rt.getTriplet(Ci, Cj)[1] == THRESHOLD && o_rt.getTriplet(Ci, Cj)[1] < THRESHOLD);
+		boolean have_the_examples = m_rt.getTriplet(Ci, Cj)[1] == THRESHOLD;
 		boolean have_right_container = true;
 		if(disagreement.getRight() == Relation.Inclusion) {
-			boolean m_covers_side = (m_rt.getTriplet(Ci, Cj)[0] == ToolSet.THRESHOLD || m_rt.getTriplet(Ci, Cj)[2] == ToolSet.THRESHOLD);
-			boolean o_covers_side = (o_rt.getTriplet(Ci, Cj)[0] == ToolSet.THRESHOLD || o_rt.getTriplet(Ci, Cj)[2] == ToolSet.THRESHOLD);
+			boolean m_covers_side = (m_rt.getTriplet(Ci, Cj)[0] == THRESHOLD || m_rt.getTriplet(Ci, Cj)[2] == THRESHOLD);
+			boolean o_covers_side = (o_rt.getTriplet(Ci, Cj)[0] == THRESHOLD || o_rt.getTriplet(Ci, Cj)[2] == THRESHOLD);
 			only_to_have_examples = m_covers_side && !o_covers_side;
 			have_the_examples = m_covers_side;
-			ConID hypernym = getHypernym(Ci, Cj).id;
+			ConID hypernym = requireNonNull(getHypernym(Ci, Cj)).id;
 			if(getContainer(hypernym) == H)
 				have_right_container = false;
 		}
@@ -1985,14 +1954,14 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 	}
 	
 	
-	public void cleanDisagreements() {
+	private void cleanDisagreements() {
 		this.cleanDisagreement(SelfDisagreements);
 		this.cleanDisagreement(SemanticDisagreements);
 		this.cleanDisagreement(UntransDisagreements);
 		this.cleanDisagreement(LexicalDisagreements);
 	}
 	
-	public void cleanDisagreement(List<Triplet<ConID, ConID, Relation>> Disagreements){
+	private void cleanDisagreement(List<Triplet<ConID, ConID, Relation>> Disagreements){
 		List<Triplet<ConID, ConID, Relation>> toDelet = new ArrayList<>();
 		for(Triplet<ConID, ConID, Relation> t : Disagreements){
 			if(!isDisagreement(t))
@@ -2001,14 +1970,8 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		Disagreements.removeAll(toDelet);
 	}
 	
-	public void cleanMailbox(Performative performative){
+	private void cleanMailbox(Performative performative){
 		mail.clearPerformative(performative);
-	}
-	
-	public void cleanMailbox(List<Performative> performatives){
-		for(Performative p : performatives) {
-			mail.clearPerformative(p);
-		}
 	}
 	
 	private List<Triplet<ConID,ConID,Relation>> getAllDisagreements(){
@@ -2020,7 +1983,7 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		return out;
 	}
 	
-	private boolean addDisagreement(Triplet<ConID, ConID, Relation> disagreement) {
+	private void addDisagreement(Triplet<ConID, ConID, Relation> disagreement) {
 		System.out.println("     > adding a new disagreement: "+disagreement);
 		if(isSelfDisagreement(disagreement))
 			SelfDisagreements.add(disagreement);
@@ -2045,13 +2008,12 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 				break;
 			}
 		}
-		return true;
 	}
 	
-	private boolean removeDisagreement(Triplet<ConID, ConID, Relation> disagreement) {
+	private void removeDisagreement(Triplet<ConID, ConID, Relation> disagreement) {
 		if(disagreement == null) {
 			System.out.println("     > no disgreement to remove.");
-			return false;
+			return;
 		}
 		System.out.println("     > removing the disagreement: "+disagreement);
 		if(isSelfDisagreement(disagreement))
@@ -2074,11 +2036,10 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 				}
 			}
 		}
-		return true;
 	}
 	
 	// Get the list of untranslatable concepts
-	public List<Triplet<ConID,ConID,Relation>> findUntranslatables(){
+	private List<Triplet<ConID,ConID,Relation>> findUntranslatable(){
 		// Prepare output
 		List<Triplet<ConID,ConID,Relation>> out = new ArrayList<>();
 		// For each concept of contrast set, see if we have a relation of equivalence
@@ -2091,7 +2052,7 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 				}
 			}
 			if(!hasEquivalent)
-				out.add(new Triplet<ConID, ConID, Relation>(C1.id, new NullConID(), Relation.Untrans));
+				out.add(new Triplet<>(C1.id, new NullConID(), Relation.Untrans));
 		}
 		// For each concept of contrast set, see if we have a relation of equivalence
 		for (Concept C1 : H.getAllConcepts()) {
@@ -2103,20 +2064,20 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 				}
 			}
 			if (!hasEquivalent)
-				out.add(new Triplet<ConID, ConID, Relation>(new NullConID(), C1.id, Relation.Untrans));
+				out.add(new Triplet<>(new NullConID(), C1.id, Relation.Untrans));
 		}
 		return out;
 	}
 	
 	public Hierarchy hierarchyKind(int[] ev){
-		if(ev[0] >= ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] < ToolSet.THRESHOLD)
+		if(ev[0] >= THRESHOLD && ev[1] >= THRESHOLD && ev[2] < THRESHOLD)
 			return Hierarchy.Hyperonymy;
-		if(ev[0] < ToolSet.THRESHOLD && ev[1] >= ToolSet.THRESHOLD && ev[2] >= ToolSet.THRESHOLD)
+		if(ev[0] < THRESHOLD && ev[1] >= THRESHOLD && ev[2] >= THRESHOLD)
 			return Hierarchy.Hyponymy;
 		return Hierarchy.Blind;
 	}
 	
-	public Collection<Example> requestExamples(ConID id1, ConID id2, int request){
+	private Collection<Example> requestExamples(ConID id1, ConID id2, int request){
 		// Get intensional definitions
 		System.out.println("            > Request for examples involving "+id1+" and "+id2);
 		Set<Generalization> idef1 = getConcept(id1).intensional_definition;
@@ -2124,34 +2085,34 @@ public Set<Triplet<ConID, ConID, RTriplet>> getAllRTriplets(){
 		return requestExamples(idef1, idef2, request);
 	}
 	
-	public Collection<Example> requestExamples(Set<Generalization> m_i_def, Set<Generalization> o_i_def, int request){
+	private Collection<Example> requestExamples(Set<Generalization> m_i_def, Set<Generalization> o_i_def, int request){
 		Set<Example> S1 = adjunctSet(m_i_def, K.context);
 		Set<Example> S2 = adjunctSet(o_i_def, K.context);
-		Collection<Example> candidates = new HashSet<>();
-		Collection<Example> out = new HashSet<Example>();
+		Collection<Example> candidates;
+		Collection<Example> out = new HashSet<>();
 		switch (request) {
-		// Example coverd by our concept and not covered by the other's concept
+		// Example covered by our concept and not covered by the other's concept
 		case 0:
-			candidates = ToolSet.substract(S1, S2);
-			if(candidates.size() <= ToolSet.THRESHOLD)
+			candidates = substract(S1, S2);
+			if(candidates.size() <= THRESHOLD)
 				System.out.println("               > Not enough examples in the concept");
-			out = new HashSet<>(ToolSet.optiRandomSubset(this,candidates, ToolSet.THRESHOLD));
+			out = new HashSet<>(optiRandomSubset(this,candidates, THRESHOLD));
 			System.out.println("               > Sending "+out.size()+" examples that belong to our definition but not to the other's definiton");
 			break;
-		// Example coverd by our concept and covered by the other's concept
+		// Example covered by our concept and covered by the other's concept
 		case 1:	
-			candidates = ToolSet.intersection(S1, S2);
-			if(candidates.size() <= ToolSet.THRESHOLD)
+			candidates = intersection(S1, S2);
+			if(candidates.size() <= THRESHOLD)
 				System.out.println("               > Not enough examples in the concept");
-			out = new HashSet<>(ToolSet.optiRandomSubset(this,candidates, ToolSet.THRESHOLD));
+			out = new HashSet<>(optiRandomSubset(this,candidates, THRESHOLD));
 			System.out.println("               > Sending "+out.size()+" examples that belong to our definition and to the other's defintion");
 			break;
-		// Example not coverd by our concept and covered by the other's concept
+		// Example not covered by our concept and covered by the other's concept
 		case 2:
-			candidates = ToolSet.substract(S2, S1);
-			if(candidates.size() <= ToolSet.THRESHOLD)
+			candidates = substract(S2, S1);
+			if(candidates.size() <= THRESHOLD)
 				System.out.println("               > Not enough examples in the concept");
-			out = new HashSet<>(ToolSet.optiRandomSubset(this,candidates, ToolSet.THRESHOLD));
+			out = new HashSet<>(optiRandomSubset(this,candidates, THRESHOLD));
 			System.out.println("               > Sending "+out.size()+" examples that don't belong to our definitoin but belong to the other's definition");
 			break;
 		// If the integer is not associated to a request, inform
