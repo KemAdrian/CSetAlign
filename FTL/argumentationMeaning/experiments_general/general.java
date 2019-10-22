@@ -2,29 +2,30 @@ package experiments_general;
 
 import csic.iiia.ftl.learning.core.TrainingSetUtils;
 import evaluation.ExpFileManager;
+import identifiers.IDCounter;
 import run_general_scripts.run_general;
 import tools.ToolSet;
 
 public class general {
 		// IVs of the experiments�
-	private static int N = 10;
-	private static int DOMAIN  = TrainingSetUtils.SOYBEAN_DATASET;
-	private static int THRESHOLD = 10;
+	private static int N = 1;
+	private static int DOMAIN  = TrainingSetUtils.ZOOLOGY_DATASET_LB;
 	private static String STRATEGY = "EXT";
 	private static String DOMAIN_NAME = getDomainName(DOMAIN);
 	
 	public static void main(String[] args) throws Exception {
 		
 		// Initiate the file manager variables
-		ExpFileManager.RECORD = 1;
-		ExpFileManager.n = general.N;
-		ExpFileManager.nb_domain = general.DOMAIN;
-		ExpFileManager.domain = general.DOMAIN_NAME;
-		ExpFileManager.strategy = general.STRATEGY;
-		ToolSet.THRESHOLD = THRESHOLD;
+		ExpFileManager.addBlock("nb_exp",N);
+		ExpFileManager.addBlock("nb_domain",general.DOMAIN);
+		ExpFileManager.addBlock("name_domain",general.DOMAIN_NAME);
+		ExpFileManager.addBlock("strategy", general.STRATEGY);
+		ToolSet.THRESHOLD = 6;
 
-		// Create file for experiments
-		ExpFileManager.createDraft();
+		//LPkg.ABUI_THRESHOLD = (float) 0.95;
+		// Set domain
+		TrainingSetUtils.NB_DOMAIN = DOMAIN;
+
 		// Run N experiments
 		for(int i=0; i<N; i++) {
 			// Header
@@ -45,12 +46,10 @@ public class general {
 					break;
 				}
 			}
-			ExpFileManager.writeDraft();
-			if(ExpFileManager.success < 0)
-				break;
-			ExpFileManager.reset();
+			IDCounter.reset();
+			ExpFileManager.nextLine();
  		}
-		ExpFileManager.saveDraft();
+		ExpFileManager.createDraft();
 	}
 	
 	private static String getDomainName(int i) {

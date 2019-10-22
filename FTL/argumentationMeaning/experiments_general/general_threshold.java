@@ -1,11 +1,12 @@
 package experiments_general;
 
-import java.util.Random;
-
 import csic.iiia.ftl.learning.core.TrainingSetUtils;
 import evaluation.ExpFileManager;
+import identifiers.IDCounter;
 import run_general_scripts.run_general;
 import tools.ToolSet;
+
+import java.util.Random;
 
 public class general_threshold {
 		// IVs of the experiments�
@@ -20,13 +21,10 @@ public class general_threshold {
 		// Create a Random object
 		Random rand = new Random(System.currentTimeMillis());
 		// Initiate the file manager variables
-		ExpFileManager.RECORD = 1;
-		ExpFileManager.n = general_threshold.N;
-		ExpFileManager.nb_domain =general_threshold.DOMAIN;
-		ExpFileManager.domain = general_threshold.DOMAIN_NAME;
-		ExpFileManager.strategy = general_threshold.STRATEGY;
-		// Create file for experiments
-		ExpFileManager.createDraft();
+		ExpFileManager.addBlock("nb_exp",N);
+		ExpFileManager.addBlock("nb_domain",general_threshold.DOMAIN);
+		ExpFileManager.addBlock("name_domain",general_threshold.DOMAIN_NAME);
+		ExpFileManager.addBlock("strategy", general_threshold.STRATEGY);
 		// Run N experiments
 		for(int i=0; i<N; i++) {
 			// Put a random threshold
@@ -50,12 +48,10 @@ public class general_threshold {
 					break;
 				}
 			}
-			ExpFileManager.writeDraft();
-			if(ExpFileManager.success < 0)
-				break;
-			ExpFileManager.reset();
- 		}
-		ExpFileManager.saveDraft();
+			IDCounter.reset();
+			ExpFileManager.nextLine();
+		}
+		ExpFileManager.createDraft();
 	}
 	
 	private static String getDomainName(int i) {

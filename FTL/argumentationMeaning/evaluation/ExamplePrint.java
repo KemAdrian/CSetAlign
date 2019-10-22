@@ -1,23 +1,16 @@
 package evaluation;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import semiotic_elements.Concept;
 import semiotic_elements.Example;
 import tools.MutableInt;
 
+import java.util.*;
+import java.util.Map.Entry;
+
 public class ExamplePrint {
 	
-	public Map<Concept,String> concept_belonging;
-	public Map<Concept,Integer> printMap;
+	private Map<Concept,String> concept_belonging;
+	private Map<Concept,Integer> printMap;
 	
 	
 	public ExamplePrint(Collection<Concept> concepts_adam, Collection<Concept> concepts_boby) {
@@ -55,23 +48,11 @@ public class ExamplePrint {
 		keys.sort(Collections.reverseOrder());
 		for(Integer j : keys) {
 			if(j <= key) {
-				out.add(getConcept(j).toString()+"("+concept_belonging.get(getConcept(j))+")");
+				out.add(Objects.requireNonNull(getConcept(j)).toString()+"("+concept_belonging.get(getConcept(j))+")");
 				key -= j;
 			}
 		}
 		return out;
-	}
-	
-	public Set<Integer> allKeys(){
-		return new HashSet<Integer>(printMap.values());
-	}
-	
-	public int maxKey() {
-		int max = 0;
-		for(Integer i : printMap.values())
-			if(i>max)
-				max = i;
-		return max;
 	}
 	
 	private Concept getConcept(Integer i) {

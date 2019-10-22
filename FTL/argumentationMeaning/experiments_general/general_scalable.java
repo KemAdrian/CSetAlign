@@ -2,8 +2,8 @@ package experiments_general;
 
 import csic.iiia.ftl.learning.core.TrainingSetUtils;
 import evaluation.ExpFileManager;
-import identifiers.Counter;
-import run_general_scripts.run_general;
+import identifiers.IDCounter;
+import run_general_scripts.run_scalable;
 import tools.FTGen;
 import tools.Loop;
 import tools.Pair;
@@ -16,14 +16,12 @@ public class general_scalable {
 	private static String DOMAIN_NAME = getDomainName(DOMAIN);
 	
 	public static void main(String[] args) throws Exception {
-				
+
 		// Initiate the file manager variables
-		ExpFileManager.RECORD = 1;
-		ExpFileManager.SAVE_FTGEN = 1;
-		ExpFileManager.n = general_scalable.N;
-		ExpFileManager.nb_domain = general_scalable.DOMAIN;
-		ExpFileManager.domain = general_scalable.DOMAIN_NAME;
-		ExpFileManager.strategy = general_scalable.STRATEGY;
+		ExpFileManager.addBlock("nb_exp",N);
+		ExpFileManager.addBlock("nb_domain",general_scalable.DOMAIN);
+		ExpFileManager.addBlock("name_domain",general_scalable.DOMAIN_NAME);
+		ExpFileManager.addBlock("strategy", general_scalable.STRATEGY);
 		
 		// Bracket for context size
 		int min = 100;
@@ -49,17 +47,15 @@ public class general_scalable {
 		// Create contexts
 		FTGen.parametric_initialize(3, min, max, pace, N, sort_size_list, id_size_list, gen_size_list);
 		System.out.println(FTGen.saved.size());
-		// Create file for experiments
-		ExpFileManager.createDraft();
 		// Run N experiments
 		for(int j=min; j<max; j+=pace) {
 			for(int i=0; i<N; i++) {
 				// Header
 				System.out.println(" _ _ _ _ _ _ _ _ _ _ _ EXP "+(i+1)+" _ _ _ _ _ _ _ _ _ _ _ ");
 				// Force the context's size
-				ExpFileManager.nb_examples = j;
+				TrainingSetUtils.NB_EX = j;
 				// Create the experiment's thread
-				Thread t = new Thread(new run_general());
+				Thread t = new Thread(new run_scalable());
 				// Get initial time
 				long t1 = System.currentTimeMillis();
 				// Start experiment
@@ -74,14 +70,11 @@ public class general_scalable {
 						break;
 					}
 				}
-				ExpFileManager.writeDraft();
-				if(ExpFileManager.success < 0)
-					break;
-				Counter.reset();
-				ExpFileManager.reset();
+				IDCounter.reset();
+				ExpFileManager.nextLine();
 			}
- 		}
-		ExpFileManager.saveDraft();
+			ExpFileManager.createDraft();
+		}
 	}
 	
 	private static String getDomainName(int i) {

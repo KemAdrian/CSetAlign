@@ -10,7 +10,10 @@ import java.util.Set;
 import java.util.UUID;
 
 public class LPkg {
-	
+
+	// Threshold
+	public static float ABUI_THRESHOLD = (float) 0.75;
+	// Static objects
 	private static Ontology o;
 	private static FTKBase dm;
 	private static Path dp,sp;
@@ -24,9 +27,9 @@ public class LPkg {
 		LPkg.dm = dm;
 		LPkg.dp = dp;
 		LPkg.sp = sp;
-		LPkg.generic = g;
-		LPkg.different_solutions = ds;
-		LPkg.initialized = true;
+		generic = g;
+		different_solutions = ds;
+		initialized = true;
 		
 		// New binary levels for discussion
 		Sign.reset();
@@ -44,19 +47,19 @@ public class LPkg {
 	}
 	
 	public static Ontology ontology(){
-		return LPkg.o;
+		return o;
 	}
 	
 	public static FTKBase dm(){
-		return LPkg.dm;
+		return dm;
 	}
 	
 	public static Path description_path(){
-		return LPkg.dp;
+		return dp;
 	}
 	
 	public static Path solution_path(){
-		return LPkg.sp;
+		return sp;
 	}
 	
 	public static Sort description_sort(){
@@ -80,11 +83,11 @@ public class LPkg {
 	}
 	
 	public static Set<FeatureTerm> different_solutions(){
-		return LPkg.different_solutions;
+		return different_solutions;
 	}
 	
 	public static void set_different_solutions(Collection<FeatureTerm> d_s) {
-		LPkg.different_solutions = new HashSet<>(d_s);
+		different_solutions = new HashSet<>(d_s);
 	}
 
 	static void set_paths(Path d_path, Path s_path){
@@ -97,7 +100,7 @@ public class LPkg {
 	}
 	
 	public static FeatureTerm createFeature(FeatureTerm d, FeatureTerm s){
-		TermFeatureTerm f = (TermFeatureTerm) LPkg.generic();
+		TermFeatureTerm f = (TermFeatureTerm) generic();
 		try {
 			assert f != null;
 			f.setName(new Symbol(UUID.randomUUID().toString()));
@@ -111,7 +114,7 @@ public class LPkg {
 	}
 	
 	public static boolean initialized(){
-		return LPkg.initialized;
+		return initialized;
 	}
 
 }

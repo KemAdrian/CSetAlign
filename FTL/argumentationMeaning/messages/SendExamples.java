@@ -1,15 +1,15 @@
 package messages;
 
+import enumerators.Performative;
+import enumerators.State;
+import interfaces.Agent;
+import semiotic_elements.Example;
+import tools.Counter;
+import tools.Mailbox;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import enumerators.Performative;
-import enumerators.State;
-import evaluation.ExpFileManager;
-import interfaces.Agent;
-import semiotic_elements.Example;
-import tools.Mailbox;
 
 public class SendExamples extends AbstractMessage{
 
@@ -17,8 +17,7 @@ public class SendExamples extends AbstractMessage{
 
 	public SendExamples(Agent a, State state, Collection<Example> se) {
 		// Count elements
-		if(ExpFileManager.RECORD == 1)
-			ExpFileManager.e_count.get(a).increment(se.size());
+		Counter.getExampleCounter(a).increment(se.size());
 		// Initialize message
 		this.state = state;
 		this.type = Performative.SendExamples;

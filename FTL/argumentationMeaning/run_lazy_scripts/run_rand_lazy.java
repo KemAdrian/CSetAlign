@@ -1,18 +1,8 @@
 package run_lazy_scripts;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import agents.Agent_Lazy;
 import csic.iiia.ftl.argumentation.core.ABUI;
-import csic.iiia.ftl.base.core.BaseOntology;
-import csic.iiia.ftl.base.core.FTKBase;
-import csic.iiia.ftl.base.core.FeatureTerm;
-import csic.iiia.ftl.base.core.Ontology;
-import csic.iiia.ftl.base.core.TermFeatureTerm;
+import csic.iiia.ftl.base.core.*;
 import csic.iiia.ftl.learning.core.TrainingSetProperties;
 import csic.iiia.ftl.learning.core.TrainingSetUtils;
 import enumerators.State;
@@ -25,6 +15,9 @@ import tools.MutableInt;
 import tools.Token;
 import tools.ToolSet;
 
+import java.util.*;
+import java.util.Map.Entry;
+
 public class run_rand_lazy implements Runnable{
 
 	public void run() {
@@ -32,7 +25,7 @@ public class run_rand_lazy implements Runnable{
 		try {
 
 			// Opening of the Cases Set
-			int TEST = ExpFileManager.nb_domain;
+			int TEST = TrainingSetUtils.NB_DOMAIN;
 			//Argumentation_General.DEBUG = 1;
 			//ABUI.DEBUG = 1;
 	
@@ -51,6 +44,20 @@ public class run_rand_lazy implements Runnable{
 			dm.create_boolean_objects(o);
 	
 			TrainingSetProperties training_set = TrainingSetUtils.loadTrainingSet(TEST, o, dm, case_base);
+
+			// Classifying the data set by label
+			Map<FeatureTerm,List<FeatureTerm>> classified_training_set = new HashMap<>();
+			assert training_set != null;
+			for(FeatureTerm solution : training_set.differentSolutions())
+				classified_training_set.put(solution, new ArrayList<>());
+			for(FeatureTerm example : training_set.cases)
+				classified_training_set.get(example.readPath(training_set.solution_path)).add(example);
+			// Find the smallest class
+			int min_size = 10000000;
+			for(FeatureTerm solution : training_set.differentSolutions()) {
+				min_size = Math.min(classified_training_set.get(solution).size(), min_size);
+			}
+			ToolSet.THRESHOLD = min_size / 4;
 			
 			TermFeatureTerm g = (TermFeatureTerm) training_set.cases.get(0).clone(o);
 			
@@ -62,12 +69,13 @@ public class run_rand_lazy implements Runnable{
 			List<List<FeatureTerm>> training_sets = TrainingSetUtils.createRandomTrainingSet(training_set.cases, training_set.differentSolutions(), training_set.solution_path, ToolSet.THRESHOLD);
 			Agent_Lazy adam = new Agent_Lazy();
 			Agent_Lazy boby = new Agent_Lazy();
-			
+
 			// Typology of errors
-			ExpFileManager.g_count.put(adam, new MutableInt());
-			ExpFileManager.g_count.put(boby, new MutableInt());
-			ExpFileManager.e_count.put(adam, new MutableInt());
-			ExpFileManager.e_count.put(boby, new MutableInt());
+			MutableInt g_count_adam = new MutableInt(), g_count_boby = new MutableInt(), e_count_adam = new MutableInt(), e_count_boby = new MutableInt();
+			ExpFileManager.addBlock("g_count_"+adam.nick(), g_count_adam);
+			ExpFileManager.addBlock("g_count_"+boby.nick(), g_count_boby);
+			ExpFileManager.addBlock("e_count_"+adam.nick(), e_count_adam);
+			ExpFileManager.addBlock("e_count_"+boby.nick(), e_count_boby);
 			
 			adam.nick = "adam";
 			boby.nick = "boby";
@@ -83,27 +91,30 @@ public class run_rand_lazy implements Runnable{
 			// Create a print for concept count
 			ExamplePrint exP = new ExamplePrint(adam.Ki.getAllConcepts(), boby.Ki.getAllConcepts());
 			// Output expected concepts (bruteforce 1)
+			int count = 0;
 			for (Entry<Integer, MutableInt> e : exP.makeCount(overall_context)) {
 				System.out.println("expecting concept between " + exP.getConcepts(e.getKey()) + " (" + e.getValue() + ")");
 				if (e.getValue().get() >= ToolSet.THRESHOLD) {
-					ExpFileManager.expected_concepts++;
+					count++;
 				}
 			}
-			System.out.println("expected : " + ExpFileManager.expected_concepts);
-			
+			ExpFileManager.addBlock("expected",count);
+
+			// Number and types of disagreements
+			Evaluation.disagreementCount(adam.Ki, boby.Ki, overall_context, true, null);
+			Evaluation.disagreementCount(adam.Ki, boby.Ki, adam.Ki.context, true, adam);
+			Evaluation.disagreementCount(adam.Ki, boby.Ki, boby.Ki.context, true, boby);
 			// Synchronic agreement
-			Evaluation.i_amailEvaluation(adam, boby, overall_context);
-			ExpFileManager.initial_sync_agreement = Evaluation.synchronicAgreementKi(adam, boby, overall_context);
-			ExpFileManager.local_initial_sync_agreement.put(adam, Evaluation.localSynchronicAgreementKi(adam, boby));
-			ExpFileManager.local_initial_sync_agreement.put(boby, Evaluation.localSynchronicAgreementKi(boby, adam));
+			ExpFileManager.addBlock("i_sync_oag",Evaluation.synchronicAgreementKi(adam, boby, overall_context));
+			ExpFileManager.addBlock("i_sync_lag_"+adam.nick,Evaluation.localSynchronicAgreementKi(adam, boby));
+			ExpFileManager.addBlock("i_sync_lag_"+boby.nick,Evaluation.localSynchronicAgreementKi(boby, adam));
 			// Diachronic agreement
-			ExpFileManager.initial_diac_agreement.put(adam, Evaluation.diachronicAgreement(adam, adam.Ki().context));
-			ExpFileManager.initial_diac_agreement.put(boby, Evaluation.diachronicAgreement(boby, boby.Ki().context));
-			ExpFileManager.final_diac_agreement.put(adam, 0.);
-			ExpFileManager.final_diac_agreement.put(boby, 0.);
+			ExpFileManager.addBlock("i_diac_lag_"+adam.nick, Evaluation.diachronicAgreement(adam, adam.Ki().context));
+			ExpFileManager.addBlock("i_diac_lag_"+boby.nick, Evaluation.diachronicAgreement(boby, boby.Ki().context));
 			// Get the coverage
-			ExpFileManager.i_cover.put(adam, Evaluation.coverage(adam, adam.Ki, overall_context));
-			ExpFileManager.i_cover.put(boby, Evaluation.coverage(boby, boby.Ki, overall_context));
+			ExpFileManager.addBlock("i_cover_"+adam.nick,Evaluation.coverage(adam, adam.Ki, overall_context));
+			ExpFileManager.addBlock("i_cover_"+boby.nick,Evaluation.coverage(boby, boby.Ki, overall_context));
+			ExpFileManager.addBlock("i_cover_ov", Evaluation.shared_coverage(adam, adam.Ki, boby.Ki, overall_context));
 			
 			// List of examples to test
 			LinkedList<Example> toTest = new LinkedList<>(overall_context);
@@ -135,26 +146,26 @@ public class run_rand_lazy implements Runnable{
 				}
 			}
 			System.out.println("expected : " + final_expected_concepts);
-			
+
 			// Exchange ration
-			ExpFileManager.exchange_ratio = ((double) ToolSet.cleanDuplicates(ToolSet.intersection(adam.Kf.context, boby.Kf.context)).size()) / overall_context.size();
+			ExpFileManager.addBlock("exchange", ((double) ToolSet.cleanDuplicates(ToolSet.intersection(adam.K().context, boby.K().context)).size()) / overall_context.size());
 			// Synchronic agreement
-			ExpFileManager.final_sync_agreement = Evaluation.synchronicAgreementK(adam, boby, overall_context);
-			ExpFileManager.local_final_sync_agreement.put(adam, Evaluation.localSynchronicAgreementK(adam, boby));
-			ExpFileManager.local_final_sync_agreement.put(boby, Evaluation.localSynchronicAgreementK(boby, adam));
+			ExpFileManager.addBlock("f_sync_oag",Evaluation.synchronicAgreementK(adam, boby, overall_context));
+			ExpFileManager.addBlock("f_sync_lag_"+adam.nick,Evaluation.localSynchronicAgreementK(adam, boby));
+			ExpFileManager.addBlock("f_sync_lag_"+boby.nick,Evaluation.localSynchronicAgreementK(boby, adam));
 			// Diachronic agreement
-			ExpFileManager.final_diac_agreement.put(adam, Evaluation.diachronicAgreement(adam, adam.Ki().context));
-			ExpFileManager.final_diac_agreement.put(boby, Evaluation.diachronicAgreement(boby, boby.Ki().context));
+			ExpFileManager.addBlock("f_diac_lag_"+adam.nick, Evaluation.diachronicAgreement(adam, adam.Ki().context));
+			ExpFileManager.addBlock("f_diac_lag_"+boby.nick, Evaluation.diachronicAgreement(boby, boby.Ki().context));
 			// Get the coverage
-			ExpFileManager.f_cover.put(adam, Evaluation.coverage(adam, adam.Kf, overall_context));
-			ExpFileManager.f_cover.put(boby, Evaluation.coverage(boby, boby.Kf, overall_context));
+			ExpFileManager.addBlock("f_cover_"+adam.nick,Evaluation.coverage(adam, adam.K(), overall_context));
+			ExpFileManager.addBlock("f_cover_"+boby.nick,Evaluation.coverage(boby, boby.K(), overall_context));
+			ExpFileManager.addBlock("f_cover_ov", Evaluation.shared_coverage(adam, adam.K(), boby.K(), overall_context));
 			// Final threshold
-			ExpFileManager.threshold = ToolSet.THRESHOLD;
+			ExpFileManager.addBlock("threshold", ToolSet.THRESHOLD);
 			// Number of observed concepts
-			ExpFileManager.observed_concepts = Math.max(adam.Kf.getAllConcepts().size(), boby.Kf.getAllConcepts().size());
-			
+			ExpFileManager.addBlock("observed",Math.max(adam.K().getAllConcepts().size(), boby.K().getAllConcepts().size()));;
 			// Make an Amail evaluation
-			Evaluation.f_amailEvaluation(adam, boby, overall_context);
+			//Evaluation.f_amailEvaluation(adam, boby, overall_context);
 			
 		} catch(Exception e){
 			e.printStackTrace();

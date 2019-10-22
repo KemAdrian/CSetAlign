@@ -1,6 +1,6 @@
 package identifiers;
 
-public class ExID extends Counter {
+public class ExID extends IDCounter {
 	
 	public Integer id;
 	

@@ -1,19 +1,15 @@
 package tools;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-
 import interfaces.Agent;
 import semiotic_elements.Example;
 import semiotic_elements.Generalization;
 
+import java.util.*;
+
 public class ToolSet {
-	
+
 	public static int THRESHOLD = 0;
-	public static Random rand = new Random();
+	private static Random rand = new Random();
 	
 	
 	public static boolean contains(Collection<Example> E, Example e) {
@@ -47,7 +43,7 @@ public class ToolSet {
 		return I;
 	}
 	
-	public static Collection<Example> extrusion(Collection<Example> E1, Collection<Example> E2){
+	private static Collection<Example> extrusion(Collection<Example> E1, Collection<Example> E2){
 		Collection<Example> E = new HashSet<>();
 		Collection<Example> O = union(E1, E2);
 		Collection<Example> I = intersection(E1, E2);
@@ -87,7 +83,7 @@ public class ToolSet {
 		return S;
 	}
 	
-	public static boolean emptySet(Collection<Example> E){
+	private static boolean emptySet(Collection<Example> E){
 		return !(E.size() >= THRESHOLD);
 	}
 	
@@ -152,12 +148,12 @@ public class ToolSet {
 	}
 	
 	public static Collection<Example> optiRandomSubset(Agent agent, Collection<Example> set, int size){
-		Collection<Example> out = new HashSet<Example>();
+		Collection<Example> out = new HashSet<>();
 		ArrayList<Example> candidates = new ArrayList<>(set);
 		ArrayList<Example> exchanged = new ArrayList<>(agent.e_exchanged());
 		ArrayList<Example> high_priority = new ArrayList<>(ToolSet.intersection(candidates, exchanged));
 		ArrayList<Example> low_priority = new ArrayList<>(ToolSet.substract(candidates, high_priority));
-		int min = (set.size() < size)? set.size() : size;
+		int min = Math.min(set.size(), size);
 		if(high_priority.size() == min)
 			return high_priority;
 		else if(high_priority.size() > min) {

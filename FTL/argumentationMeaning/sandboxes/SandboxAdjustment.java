@@ -1,21 +1,16 @@
 package sandboxes;
 
-import java.util.HashSet;
-import java.util.List;
-
 import agents.Agent_General;
-import csic.iiia.ftl.base.core.BaseOntology;
-import csic.iiia.ftl.base.core.FTKBase;
-import csic.iiia.ftl.base.core.FeatureTerm;
-import csic.iiia.ftl.base.core.Ontology;
-import csic.iiia.ftl.base.core.TermFeatureTerm;
+import csic.iiia.ftl.base.core.*;
 import csic.iiia.ftl.learning.core.TrainingSetProperties;
 import csic.iiia.ftl.learning.core.TrainingSetUtils;
-import evaluation.ExpFileManager;
 import semiotic_elements.Concept;
 import semiotic_elements.Example;
 import tools.LPkg;
 import tools.ToolSet;
+
+import java.util.HashSet;
+import java.util.List;
 
 public class SandboxAdjustment {
 	
@@ -28,7 +23,6 @@ public class SandboxAdjustment {
 			int TEST = TrainingSetUtils.ZOOLOGY_DATASET;
 			
 			ToolSet.THRESHOLD = 11;
-			ExpFileManager.RECORD = 0;
 			//Argumentation_General.DEBUG = 1;
 			//ABUI.DEBUG = 1;
 	

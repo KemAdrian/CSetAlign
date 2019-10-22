@@ -2,6 +2,7 @@ package experiments_lazy;
 
 import csic.iiia.ftl.learning.core.TrainingSetUtils;
 import evaluation.ExpFileManager;
+import identifiers.IDCounter;
 import run_lazy_scripts.run_rand_lazy;
 import tools.ToolSet;
 
@@ -14,17 +15,14 @@ public class lazy_random {
 	private static String DOMAIN_NAME = getDomainName(DOMAIN);
 	
 	public static void main(String[] args) throws Exception {
-		
+
 		// Initiate the file manager variables
-		ExpFileManager.RECORD = 1;
-		ExpFileManager.n = lazy_random.N;
-		ExpFileManager.nb_domain = lazy_random.DOMAIN;
-		ExpFileManager.domain = lazy_random.DOMAIN_NAME;
-		ExpFileManager.strategy = lazy_random.STRATEGY;
+		ExpFileManager.addBlock("nb_exp",N);
+		ExpFileManager.addBlock("nb_domain",lazy_random.DOMAIN);
+		ExpFileManager.addBlock("name_domain",lazy_random.DOMAIN_NAME);
+		ExpFileManager.addBlock("strategy", lazy_random.STRATEGY);
 		ToolSet.THRESHOLD = THRESHOLD;
 
-		// Create file for experiments
-		ExpFileManager.createDraft();
 		// Run N experiments
 		for(int i=0; i<N; i++) {
 			// Header
@@ -45,12 +43,10 @@ public class lazy_random {
 					break;
 				}
 			}
-			ExpFileManager.writeDraft();
-			if(ExpFileManager.success < 0)
-				break;
-			ExpFileManager.reset();
- 		}
-		ExpFileManager.saveDraft();
+			IDCounter.reset();
+			ExpFileManager.nextLine();
+		}
+		ExpFileManager.createDraft();
 	}
 	
 	private static String getDomainName(int i) {

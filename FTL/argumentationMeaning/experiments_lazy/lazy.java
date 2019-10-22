@@ -2,29 +2,24 @@ package experiments_lazy;
 
 import csic.iiia.ftl.learning.core.TrainingSetUtils;
 import evaluation.ExpFileManager;
+import identifiers.IDCounter;
 import run_lazy_scripts.run_lazy;
-import tools.ToolSet;
 
 public class lazy {
-		// IVs of the experiments²
+		// IVs of the experimentsï¿½
 	private static int N = 1	;
 	private static int DOMAIN  = TrainingSetUtils.SOYBEAN_DATASET;
-	private static int THRESHOLD = 10;
 	private static String STRATEGY = "LAZ";
 	private static String DOMAIN_NAME = getDomainName(DOMAIN);
 	
 	public static void main(String[] args) throws Exception {
-		
-		// Initiate the file manager variables
-		ExpFileManager.RECORD = 1;
-		ExpFileManager.n = lazy.N;
-		ExpFileManager.nb_domain = lazy.DOMAIN;
-		ExpFileManager.domain = lazy.DOMAIN_NAME;
-		ExpFileManager.strategy = lazy.STRATEGY;
-		ToolSet.THRESHOLD = THRESHOLD;
 
-		// Create file for experiments
-		ExpFileManager.createDraft();
+		// Initiate the file manager variables
+		ExpFileManager.addBlock("nb_exp",N);
+		ExpFileManager.addBlock("nb_domain", lazy.DOMAIN);
+		ExpFileManager.addBlock("name_domain",lazy.DOMAIN_NAME);
+		ExpFileManager.addBlock("strategy", lazy.STRATEGY);
+
 		// Run N experiments
 		for(int i=0; i<N; i++) {
 			// Header
@@ -45,12 +40,10 @@ public class lazy {
 					break;
 				}
 			}
-			ExpFileManager.writeDraft();
-			if(ExpFileManager.success < 0)
-				break;
-			ExpFileManager.reset();
- 		}
-		ExpFileManager.saveDraft();
+			IDCounter.reset();
+			ExpFileManager.nextLine();
+		}
+		ExpFileManager.createDraft();
 	}
 	
 	private static String getDomainName(int i) {

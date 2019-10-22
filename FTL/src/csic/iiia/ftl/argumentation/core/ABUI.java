@@ -24,32 +24,19 @@
   
  package csic.iiia.ftl.argumentation.core;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-
 import containers.ContrastSet;
-import csic.iiia.ftl.base.core.FTAntiunification;
-import csic.iiia.ftl.base.core.FTKBase;
-import csic.iiia.ftl.base.core.FTRefinement;
-import csic.iiia.ftl.base.core.FeatureTerm;
-import csic.iiia.ftl.base.core.Ontology;
-import csic.iiia.ftl.base.core.Path;
-import csic.iiia.ftl.base.core.Symbol;
-import csic.iiia.ftl.base.core.TermFeatureTerm;
+import csic.iiia.ftl.base.core.*;
 import csic.iiia.ftl.base.utils.FeatureTermException;
 import csic.iiia.ftl.learning.core.Hypothesis;
 import csic.iiia.ftl.learning.core.Rule;
 import csic.iiia.ftl.learning.core.RuleHypothesis;
-import evaluation.ExpFileManager;
 import semiotic_elements.Concept;
 import semiotic_elements.Example;
 import semiotic_elements.Generalization;
 import semiotic_elements.Sign;
 import tools.LPkg;
+
+import java.util.*;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -152,7 +139,7 @@ public class ABUI extends ArgumentationBasedLearning {
 		for (FeatureTerm f : training_set)
 			if (f.readPath(LPkg.solution_path()).equivalents(label))
 				pos++;
-		ArgumentAcceptability aa = new LaplaceArgumentAcceptability(training_set, LPkg.solution_path(), LPkg.description_path(), (float) ExpFileManager.abui_threshold);
+		ArgumentAcceptability aa = new LaplaceArgumentAcceptability(training_set, LPkg.solution_path(), LPkg.description_path(), LPkg.ABUI_THRESHOLD);
 		RuleHypothesis h = new RuleHypothesis();
 		try {
 			h = learner.learnConceptABUI(training_set, label, accepted_arguments, aa, LPkg.description_path(), LPkg.solution_path(), LPkg.ontology(), LPkg.dm());
@@ -168,7 +155,7 @@ public class ABUI extends ArgumentationBasedLearning {
 	}
 	
 	public static Argument counterArgue(Argument a, Set<Argument> accepted_arguments, Collection<FeatureTerm> training_set) {
-		ArgumentAcceptability aa = new LaplaceArgumentAcceptability(training_set, LPkg.solution_path(), LPkg.description_path(), (float) ExpFileManager.abui_threshold);
+		ArgumentAcceptability aa = new LaplaceArgumentAcceptability(training_set, LPkg.solution_path(), LPkg.description_path(), LPkg.ABUI_THRESHOLD);
 		try {
 			Argument c_a = ABUI.generateBestCounterArgumentABUI(a, training_set, accepted_arguments, aa, LPkg.description_path(), LPkg.solution_path(), LPkg.dm(), LPkg.ontology());
 			return c_a;
@@ -762,7 +749,7 @@ public class ABUI extends ArgumentationBasedLearning {
 		RuleHypothesis output = new RuleHypothesis();
 		ABUI learner = new ABUI();
 		List<Argument> arguments = new ArrayList<Argument>();
-		ArgumentAcceptability aa = new LaplaceArgumentAcceptability(examples, sp, dp, ExpFileManager.abui_threshold);
+		ArgumentAcceptability aa = new LaplaceArgumentAcceptability(examples, sp, dp, LPkg.ABUI_THRESHOLD);
 		//ArgumentAcceptability aa = new AccuracyArgumentAcceptability(examples, sp, dp, ExpFileManager.abui_threshold);
 		for(FeatureTerm s : solution){
 			for(Rule r : learner.learnConceptABUI(examples, s, arguments, aa, dp, sp, o, dm).getRules()){
@@ -835,7 +822,7 @@ public class ABUI extends ArgumentationBasedLearning {
 		}
 		
 		List<Argument> arguments = new ArrayList<Argument>();
-		ArgumentAcceptability aa = new LaplaceArgumentAcceptability(extensionalDefinition, LPkg.solution_path(), LPkg.description_path(), (float) ExpFileManager.abui_threshold);
+		ArgumentAcceptability aa = new LaplaceArgumentAcceptability(extensionalDefinition, LPkg.solution_path(), LPkg.description_path(), LPkg.ABUI_THRESHOLD);
 		
 		try {
 			for(Rule r : learner.learnConceptABUI(extensionalDefinition, solutions, arguments, aa, LPkg.description_path(), LPkg.solution_path(), LPkg.ontology(), LPkg.dm()).getRules()){

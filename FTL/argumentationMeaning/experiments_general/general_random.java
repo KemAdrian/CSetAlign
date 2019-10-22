@@ -14,17 +14,18 @@ public class general_random {
 	private static String DOMAIN_NAME = getDomainName(DOMAIN);
 	
 	public static void main(String[] args) throws Exception {
-		
+
 		// Initiate the file manager variables
-		ExpFileManager.RECORD = 1;
-		ExpFileManager.n = general_random.N;
-		ExpFileManager.nb_domain = general_random.DOMAIN;
-		ExpFileManager.domain = general_random.DOMAIN_NAME;
-		ExpFileManager.strategy = general_random.STRATEGY;
+		ExpFileManager.addBlock("nb_exp",N);
+		ExpFileManager.addBlock("nb_domain",general_random.DOMAIN);
+		ExpFileManager.addBlock("name_domain",general_random.DOMAIN_NAME);
+		ExpFileManager.addBlock("strategy", general_random.STRATEGY);
+
+		// Set domain
+		TrainingSetUtils.NB_DOMAIN = DOMAIN;
 		ToolSet.THRESHOLD = THRESHOLD;
 
 		// Create file for experiments
-		ExpFileManager.createDraft();
 		// Run N experiments
 		for(int i=0; i<N; i++) {
 			// Header
@@ -45,12 +46,9 @@ public class general_random {
 					break;
 				}
 			}
-			ExpFileManager.writeDraft();
-			if(ExpFileManager.success < 0)
-				break;
-			ExpFileManager.reset();
- 		}
-		ExpFileManager.saveDraft();
+			ExpFileManager.nextLine();
+		}
+		ExpFileManager.createDraft();
 	}
 	
 	private static String getDomainName(int i) {

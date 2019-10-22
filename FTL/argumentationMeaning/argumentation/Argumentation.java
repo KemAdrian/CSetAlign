@@ -1,12 +1,5 @@
 package argumentation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import arguments.ArgTree;
 import arguments.Belief;
 import csic.iiia.ftl.argumentation.core.ABUI;
@@ -17,7 +10,6 @@ import csic.iiia.ftl.base.core.TermFeatureTerm;
 import csic.iiia.ftl.base.utils.FeatureTermException;
 import enumerators.ArgPhase;
 import enumerators.Relation;
-import evaluation.ExpFileManager;
 import identifiers.ConID;
 import interfaces.Agent;
 import interfaces.Message;
@@ -32,6 +24,8 @@ import semiotic_elements.Generalization;
 import tools.LPkg;
 import tools.ToolSet;
 
+import java.util.*;
+
 public class Argumentation {
 	
 	// Temp
@@ -42,19 +36,18 @@ public class Argumentation {
 	// Debug
 	public static int DEBUG = 0;
 	// Mailbox
-	public List<Message> toSend;
+	private List<Message> toSend;
 	// Phase
-	public ArgPhase current_phase;
+	private ArgPhase current_phase;
 	// Agent and ABUI
 	public Agent agent;
 	// Solved
-	public boolean solved;
+	boolean solved;
 	// At a position to resolve
 	public boolean exempted;
 	
 	// Agents' nicks
-	String m_nick;
-	String o_nick;
+	private String m_nick;
 	// Agents' new signs
 	public String con_newSign;
 	public String hypo_newSign;
@@ -63,14 +56,14 @@ public class Argumentation {
 	public ConID o_con_id;
 	public ConID hypo_id;
 	// Special tokens for the argumentation
-	public static FeatureTerm solutionToken;
-	public static FeatureTerm notSolutionToken;
+	private static FeatureTerm solutionToken;
+	private static FeatureTerm notSolutionToken;
 	public ArgTree my_argumentation_tree;
 	public ArgTree other_argumentation_tree;
-	public Set<Argument> accepted_arguments;
+	private Set<Argument> accepted_arguments;
 	// Set of examples
-	public Set<Example> positive_examples;
-	public Set<Example> negative_examples;
+	private Set<Example> positive_examples;
+	//private Set<Example> negative_examples;
 	public Map<FeatureTerm,Set<Example>> context;
 	
 	public Argumentation(Agent agent) {
@@ -85,7 +78,6 @@ public class Argumentation {
 		this.exempted = false;
 		// Nicks
 		this.m_nick = agent.nick();
-		this.o_nick = null;
 		// Agents' new signs
 		this.con_newSign = null;
 		this.hypo_newSign = null;
@@ -93,13 +85,13 @@ public class Argumentation {
 		this.m_con_id = null;
 		this.o_con_id = null;
 		this.hypo_id = null;
-		// Reset arguments and generalzations
+		// Reset arguments and generalizations
 		this.accepted_arguments = new HashSet<>();
 		this.my_argumentation_tree = new ArgTree();
 		this.other_argumentation_tree = new ArgTree();
 		// Reset set of examples
 		this.positive_examples = null;
-		this.negative_examples = null;
+		//this.negative_examples = null;
 		// If the tokens are not created yet, create them
 		try {
 			if(solutionToken == null){
@@ -119,7 +111,7 @@ public class Argumentation {
 		// Set up the examples
 		this.context = new HashMap<>();
 		this.positive_examples = positiveExamples;
-		this.negative_examples = negativeExamples;
+		//this.negative_examples = negativeExamples;
 		context.put(solutionToken, positiveExamples);
 		context.put(notSolutionToken, negativeExamples);
 	}
@@ -154,8 +146,8 @@ public class Argumentation {
 	}
 	
 	// Find intensional definition for positive examples
-	public ArgPhase createIDef() {
-		Belief myBelief = null;
+	private ArgPhase createIDef() {
+		Belief myBelief;
 		// Check if there are enough examples to create a belief
 		if(exempted) {
 			System.out.println("     > This agent has been exempted of concept creation");
@@ -199,22 +191,22 @@ public class Argumentation {
 				if(!myBelief.acceptable(context,MAX_FP,MMAX_FN)) {
 					System.out.println("       > Problem: our belief is unacceptable in our context!");
 					int counter = 0;
-					Float save = ExpFileManager.abui_threshold;
+					Float save = LPkg.ABUI_THRESHOLD;
 					while(!myBelief.acceptable(context, MAX_FP, MMAX_FN)) {
 						// Put an exit door
-						if(ExpFileManager.abui_threshold >= 0.9499) {
+						if(LPkg.ABUI_THRESHOLD >= 0.9499) {
 							System.out.println("       > Unable to create an acceptable intensional definition, sending an empty one...");
 							myBelief = new Belief.Builder().from(m_nick).labelled(solutionToken).build();
 							break;
 						}
 						else {
-							ExpFileManager.abui_threshold += (0.95 - ExpFileManager.abui_threshold) / 2;
-							System.out.println("       > Trying to create an acceptable belief: "+counter+" (aa= "+ExpFileManager.abui_threshold+")");
+							LPkg.ABUI_THRESHOLD += (0.95 - LPkg.ABUI_THRESHOLD) / 2;
+							System.out.println("       > Trying to create an acceptable belief: "+counter+" (aa= "+LPkg.ABUI_THRESHOLD+")");
 							myBelief = myBelief.replace(accepted_arguments, context, MAX_FP, MMAX_FN, agent);
 							counter ++;
 						}
 					}
-					ExpFileManager.abui_threshold = save;
+					LPkg.ABUI_THRESHOLD = save;
 				}
 			}
 		}
@@ -232,7 +224,7 @@ public class Argumentation {
 	}
 	
 	// First examination of other's intensional definitionF
-	public ArgPhase  firstIDefExamination() {
+	private ArgPhase  firstIDefExamination() {
 		// Check if we can accept other's belief
 		if(other_argumentation_tree.root.acceptable(context,MAX_FP,OMAX_FN)) {
 			System.out.println("      > Other's belief is accepted");
@@ -258,7 +250,7 @@ public class Argumentation {
 	}
 	
 	// Examine intensional definition tree of other agent
-	public ArgPhase standardIDefExamination() {
+	private ArgPhase standardIDefExamination() {
 		// Testing my tree
 		if(!my_argumentation_tree.agreed_upon) {
 			System.out.println("     > Checking our argumentation tree:");
@@ -320,27 +312,28 @@ public class Argumentation {
 					if(n.attacks() == null)
 						myBelief = n;
 				// Replace the old belief
+				assert myBelief != null;
 				myBelief = myBelief.replace(accepted_arguments, context, MAX_FP, MMAX_FN, agent);
 				// Check if the new belief is acceptable
 				if(!myBelief.acceptable(context,MAX_FP,MMAX_FN)) {
 					System.out.println("       > Problem: our belief is unacceptable in our context! Sending empty belief instead");
 					int counter = 0;
-					Float save = ExpFileManager.abui_threshold;
+					Float save = LPkg.ABUI_THRESHOLD;
 					while(!myBelief.acceptable(context, MAX_FP, MMAX_FN)) {
 						// Put an exit door
-						if(ExpFileManager.abui_threshold >= 0.9499) {
+						if(LPkg.ABUI_THRESHOLD >= 0.9499) {
 							System.out.println("       > Unable to create an acceptable intensional definition, sending an empty one...");
 							myBelief = new Belief.Builder().from(m_nick).labelled(solutionToken).build();
 							break;
 						}
 						else {
-							ExpFileManager.abui_threshold += (0.95 - ExpFileManager.abui_threshold) / 2;
+							LPkg.ABUI_THRESHOLD += (0.95 - LPkg.ABUI_THRESHOLD) / 2;
 							myBelief = myBelief.replace(accepted_arguments, context, MAX_FP, MMAX_FN, agent);
-							System.out.println("       > Trying to create an acceptable belief: "+counter+" (aa= "+ExpFileManager.abui_threshold+")");
+							System.out.println("       > Trying to create an acceptable belief: "+counter+" (aa= "+LPkg.ABUI_THRESHOLD+")");
 							counter ++;
 						}
 					}
-					ExpFileManager.abui_threshold = save;
+					LPkg.ABUI_THRESHOLD = save;
 				}
 				// TEMP
 				System.out.println(myBelief.classification(context));
@@ -456,8 +449,8 @@ public class Argumentation {
 		}
 	}
 	
-	// Empty the argumenation mailbox
-	public void cleanMailbox() {
+	// Empty the argumentation mailbox
+	private void cleanMailbox() {
 		toSend = new ArrayList<>(); 
 	}
 	

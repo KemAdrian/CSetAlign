@@ -1,16 +1,16 @@
 package messages;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import enumerators.Performative;
 import enumerators.State;
-import evaluation.ExpFileManager;
 import identifiers.ConID;
 import interfaces.Agent;
 import semiotic_elements.Generalization;
+import tools.Counter;
 import tools.Mailbox;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Assert extends AbstractMessage{
 	
@@ -25,8 +25,7 @@ public class Assert extends AbstractMessage{
 	public Assert(Agent a, State state, ConID id, String sign, Collection<Generalization> I) {
 		this.state = state;
 		// Count elements
-		if(ExpFileManager.RECORD == 1)
-			ExpFileManager.g_count.get(a).increment(I.size());
+		Counter.getGeneralizationCounter(a).increment(I.size());
 		// Initialize message
 		this.type = Performative.Assert;
 		this.id = id;

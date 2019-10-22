@@ -1,6 +1,6 @@
 package identifiers;
 
-public class GenID extends Counter {
+public class GenID extends IDCounter {
 	
 	public Integer id;
 	

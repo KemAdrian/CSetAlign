@@ -1504,7 +1504,7 @@ public class Agent_General implements Agent{
 			System.out.println("   > The new contrast set is: "+K.getAllConcepts());
 			System.out.println("   > The new hypothesis is  : "+H.getAllConcepts());
 			// Argumentation terminated normally, it counts as a success
-			ExpFileManager.success = 1;
+			ExpFileManager.addBlock("success",1);
 			return State.Stop;
 		}
 		// Seize the naming process
@@ -1560,8 +1560,6 @@ public class Agent_General implements Agent{
 		System.out.println("   > The new hypothesis is  : "+H.getAllConcepts());
 		// Send messages
 		sendMessages(toSend);
-		// Argumentation terminated normally, it counts as a success
-		ExpFileManager.success = 1;
 		return State.Stop;
 	}
 	
@@ -1619,7 +1617,7 @@ public class Agent_General implements Agent{
 	}
 	
 	/**
-	 * Print an evaluation in the terminal.
+	 * Display an evaluation in the terminal.
 	 * @param ev, the evaluation to display in the terminal.
 	 */
 	public void print(int[] ev){

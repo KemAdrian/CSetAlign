@@ -2,7 +2,9 @@ package experiments_general;
 
 import csic.iiia.ftl.learning.core.TrainingSetUtils;
 import evaluation.ExpFileManager;
+import identifiers.IDCounter;
 import run_general_scripts.run_parameters;
+import tools.LPkg;
 import tools.ToolSet;
 
 public class general_parameters {
@@ -13,13 +15,20 @@ public class general_parameters {
 	public static int REDUNDANCY = 0;
 	public static String STRATEGY = "EXT";
 	public static String DOMAIN_NAME = getDomainName(DOMAIN);
-	
+
+
+
 	public static void main(String[] args) throws Exception {
-		
-		
-		// Create file for experiments
-		ExpFileManager.RECORD = 2;
-		ExpFileManager.createDraft();	
+
+
+		// Initiate the file manager variables
+		ExpFileManager.addBlock("nb_exp",N);
+		ExpFileManager.addBlock("nb_domain",general_parameters.DOMAIN);
+		ExpFileManager.addBlock("name_domain",general_parameters.DOMAIN_NAME);
+		ExpFileManager.addBlock("strategy", general_parameters.STRATEGY);
+
+		// Set domain
+		TrainingSetUtils.NB_DOMAIN = DOMAIN;
 		
 		//ABUI.DEBUG = 1;
 		for (int r = 0; r < 101; r += 50) {
@@ -28,13 +37,12 @@ public class general_parameters {
 				for (int i = 0; i < N; i++) {
 					REDUNDANCY = r;
 					// Initiate the file manager variables
-					ExpFileManager.n = N;
-					ExpFileManager.nb_domain = DOMAIN;
-					ExpFileManager.domain = DOMAIN_NAME;
-					ExpFileManager.strategy = STRATEGY;
-					ExpFileManager.redundancy = r;
-					ExpFileManager.abui_threshold = ((float) aa) / 100;
 					ToolSet.THRESHOLD = THRESHOLD;
+					ExpFileManager.addBlock("threshold",THRESHOLD);
+					ExpFileManager.addBlock("redundancy",r);
+					ExpFileManager.addBlock("abui_threshold",((float) aa) / 100);
+					LPkg.ABUI_THRESHOLD = ((float) aa) / 100;
+					TrainingSetUtils.REDUNDANCY = r;
 					// Header
 					System.out.println(" _ _ _ _ _ _ _ _ _ _ _ EXP " + (i + 1) + " _ _ _ _ _ _ _ _ _ _ _ ");
 					// Display parameters info
@@ -56,26 +64,26 @@ public class general_parameters {
 							break;
 						}
 					}
-					ExpFileManager.writeDraft();
-					ExpFileManager.reset();
+					IDCounter.reset();
+					ExpFileManager.nextLine();
 				}
+				ExpFileManager.createDraft();
 			}
 		}
-		ExpFileManager.saveDraft();
 	}
-	
+
 	private static String getDomainName(int i) {
 		switch (i) {
-		case TrainingSetUtils.SEAT_ALL:
-			return "SEAT";
-		case TrainingSetUtils.ZOOLOGY_DATASET_LB:
-			return "ZOOS";
-		case TrainingSetUtils.DEMOSPONGIAE_120_DATASET:
-			return "SPON";
-		case TrainingSetUtils.SOYBEAN_DATASET:
-			return "SOYB";
-		default:
-			return "NC";
+			case TrainingSetUtils.SEAT_ALL:
+				return "SEAT";
+			case TrainingSetUtils.ZOOLOGY_DATASET_LB:
+				return "ZOOS";
+			case TrainingSetUtils.DEMOSPONGIAE_120_DATASET:
+				return "SPON";
+			case TrainingSetUtils.SOYBEAN_DATASET:
+				return "SOYB";
+			default:
+				return "NC";
 		}
 	}
 

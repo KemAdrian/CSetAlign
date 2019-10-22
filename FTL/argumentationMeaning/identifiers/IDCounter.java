@@ -1,6 +1,6 @@
 package identifiers;
 
-public abstract class Counter {
+public abstract class IDCounter {
 	
 	public static int count = 0;
 	

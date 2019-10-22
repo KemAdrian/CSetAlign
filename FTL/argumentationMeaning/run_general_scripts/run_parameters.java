@@ -1,28 +1,22 @@
 package run_general_scripts;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import agents.Agent_General;
-import csic.iiia.ftl.base.core.BaseOntology;
-import csic.iiia.ftl.base.core.FTKBase;
-import csic.iiia.ftl.base.core.FeatureTerm;
-import csic.iiia.ftl.base.core.Ontology;
-import csic.iiia.ftl.base.core.TermFeatureTerm;
+import csic.iiia.ftl.base.core.*;
 import csic.iiia.ftl.learning.core.TrainingSetProperties;
 import csic.iiia.ftl.learning.core.TrainingSetUtils;
+import enumerators.State;
 import evaluation.Evaluation;
 import evaluation.ExamplePrint;
 import evaluation.ExpFileManager;
 import experiments_general.general_parameters;
+import semiotic_elements.Concept;
 import semiotic_elements.Example;
-import tools.LPkg;
-import tools.MutableInt;
-import tools.ToolSet;
+import tools.*;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class run_parameters implements Runnable {
 	
@@ -31,7 +25,7 @@ public class run_parameters implements Runnable {
 		try {
 			System.out.println(ToolSet.THRESHOLD);
 			// Opening of the Cases Set
-			int TEST = general_parameters.DOMAIN;
+			int TEST = TrainingSetUtils.NB_DOMAIN;
 			//Argumentation_General.DEBUG = 1;
 			//ABUI.DEBUG = 1;
 	
@@ -49,7 +43,8 @@ public class run_parameters implements Runnable {
 			dm.create_boolean_objects(o);
 	
 			TrainingSetProperties training_set = TrainingSetUtils.loadTrainingSet(TEST, o, dm, case_base);
-			
+
+			assert training_set != null;
 			TermFeatureTerm g = (TermFeatureTerm) training_set.cases.get(0).clone(o);
 			
 			g.setName(null);
@@ -62,12 +57,13 @@ public class run_parameters implements Runnable {
 
 			Agent_General adam = new Agent_General();
 			Agent_General boby = new Agent_General();
-			
+
 			// Typology of errors
-			ExpFileManager.g_count.put(adam, new MutableInt());
-			ExpFileManager.g_count.put(boby, new MutableInt());
-			ExpFileManager.e_count.put(adam, new MutableInt());
-			ExpFileManager.e_count.put(boby, new MutableInt());
+			MutableInt g_count_adam = new MutableInt(), g_count_boby = new MutableInt(), e_count_adam = new MutableInt(), e_count_boby = new MutableInt();
+			ExpFileManager.addBlock("g_count_"+adam.nick(), g_count_adam);
+			ExpFileManager.addBlock("g_count_"+boby.nick(), g_count_boby);
+			ExpFileManager.addBlock("e_count_"+adam.nick(), e_count_adam);
+			ExpFileManager.addBlock("e_count_"+boby.nick(), e_count_boby);
 			
 			adam.nick = "adam";
 			boby.nick = "boby";
@@ -79,43 +75,111 @@ public class run_parameters implements Runnable {
 			Set<Example> overall_context = new HashSet<>(ToolSet.cleanDuplicates(ToolSet.union(adam.K.context, boby.K.context)));
 			// List of all concepts
 			ExamplePrint exP = new ExamplePrint(adam.K.getAllConcepts(), boby.K.getAllConcepts());
-			Map<Integer,MutableInt> count = new HashMap<>();
-			for(Example e : overall_context) {
-				Integer print = exP.getPrint(e);
-				if(count.get(print) == null)
-					count.put(print, new MutableInt());
-				count.get(print).increment(1);
-			}
-			String resume = "";
-			for(Entry<Integer, MutableInt> e : count.entrySet()) {
-				System.out.println("key : "+exP.getConcepts(e.getKey()));
-				System.out.println("result : "+e.getValue());
-				resume += (" ; "+e.getValue());
-				if(e.getValue().get() >= ToolSet.THRESHOLD) {
-					ExpFileManager.expected_concepts ++;
+			int count = 0;
+			for (Entry<Integer, MutableInt> e : exP.makeCount(overall_context)) {
+				System.out.println("expecting concept between " + exP.getConcepts(e.getKey()) + " (" + e.getValue() + ")");
+				if (e.getValue().get() >= ToolSet.THRESHOLD) {
+					count++;
 				}
 			}
-			System.out.println("expected : "+ExpFileManager.expected_concepts);
-			
+			ExpFileManager.addBlock("expected",count);
+
+			// Number and types of disagreements
+			Evaluation.disagreementCount(adam.Ki, boby.Ki, overall_context, true, null);
+			Evaluation.disagreementCount(adam.Ki, boby.Ki, adam.Ki.context, true, adam);
+			Evaluation.disagreementCount(adam.Ki, boby.Ki, boby.Ki.context, true, boby);
 			// Synchronic agreement
-			ExpFileManager.initial_sync_agreement = Evaluation.synchronicAgreementKi(adam, boby, overall_context);
+			ExpFileManager.addBlock("i_sync_oag",Evaluation.synchronicAgreementKi(adam, boby, overall_context));
+			ExpFileManager.addBlock("i_sync_lag_"+adam.nick,Evaluation.localSynchronicAgreementKi(adam, boby));
+			ExpFileManager.addBlock("i_sync_lag_"+boby.nick,Evaluation.localSynchronicAgreementKi(boby, adam));
 			// Diachronic agreement
-			ExpFileManager.initial_diac_agreement.put(adam, Evaluation.diachronicAgreement(adam, adam.Ki().context));
-			ExpFileManager.initial_diac_agreement.put(boby, Evaluation.diachronicAgreement(boby, boby.Ki().context));
-			ExpFileManager.final_diac_agreement.put(adam, 0.);
-			ExpFileManager.final_diac_agreement.put(boby, 0.);
-			
+			ExpFileManager.addBlock("i_diac_lag_"+adam.nick, Evaluation.diachronicAgreement(adam, adam.Ki().context));
+			ExpFileManager.addBlock("i_diac_lag_"+boby.nick, Evaluation.diachronicAgreement(boby, boby.Ki().context));
+			// Get the coverage
+			ExpFileManager.addBlock("i_cover_"+adam.nick,Evaluation.coverage(adam, adam.Ki, overall_context));
+			ExpFileManager.addBlock("i_cover_"+boby.nick,Evaluation.coverage(boby, boby.Ki, overall_context));
+			ExpFileManager.addBlock("i_cover_ov", Evaluation.shared_coverage(adam, adam.Ki, boby.Ki, overall_context));
+
+			// Check how many generalizations are generated
+			int initial_exchange = 0;
+			System.out.println("   AGENT ADAM:");
+			for (Concept c : adam.Ki.getAllConcepts()) {
+				System.out.println("     > SIZE OF CONCEPT " + c.sign() + " : " + c.intensional_definition.size());
+				initial_exchange += c.intensional_definition.size();
+			}
+			System.out.println("   AGENT BOBY:");
+			for (Concept c : boby.Ki.getAllConcepts()) {
+				System.out.println("     > SIZE OF CONCEPT " + c.sign() + " : " + c.intensional_definition.size());
+				initial_exchange += c.intensional_definition.size();
+			}
+			Token.initialize(adam, boby);
+			System.out.println("Oracle : starts discussion,  agent " + Token.defender().toString() + " in defense and agent "
+					+ Token.attacker().toString() + " in attack ("+((Agent_General) Token.attacker()).current_state+")");
+			while (adam.current_state != State.Stop || boby.current_state != State.Stop) {
+				System.out.println(adam.e_exchanged.size());
+				System.out.println(boby.e_exchanged.size());
+				Token.defender().turn();
+				System.out.println("\nOracle : switch roles, agent " + Token.attacker().toString() + " in defense and agent "
+						+ Token.defender().toString() + " in attack (" + ((Agent_General) Token.attacker()).current_state + ")");
+				System.out.println("  > shared examples: " + ToolSet.cleanDuplicates(ToolSet.intersection(adam.K.context, boby.K.context)).size());
+				System.out.println("   > Generalizations exchanged = " + (Counter.getGeneralizationCounter(adam).get() + Counter.getGeneralizationCounter(boby).get()));
+				System.out.println("   > Exchanged counted = " + adam.g_exchanged.size() + "/" + boby.g_exchanged.size());
+				/*if(ExpFileManager.g_count.get(adam).get() + ExpFileManager.g_count.get(boby).get() > 40) {
+					String s = null;
+					s.toString();
+				}*/
+
+				Token.switchRoles();
+			}
+
+			System.out.println("   > Exchanges = "+(Counter.getGeneralizationCounter(adam).get() + Counter.getGeneralizationCounter(boby).get() - initial_exchange) / (double) adam.K.getAllConcepts().size());
+
+			// Check how many generalizations are generated
+			System.out.println("   AGENT ADAM:");
+			for(Concept c : adam.K.getAllConcepts()) {
+				System.out.println("     > SIZE OF CONCEPT "+c.sign()+" : "+c.intensional_definition.size());
+			}
+			System.out.println("   AGENT BOBY:");
+			for(Concept c : boby.K.getAllConcepts()) {
+				System.out.println("     > SIZE OF CONCEPT "+c.sign()+" : "+c.intensional_definition.size());
+			}
+
+			// Create a print for concept count
+			ExamplePrint exP2 = new ExamplePrint(adam.K.getAllConcepts(), boby.K.getAllConcepts());
+			int final_expected_concepts = 0;
+			// Output expected concepts (bruteforce 1)
+			for (Entry<Integer, MutableInt> e : exP2.makeCount(overall_context)) {
+				System.out.println("expecting concept between " + exP2.getConcepts(e.getKey()) + " (" + e.getValue() + ")");
+				if (e.getValue().get() >= ToolSet.THRESHOLD) {
+					final_expected_concepts ++;
+				}
+			}
+			System.out.println("expected : " + final_expected_concepts);
+
+			// Number and types of disagreements
+			Evaluation.disagreementCount(adam.K, boby.K, overall_context, false, null);
+			Evaluation.disagreementCount(adam.K, boby.K, adam.K.context, false, adam);
+			Evaluation.disagreementCount(adam.K, boby.K, boby.K.context, false, boby);
+
+			// Exchange ration
+			ExpFileManager.addBlock("exchange", ((double) ToolSet.cleanDuplicates(ToolSet.intersection(adam.K.context, boby.K.context)).size()) / overall_context.size());
 			// Synchronic agreement
-			ExpFileManager.final_sync_agreement = Evaluation.synchronicAgreementK(adam, boby, overall_context);
+			ExpFileManager.addBlock("f_sync_oag",Evaluation.synchronicAgreementK(adam, boby, overall_context));
+			ExpFileManager.addBlock("f_sync_lag_"+adam.nick,Evaluation.localSynchronicAgreementK(adam, boby));
+			ExpFileManager.addBlock("f_sync_lag_"+boby.nick,Evaluation.localSynchronicAgreementK(boby, adam));
 			// Diachronic agreement
-			ExpFileManager.final_diac_agreement.put(adam, Evaluation.diachronicAgreement(adam, adam.Ki().context));
-			ExpFileManager.final_diac_agreement.put(boby, Evaluation.diachronicAgreement(boby, boby.Ki().context));
+			ExpFileManager.addBlock("f_diac_lag_"+adam.nick, Evaluation.diachronicAgreement(adam, adam.Ki().context));
+			ExpFileManager.addBlock("f_diac_lag_"+boby.nick, Evaluation.diachronicAgreement(boby, boby.Ki().context));
+			// Get the coverage
+			ExpFileManager.addBlock("f_cover_"+adam.nick,Evaluation.coverage(adam, adam.K, overall_context));
+			ExpFileManager.addBlock("f_cover_"+boby.nick,Evaluation.coverage(boby, boby.K, overall_context));
+			ExpFileManager.addBlock("f_cover_ov", Evaluation.shared_coverage(adam, adam.K, boby.K, overall_context));
 			// Final threshold
-			ExpFileManager.threshold = ToolSet.THRESHOLD;
+			ExpFileManager.addBlock("threshold", ToolSet.THRESHOLD);
 			// Number of observed concepts
-			ExpFileManager.observed_concepts = Math.max(adam.K.getAllConcepts().size(), boby.K.getAllConcepts().size());
-			// Stock information on the other file
-			ExpFileManager.writeDraft_p(ExpFileManager.redundancy+" ; "+ExpFileManager.abui_threshold+resume);
+			ExpFileManager.addBlock("observed",Math.max(adam.K.getAllConcepts().size(), boby.K.getAllConcepts().size()));;
+			// Make an Amail evaluation
+			//Evaluation.f_amailEvaluation(adam, boby, overall_context);
 			
 		} catch(Exception e){
 			e.printStackTrace();

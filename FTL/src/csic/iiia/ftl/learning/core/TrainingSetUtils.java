@@ -47,6 +47,9 @@ public class TrainingSetUtils {
 	/** The DEBUG. */
 	public static int DEBUG = 0;
 	public static int LIMIT = 0;
+	public static int NB_EX = 0;
+	public static int NB_DOMAIN = 0;
+	public static int REDUNDANCY = 0;
 	
 	public static List<List<FeatureTerm>> createRandomTrainingSet(Collection<FeatureTerm> examples, Collection<FeatureTerm> different_solutions, Path s_p, int m_size_min){
 		// Create a map for classification of examples according to their solutions
@@ -88,20 +91,18 @@ public class TrainingSetUtils {
 			// Get max of this concept type that can be done
 			int maxc = 0;
 			switch (order.get(i)) {
-			case 0:
-				maxc = disp / 3;
-				break;
-			case 1:
-				maxc = disp / 2;
-				break;
-			case 2:
-				maxc = disp;
-				break;
-			case 3:
-				maxc = disp / 2;
-				break;
-			default:
-				break;
+				case 0:
+					maxc = disp / 3;
+					break;
+				case 1:
+				case 3:
+					maxc = disp / 2;
+					break;
+				case 2:
+					maxc = disp;
+					break;
+				default:
+					break;
 			}
 			// Set the number of this type of disagreements
 			int nb = new Random().nextInt(maxc + 1);
@@ -150,8 +151,8 @@ public class TrainingSetUtils {
 			System.out.println("       > The concept "+solution.toStringNOOS()+" has "+classified_training_set.get(solution).size()+" examples");
 		}
 		// Resample the data set if the context size has been forced
-		if(ExpFileManager.nb_examples == 0)
-			ExpFileManager.nb_examples = examples.size();
+		if(TrainingSetUtils.NB_EX == 0)
+			TrainingSetUtils.NB_EX = examples.size();
 		else {
 			Map<FeatureTerm,List<FeatureTerm>> resampled = new HashMap<>();
 			for(FeatureTerm solution : different_solutions) {
@@ -159,7 +160,7 @@ public class TrainingSetUtils {
 			}
 			boolean all_empty = false;
 			int count = 0;
-			while(!all_empty && count < ExpFileManager.nb_examples) {
+			while(!all_empty && count < TrainingSetUtils.NB_EX) {
 				all_empty = true;
 				for(FeatureTerm solution : different_solutions) {
 					if(!classified_training_set.get(solution).isEmpty()) {
@@ -172,16 +173,20 @@ public class TrainingSetUtils {
 			System.out.println("     > We resampled the context");
 			classified_training_set = resampled;
 		}
+		ExpFileManager.addBlock("examples",TrainingSetUtils.NB_EX);
 		// Get the list of entries
 		List<Entry<FeatureTerm,List<FeatureTerm>>> list = new ArrayList<>();
+		System.out.println(classified_training_set.entrySet());
 		for(Entry<FeatureTerm,List<FeatureTerm>> entry : classified_training_set.entrySet()) {
+			System.out.println(entry.getValue().size());
+			System.out.println(m_size_min);
 			if(entry.getValue().size() >= m_size_min * 2)
 				list.add(entry);
 		}
 		// Shuffle the two lists
 		Collections.shuffle(list);
 		System.out.println("     > We have "+list.size()+" suitable concepts for the semantic errors");
-		ExpFileManager.initial_concepts = list.size();
+		ExpFileManager.addBlock("i_concepts",list.size());
 		// Get desired number of issues
 		int o_counter = overlapp;
 		int Hh_counter = hyper;
@@ -289,11 +294,13 @@ public class TrainingSetUtils {
 			}
 		}
 		LPkg.set_different_solutions(different_solutions);
-		ExpFileManager.nb_concerned = output.get(0).size() + output.get(1).size();
-		ExpFileManager.nb_overlap = overlapp - o_counter;
-		ExpFileManager.nb_hyponym = (hyper - Hh_counter) + 2 * (overlapp - o_counter);
-		ExpFileManager.nb_synonym = (syno - s_counter) + 2 * (homo - h_counter);
-		ExpFileManager.nb_homonym = homo - h_counter;
+		ExpFileManager.addBlock("concerned",output.get(0).size() + output.get(1).size());
+		ExpFileManager.addBlock("nb_overlap",overlapp - o_counter);
+		ExpFileManager.addBlock("nb_hyponym",(hyper - Hh_counter) + 2 * (overlapp - o_counter));
+		ExpFileManager.addBlock("nb_synonym",(syno - s_counter) + 2 * (homo - h_counter));
+		ExpFileManager.addBlock("nb_homonym",homo - h_counter);
+		// Reinitialize the number of examples
+		TrainingSetUtils.NB_EX = 0;
 		return output;
 	}
 	
@@ -301,7 +308,7 @@ public class TrainingSetUtils {
 		if(entries.size() != a1_labels.size() || entries.size() != a2_labels.size())
 			System.out.println("       > Problem : invalid size for the inputs of dealing concept function");
 		// Compute the percentage of redundancy
-		int redundancy = ExpFileManager.redundancy;
+		int redundancy = TrainingSetUtils.REDUNDANCY;
 		if(redundancy > 100) {
 			System.out.println("       > Redundancy higher than one hundred, put at one hundred");
 			redundancy = 100;
@@ -832,34 +839,34 @@ public class TrainingSetUtils {
 
 		switch (DATASET) {
 		case ARTIFICIAL_DATASET:
-			dm.importNOOS("Resources/DATA/artificial-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/artificial-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/artificial-512.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/artificial-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/artificial-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/artificial-512.noos", o);
 
 			ts.name = "artificial";
 			ts.problem_sort = o.getSort("artificial-data-problem");
 			break;
 		case ZOOLOGY_DATASET:
-			dm.importNOOS("Resources/DATA/zoology-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/zoology-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/zoology-cases-102_OLD.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/zoology-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/zoology-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/zoology-cases-102_OLD.noos", o);
 
 			ts.name = "zoology";
 			ts.problem_sort = o.getSort("zoo-problem");
 			break;
 			
 		case SOYBEAN_DATASET:
-			dm.importNOOS("Resources/DATA/soybean-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/soybean-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/soybean-cases-307.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/soybean-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/soybean-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/soybean-cases-307.noos", o);
 
 			ts.name = "soybean";
 			ts.problem_sort = o.getSort("soybean-problem");
 			break;
 		case DEMOSPONGIAE_503_DATASET:
-			dm.importNOOS("Resources/DATA/sponge-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/sponge-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/sponge-cases-503.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/sponge-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/sponge-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/sponge-cases-503.noos", o);
 
 			ts.solution_path.features.add(new Symbol("order"));
 
@@ -867,9 +874,9 @@ public class TrainingSetUtils {
 			ts.problem_sort = o.getSort("sponge-problem");
 			break;
 		case DEMOSPONGIAE_280_DATASET:
-			dm.importNOOS("Resources/DATA/sponge-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/sponge-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/sponge-cases-280.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/sponge-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/sponge-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/sponge-cases-280.noos", o);
 
 			ts.solution_path.features.add(new Symbol("order"));
 
@@ -877,9 +884,9 @@ public class TrainingSetUtils {
 			ts.problem_sort = o.getSort("sponge-problem");
 			break;
 		case DEMOSPONGIAE_120_DATASET:
-			dm.importNOOS("Resources/DATA/sponge-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/sponge-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/sponge-cases-120.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/sponge-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/sponge-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/sponge-cases-120.noos", o);
 
 			ts.solution_path.features.add(new Symbol("order"));
 
@@ -887,90 +894,90 @@ public class TrainingSetUtils {
 			ts.problem_sort = o.getSort("sponge-problem");
 			break;
 		case TRAINS_DATASET:
-			dm.importNOOS("Resources/DATA/trains-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/trains-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/trains-cases-10.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/trains-cases-10.noos", o);
 
 			ts.name = "trains";
 			ts.problem_sort = o.getSort("trains-problem");
 			break;
 		case TRAINS_82_DATASET:
-			dm.importNOOS("Resources/DATA/trains-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/trains-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/trains-cases-82.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/trains-cases-82.noos", o);
 
 			ts.name = "trains";
 			ts.problem_sort = o.getSort("trains-problem");
 			break;
 		case TRAINS_900_DATASET:
-			dm.importNOOS("Resources/DATA/trains-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/trains-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/trains-cases-900.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/trains-cases-900.noos", o);
 
 			ts.name = "trains";
 			ts.problem_sort = o.getSort("trains-problem");
 			break;
 		case TRAINS_100_DATASET:
-			dm.importNOOS("Resources/DATA/trains-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/trains-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/trains-cases-100.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/trains-cases-100.noos", o);
 
 			ts.name = "trains";
 			ts.problem_sort = o.getSort("trains-problem");
 			break;
 		case TRAINS_1000_DATASET:
-			dm.importNOOS("Resources/DATA/trains-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/trains-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/trains-cases-1000.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/trains-cases-1000.noos", o);
 
 			ts.name = "trains";
 			ts.problem_sort = o.getSort("trains-problem");
 			break;
 		case TRAINS_10000_DATASET:
-			dm.importNOOS("Resources/DATA/trains-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/trains-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/trains-cases-10000.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/trains-cases-10000.noos", o);
 
 			ts.name = "trains";
 			ts.problem_sort = o.getSort("trains-problem");
 			break;
 		case TRAINS_100000_DATASET:
-			dm.importNOOS("Resources/DATA/trains-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/trains-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/trains-cases-100000.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/trains-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/trains-cases-100000.noos", o);
 
 			ts.name = "trains";
 			ts.problem_sort = o.getSort("trains-problem");
 			break;
 		case UNCLE_DATASET:
-			dm.importNOOS("Resources/DATA/family-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/family-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/family-cases-12.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/family-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/family-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/family-cases-12.noos", o);
 
 			ts.name = "uncle";
 			ts.problem_sort = o.getSort("uncle-problem");
 			break;
 		case UNCLE_DATASET_SETS:
-			dm.importNOOS("Resources/DATA/family-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/family-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/family-cases-12-sets.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/family-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/family-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/family-cases-12-sets.noos", o);
 
 			ts.name = "uncle";
 			ts.problem_sort = o.getSort("uncle-problem");
 			break;
 		case UNCLE_DATASET_BOTH:
-			dm.importNOOS("Resources/DATA/family-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/family-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/family-cases-12.noos", o);
-			case_base.importNOOS("Resources/DATA/family-cases-12-sets.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/family-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/family-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/family-cases-12.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/family-cases-12-sets.noos", o);
 
 			ts.name = "uncle";
 			ts.problem_sort = o.getSort("uncle-problem");
 			break;
 		case CARS_DATASET:
-			dm.importNOOS("Resources/DATA/car-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/car-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/car-1728.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/car-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/car-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/car-1728.noos", o);
 
 			ts.name = "cars";
 			ts.problem_sort = o.getSort("car-problem");
@@ -980,12 +987,12 @@ public class TrainingSetUtils {
 		case TOXICOLOGY_DATASET_FRATS:
 		case TOXICOLOGY_DATASET_MMICE:
 		case TOXICOLOGY_DATASET_FMICE:
-			dm.importNOOS("Resources/DATA/toxic-eva-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/toxic-eva-dm.noos", o);
-			// case_base.ImportNOOS("Resources/DATA/toxic-eva-filtered-cases-276.noos", o);
-			// case_base.ImportNOOS("Resources/DATA/toxic-eva-cases-371.noos", o);
-			// case_base.ImportNOOS("Resources/DATA/toxic-eva-fixed-cases-371.noos", o);
-			case_base.importNOOS("Resources/DATA/toxic-santi-cases-353.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/toxic-eva-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/toxic-eva-dm.noos", o);
+			// case_base.ImportNOOS("FTL/Resources/DATA/toxic-eva-filtered-cases-276.noos", o);
+			// case_base.ImportNOOS("FTL/Resources/DATA/toxic-eva-cases-371.noos", o);
+			// case_base.ImportNOOS("FTL/Resources/DATA/toxic-eva-fixed-cases-371.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/toxic-santi-cases-353.noos", o);
 
 			switch (DATASET) {
 			case TOXICOLOGY_DATASET_MRATS:
@@ -1026,9 +1033,9 @@ public class TrainingSetUtils {
 		case TOXICOLOGY_OLD_DATASET_FRATS:
 		case TOXICOLOGY_OLD_DATASET_MMICE:
 		case TOXICOLOGY_OLD_DATASET_FMICE:
-			dm.importNOOS("Resources/DATA/toxic-eva-old-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/toxic-eva-old-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/toxic-eva-old-cases.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/toxic-eva-old-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/toxic-eva-old-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/toxic-eva-old-cases.noos", o);
 
 			switch (DATASET) {
 			case TOXICOLOGY_OLD_DATASET_MRATS:
@@ -1068,18 +1075,18 @@ public class TrainingSetUtils {
 			break;
 
 		case KR_VS_KP_DATASET:
-			dm.importNOOS("Resources/DATA/kr-vs-kp-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/kr-vs-kp-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/kr-vs-kp-3196.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/kr-vs-kp-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/kr-vs-kp-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/kr-vs-kp-3196.noos", o);
 
 			ts.name = "kr-vs-kp";
 			ts.problem_sort = o.getSort("kr-vs-kp-problem");
 			break;
 		case FINANCIAL_NO_TRANSACTIONS:
-			dm.importNOOS("Resources/DATA/financial-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/financial-dm.noos", o);
-			// case_base.ImportNOOS("Resources/DATA/financial-cases-682-no-transactions.noos", o);
-			case_base.importNOOS("Resources/DATA/financial-cases-10-no-transactions.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/financial-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/financial-dm.noos", o);
+			// case_base.ImportNOOS("FTL/Resources/DATA/financial-cases-682-no-transactions.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/financial-cases-10-no-transactions.noos", o);
 
 			ts.name = "financial-no-t";
 			ts.problem_sort = o.getSort("loan-problem");
@@ -1090,10 +1097,10 @@ public class TrainingSetUtils {
 			ts.solution_path.features.add(new Symbol("status"));
 			break;
 		case FINANCIAL:
-			dm.importNOOS("Resources/DATA/financial-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/financial-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/financial-cases-10.noos", o);
-			// case_base.ImportNOOS("Resources/DATA/financial-cases-682.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/financial-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/financial-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/financial-cases-10.noos", o);
+			// case_base.ImportNOOS("FTL/Resources/DATA/financial-cases-682.noos", o);
 
 			ts.name = "financial-no-t";
 			ts.problem_sort = o.getSort("loan-problem");
@@ -1104,10 +1111,10 @@ public class TrainingSetUtils {
 			ts.solution_path.features.add(new Symbol("status"));
 			break;
 		case MUTAGENESIS:
-			dm.importNOOS("Resources/DATA/mutagenesis-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/mutagenesis-dm.noos", o);
-			// case_base.ImportNOOS("Resources/DATA/mutagenesis-b4-230-cases.noos", o);
-			case_base.importNOOS("Resources/DATA/mutagenesis-b4-25-cases.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-dm.noos", o);
+			// case_base.ImportNOOS("FTL/Resources/DATA/mutagenesis-b4-230-cases.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/mutagenesis-b4-25-cases.noos", o);
 
 			ts.name = "mutagenesis-b4";
 			ts.problem_sort = o.getSort("mutagenesis-problem");
@@ -1118,9 +1125,9 @@ public class TrainingSetUtils {
 			ts.solution_path.features.add(new Symbol("solution"));
 			break;
 		case MUTAGENESIS_EASY:
-			dm.importNOOS("Resources/DATA/mutagenesis-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/mutagenesis-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/mutagenesis-b4-188-cases.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/mutagenesis-b4-188-cases.noos", o);
 
 			ts.name = "mutagenesis-b4";
 			ts.problem_sort = o.getSort("mutagenesis-problem");
@@ -1131,11 +1138,11 @@ public class TrainingSetUtils {
 			ts.solution_path.features.add(new Symbol("solution"));
 			break;
 		case MUTAGENESIS_DISCRETIZED:
-			dm.importNOOS("Resources/DATA/mutagenesis-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/mutagenesis-dm.noos", o);
-			// case_base.ImportNOOS("Resources/DATA/mutagenesis-b4-230-cases.noos", o);
-			case_base.importNOOS("Resources/DATA/mutagenesis-b4-noH-230-cases.noos", o);
-			// case_base.ImportNOOS("Resources/DATA/mutagenesis-b4-noH-25-cases.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-dm.noos", o);
+			// case_base.ImportNOOS("FTL/Resources/DATA/mutagenesis-b4-230-cases.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/mutagenesis-b4-noH-230-cases.noos", o);
+			// case_base.ImportNOOS("FTL/Resources/DATA/mutagenesis-b4-noH-25-cases.noos", o);
 
 			ts.name = "mutagenesis-b4-discretized";
 			ts.problem_sort = o.getSort("mutagenesis-problem");
@@ -1161,9 +1168,9 @@ public class TrainingSetUtils {
 
 			break;
 		case MUTAGENESIS_EASY_DISCRETIZED:
-			dm.importNOOS("Resources/DATA/mutagenesis-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/mutagenesis-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/mutagenesis-b4-188-cases.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/mutagenesis-b4-188-cases.noos", o);
 
 			ts.name = "mutagenesis-b4-discretized";
 			ts.problem_sort = o.getSort("mutagenesis-problem");
@@ -1189,9 +1196,9 @@ public class TrainingSetUtils {
 
 			break;
 		case MUTAGENESIS_EASY_NOL_DISCRETIZED:
-			dm.importNOOS("Resources/DATA/mutagenesis-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/mutagenesis-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/mutagenesis-b4-noH-noL-188-cases.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/mutagenesis-b4-noH-noL-188-cases.noos", o);
 
 			ts.name = "mutagenesis-b4-nol-discretized";
 			ts.problem_sort = o.getSort("mutagenesis-problem");
@@ -1216,9 +1223,9 @@ public class TrainingSetUtils {
 			}
 			break;
 		case MUTAGENESIS_NOL_DISCRETIZED:
-			dm.importNOOS("Resources/DATA/mutagenesis-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/mutagenesis-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/mutagenesis-b4-noH-noL-230-cases.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mutagenesis-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/mutagenesis-b4-noH-noL-230-cases.noos", o);
 
 			ts.name = "mutagenesis-b4-nol-discretized";
 			ts.problem_sort = o.getSort("mutagenesis-problem");
@@ -1243,8 +1250,8 @@ public class TrainingSetUtils {
 			}
 			break;
 		case RIU_STORIES:
-			dm.importNOOS("Resources/DATA/story-ontology.noos", o);
-			case_base.importNOOS("Resources/DATA/story-cases-2.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/story-ontology.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/story-cases-2.noos", o);
 
 			ts.name = "riu-stories";
 			ts.problem_sort = o.getSort("scene");
@@ -1253,9 +1260,9 @@ public class TrainingSetUtils {
 			ts.solution_path.features.clear();
 			break;
 		case SEAT_1:
-			dm.importNOOS("Resources/seat-ontology.noos", o);
-			dm.importNOOS("Resources/seat-dm.noos",o);
-			case_base.importNOOS("Resources/seat-cases-learn-1.noos", o);
+			dm.importNOOS("FTL/Resources/seat-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/seat-dm.noos",o);
+			case_base.importNOOS("FTL/Resources/seat-cases-learn-1.noos", o);
 			
 			ts.name = "seat";
 			ts.problem_sort = o.getSort("seat-case");
@@ -1266,9 +1273,9 @@ public class TrainingSetUtils {
 			ts.solution_path.features.add(new Symbol("label"));
 			break;
 		case SEAT_2:
-			dm.importNOOS("Resources/seat-ontology.noos", o);
-			dm.importNOOS("Resources/seat-dm.noos",o);
-			case_base.importNOOS("Resources/seat-cases-learn-2.noos", o);
+			dm.importNOOS("FTL/Resources/seat-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/seat-dm.noos",o);
+			case_base.importNOOS("FTL/Resources/seat-cases-learn-2.noos", o);
 			
 			ts.name = "seat";
 			ts.problem_sort = o.getSort("seat-case");
@@ -1293,9 +1300,9 @@ public class TrainingSetUtils {
 			break;
 			
 		case SEAT_ALL:
-			dm.importNOOS("Resources/seat-ontology.noos", o);
-			dm.importNOOS("Resources/seat-dm.noos",o);
-			case_base.importNOOS("Resources/seat-cases-all.noos", o);
+			dm.importNOOS("FTL/Resources/seat-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/seat-dm.noos",o);
+			case_base.importNOOS("FTL/Resources/seat-cases-all.noos", o);
 			
 			ts.name = "seat";
 			ts.problem_sort = o.getSort("seat-case");
@@ -1307,9 +1314,9 @@ public class TrainingSetUtils {
 			break;
 			
 		case SEAT_900:
-			dm.importNOOS("Resources/seat-ontology.noos", o);
-			dm.importNOOS("Resources/seat-dm.noos",o);
-			case_base.importNOOS("Resources/seat-cases-900.noos", o);
+			dm.importNOOS("FTL/Resources/seat-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/seat-dm.noos",o);
+			case_base.importNOOS("FTL/Resources/seat-cases-900.noos", o);
 			
 			ts.name = "seat";
 			ts.problem_sort = o.getSort("seat-case");
@@ -1321,9 +1328,9 @@ public class TrainingSetUtils {
 			break;
 			
 		case MY_DATASET:
-			dm.importNOOS("Resources/DATA/mydataset-ontology.noos", o);
-			dm.importNOOS("Resources/DATA/mydataset-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/mydatasetXcases.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mydataset-ontology.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/mydataset-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/mydatasetXcases.noos", o);
 
 			ts.name = "myDataset";
 			ts.problem_sort = o.getSort("dataset-problem");
@@ -1335,9 +1342,9 @@ public class TrainingSetUtils {
 			break;
 			
 		case ZOOLOGY_DATASET_LB:
-			dm.importNOOS("Resources/DATA/zoology-ontology2.noos", o);
-			dm.importNOOS("Resources/DATA/zoology-dm.noos", o);
-			case_base.importNOOS("Resources/DATA/zoology-cases-101.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/zoology-ontology2.noos", o);
+			dm.importNOOS("FTL/Resources/DATA/zoology-dm.noos", o);
+			case_base.importNOOS("FTL/Resources/DATA/zoology-cases-101.noos", o);
 
 			ts.name = "zoology";
 			ts.problem_sort = o.getSort("zoo-problem");

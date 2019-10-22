@@ -1,15 +1,5 @@
 package agents;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import argumentation.Argumentation;
 import argumentation.BoundaryFix;
 import containers.ContrastSet;
@@ -23,25 +13,8 @@ import evaluation.ExpFileManager;
 import identifiers.ArgID;
 import identifiers.ConID;
 import identifiers.GenID;
-import interfaces.Agent;
-import interfaces.Container;
-import interfaces.Message;
-import interfaces.Node;
-import interfaces.SemioticElement;
-import messages.Assert;
-import messages.Baptise;
-import messages.CheckSelf;
-import messages.CheckSize;
-import messages.Discuss;
-import messages.Evaluation;
-import messages.Intransitive;
-import messages.Name;
-import messages.Ready;
-import messages.Remove;
-import messages.Replace;
-import messages.Seize;
-import messages.SendExamples;
-import messages.Vote;
+import interfaces.*;
+import messages.*;
 import null_objects.NullConID;
 import null_objects.NullConcept;
 import null_objects.NullContainer;
@@ -49,15 +22,14 @@ import semiotic_elements.Concept;
 import semiotic_elements.Example;
 import semiotic_elements.Generalization;
 import semiotic_elements.Sign;
-import tools.Mailbox;
-import tools.RTriplet;
-import tools.Token;
-import tools.ToolSet;
-import tools.Triplet;
+import tools.*;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 /***
  *  The {@link Agent_Lazy} is the third version of the agent in the new implementation of the protocol.
- *  It works on all the cases, including when one agent cannot see its concept or the other agen'ts concept, unlike {@link Agent_Simple} and {@link Agent_Perfect}.
+ *  It works on all the cases, including when one agent cannot see its concept or the other agen'ts concept, unlike {@link Agent_General} .
  * 	The {@link Relation} between concepts, instead of beeing explicitly named, is represented by a {@link Triplet} of ones and zeros which refers to the venn diagram representation of the {@link Relation}.
  *  The aim of {@link Agent_Lazy} is to argument over and resolve all kinds of disagreement arrising on one level of meaning.
  *  When we refer to "disagreement on one level of meaning", we mean on an inconsistant distribution of term symbols for one of the agents' features.
@@ -1700,7 +1672,7 @@ public class Agent_Lazy implements Agent{
 			System.out.println("   > The new contrast set is: "+Kc.getAllConcepts());
 			System.out.println("   > The new hypothesis is  : "+Hc.getAllConcepts());
 			// Argumentation terminated normally, it counts as a success
-			ExpFileManager.success = 1;
+			ExpFileManager.addBlock("success",1);
 			return State.UpgradeKnowledgeState;
 		}
 		// Seize the naming process
@@ -1758,8 +1730,6 @@ public class Agent_Lazy implements Agent{
 		System.out.println("   > The new hypothesis is  : "+Hc.getAllConcepts());
 		// Send messages
 		sendMessages(toSend);
-		// Argumentation terminated normally, it counts as a success
-		ExpFileManager.success = 1;
 		return State.UpgradeKnowledgeState;
 	}
 	
